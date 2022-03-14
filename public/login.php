@@ -12,9 +12,7 @@
 
 <form action="" method="post" class="theForm">
 
-  <div class="imgcontainer">
-    <img src="../images/logIcon.jpg" alt="Login Icon" class="loginIcon" >
-  </div>
+ 
 
   <div class="logContainer">
 
