@@ -22,11 +22,11 @@ function makeh1()
     tailwind.config = {
       theme: {
         backgroundImage: {
-          "image-1": "url('/images/2049SS.jpg')",
-          "image-2": "url('/images/titanicSS.jpg')",
-          "image-3": "url('/images/interstellarSS.jpg')",
-          "image-4": "url('/images/jokerSS.jpg')",
-          "image-5": "url('/images/alienSS.png')",
+          "image-1": "url('../images/2049SS.jpg')",
+          "image-2": "url('../images/titanicSS.jpg')",
+          "image-3": "url('../images/interstellarSS.jpg')",
+          "image-4": "url('../images/jokerSS.jpg')",
+          "image-5": "url('../images/alienSS.png')",
         },
 
         fontFamily: {
@@ -111,6 +111,6 @@ function makeh1()
     </main>
   </div>
 </body>
-<script src="/home.js"></script>
+<script src="home.js"></script>
 
 </html>
