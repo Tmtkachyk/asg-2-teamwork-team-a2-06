@@ -68,11 +68,13 @@ $minutesRemaining = round(($timeRemaining - ($hoursRemaining * 60 * 60) - ($days
 
     <div class="container m-auto h-[75vh] w-10/12">
 
-      <div class="p-4 bg-black/80 m-auto h-1/6  text-center  rounded-t-3xl ">
-        <h1 class="text-white text-6xl font-montser">About Us</h1>
+      <div class="p-4 bg-black/80 m-auto  text-center  rounded-t-3xl h-auto">
+        <div>
+          <h1 class="text-white text-6xl font-montser">About Us</h1>
+        </div>
       </div>
 
-      <div class=" bg-white m-auto h-5/6 w-auto text-center rounded-b-3xl p-6 overflow-y-scroll">
+      <div class=" bg-white m-auto h-5/6 w-auto text-center rounded-b-3xl pb-4 overflow-y-scroll">
         <table class="table-fixed m-auto w-3/4 ">
           <tbody class="divide-y divide-gray-300 ">
             <tr>
@@ -154,15 +156,17 @@ $minutesRemaining = round(($timeRemaining - ($hoursRemaining * 60 * 60) - ($days
           </tbody>
         </table>
 
-        <div class="flex flex-row justify-around mt-5 h-1/4">
-          <div class=" bg-black/80 text-white text-center m-2 p-4 basis-2/6 content-center">
-            <span>Alberta Time</span><br>
-            <span><?= $currentTime . " on " . $todayDate ?></span>
+        <div class="flex flex-row justify-around mt-5 min-h-1/4 h-auto">
+          <div class="bg-black/80  text-center m-2 basis-2/6 p-4">
+            <div class="text-white/80">Alberta Time and Date</div>
+            <div class=" p-auto font-semibold text-xl text-white">
+              <p><?= $currentTime . " on " . $todayDate ?></p>
+            </div>
           </div>
 
-          <div class="bg-black/80 text-white text-center m-2 p-4 basis-2/6">
-            <span>Time Remaining</span><br>
-            <span><?= $daysRemaining . " days, " . $hoursRemaining . " hours and " . $minutesRemaining  . " minutes " ?></span>
+          <div class="bg-black/80  text-center m-2 basis-2/6 p-4">
+            <div class="text-white/80">Time Remaining until Milestone 5 is due</div>
+            <div class=" p-auto font-semibold text-xl text-white"><?= $daysRemaining . " days, " . $hoursRemaining . " hours and " . $minutesRemaining  . " minutes " ?></div>
           </div>
 
         </div>
