@@ -29,6 +29,11 @@ ul {
     border-radius: 5px;
     box-shadow: 2px 2px 9px darkgray;
     width:70px;
+    text-align: center;
+  }
+
+  li:hover{
+      transform: scale(0.95);
   }
   
   li a {
