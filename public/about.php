@@ -23,6 +23,8 @@ $minutesRemaining = round(($timeRemaining - ($hoursRemaining * 60 * 60) - ($days
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 
+  <link rel="stylesheet" href="headerStyle.css">
+  <script src="header.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet" />
@@ -61,9 +63,16 @@ $minutesRemaining = round(($timeRemaining - ($hoursRemaining * 60 * 60) - ($days
       plugins: [],
     };
   </script>
+
 </head>
 
+<div class="headerDiv"> 
+
+</div>
+
 <body class="bg-image-1 transition-all ease-linear duration-[3000ms] bg-cover bg-center bg-fixed">
+
+
   <div class="flex flex-col justify-center m-0 h-[100vh] items-center font-open min-h-400px">
 
     <div class="container m-auto h-[75vh] w-10/12">

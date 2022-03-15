@@ -18,6 +18,8 @@ function makeh1()
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="headerStyle.css">
+  <script src="header.js"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -52,9 +54,18 @@ function makeh1()
       plugins: [],
     };
   </script>
+
+  <div class="headerDiv"> 
+  
+</div>
 </head>
 
+
+
 <body class="bg-image-1 transition-all ease-linear duration-[3000ms] bg-cover bg-center bg-fixed">
+
+
+
   <div class="flex justify-center m-0 h-[100vh] items-center font-open" id="homePage">
     <main>
       <div class="container bg-black/80 rounded-3xl m-auto w-[40rem] text-center">

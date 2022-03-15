@@ -5,10 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="loginStyle.css">
+    <link rel="stylesheet" href="headerStyle.css">
+  <script src="header.js"></script>
     <title>Login Page</title>
 </head>
 
+<div class="headerDiv"> 
+
+</div>
+
 <body>
+
+
 
 <form action="" method="post" class="theForm">
 
