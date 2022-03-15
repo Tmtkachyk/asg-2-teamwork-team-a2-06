@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
 
     // storing these in an array so it would be easy for us to add an elemnt later should we need to 
-    let listOfItems = ["login", "index", "about"];
+    let listOfItems = ["index", "login", "about"];
 
 
     listOfItems.forEach(element => {
