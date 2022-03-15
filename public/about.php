@@ -64,15 +64,15 @@ $minutesRemaining = round(($timeRemaining - ($hoursRemaining * 60 * 60) - ($days
 </head>
 
 <body class="bg-image-1 transition-all ease-linear duration-[3000ms] bg-cover bg-center bg-fixed">
-  <div class="flex flex-col justify-center m-0 h-[100vh] items-center font-open">
+  <div class="flex flex-col justify-center m-0 h-[100vh] items-center font-open min-h-400px">
 
     <div class="container m-auto h-[75vh] w-10/12">
 
-      <div class="p-4 bg-black/80 m-auto h-1/6  text-center  rounded-t-3xl min-h-min">
+      <div class="p-4 bg-black/80 m-auto h-1/6  text-center  rounded-t-3xl ">
         <h1 class="text-white text-6xl font-montser">About Us</h1>
       </div>
 
-      <div class=" bg-white  m-auto h-5/6 w-auto text-center rounded-b-3xl p-6">
+      <div class=" bg-white m-auto h-5/6 w-auto text-center rounded-b-3xl p-6 overflow-y-scroll">
         <table class="table-fixed m-auto w-3/4 ">
           <tbody class="divide-y divide-gray-300 ">
             <tr>
@@ -154,9 +154,21 @@ $minutesRemaining = round(($timeRemaining - ($hoursRemaining * 60 * 60) - ($days
           </tbody>
         </table>
 
+        <div class="flex flex-row justify-around mt-5 h-1/4">
+          <div class=" bg-black/80 text-white text-center m-2 p-4 basis-2/6 content-center">
+            <span>Alberta Time</span><br>
+            <span><?= $currentTime . " on " . $todayDate ?></span>
+          </div>
+
+          <div class="bg-black/80 text-white text-center m-2 p-4 basis-2/6">
+            <span>Time Remaining</span><br>
+            <span><?= $daysRemaining . " days, " . $hoursRemaining . " hours and " . $minutesRemaining  . " minutes " ?></span>
+          </div>
+
+        </div>
         <?php
-        echo "<p>It is currently $currentTime on $todayDate in Alberta</p>" . "<p>The due date for Milestone #5 is: $dueDateRegular</p>";
-        echo "<p>There are $daysRemaining days, $hoursRemaining hours and $minutesRemaining minutes remaining until Milestone #5 is due </p>";
+        //echo "<p>It is currently $currentTime on $todayDate in Alberta</p>" . "<p>The due date for Milestone #5 is: $dueDateRegular</p>";
+        //echo "<p>There are $daysRemaining days, $hoursRemaining hours and $minutesRemaining minutes remaining until Milestone #5 is due </p>";
         ?>
       </div>
     </div>
