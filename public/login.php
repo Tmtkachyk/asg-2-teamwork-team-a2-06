@@ -11,13 +11,13 @@
   <title>Login Page</title>
 </head>
 
-<div class="headerDiv">
 
-</div>
 
 <body>
 
+<div class="headerDiv">
 
+</div>
 
   <form action="" method="post" class="theForm">
 

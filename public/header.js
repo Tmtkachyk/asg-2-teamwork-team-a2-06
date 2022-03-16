@@ -32,6 +32,38 @@ document.addEventListener("DOMContentLoaded", () => {
     headerDiv.appendChild(logo);
     headerDiv.appendChild(ul);
 
+    // burger menu - mobile size screen 
 
+
+
+        let burger = document.createElement("DIV");
+        burger.className="burgerContainer";
+
+        
+
+        let bar1 = document.createElement("DIV");
+        let bar2 = document.createElement("DIV");
+        let bar3 = document.createElement("DIV");
+
+        bar1.className="bar1";
+        bar2.className="bar2";
+        bar3.className="bar3";
+
+        burger.appendChild(bar1);
+        burger.appendChild(bar2);
+        burger.appendChild(bar3);
+
+        headerDiv.appendChild(burger);
+
+
+        // event listener
+
+        let menuButton = document.querySelector(".burgerContainer");
+        menuButton.addEventListener("click", function(e){
+            e.target.classList.toggle("change");
+        });
+
+
+        
 
 })
