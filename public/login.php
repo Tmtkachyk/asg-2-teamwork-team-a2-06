@@ -62,7 +62,7 @@
     <?php include 'header.php'; ?>
 
     <div class="container m-auto h-[75vh] w-10/12">
-      <form action="" method="post" class="theForm">
+      <form method="post" class="theForm">
 
         <div class="imgcontainer">
           <img src="../images/logIcon.jpg" alt="Login Icon" class="loginIcon">
@@ -70,10 +70,10 @@
 
         <div class="logContainer">
 
-          <label for="uname"><b>Username</b></label>
+          <label><b>Username</b></label>
           <input type="text" placeholder="Enter Username" name="username" required>
           <br>
-          <label for="psw"><b>Password</b></label>
+          <label><b>Password</b></label>
           <input type="password" placeholder="Enter Password" name="psw" required>
           <br>
           <button class="button" type="submit">Login</button>
