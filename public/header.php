@@ -10,11 +10,11 @@
         <li class="bg-black/80 text-white"><a href="about.php">About Us</a></li>
       </ul>
     </div>
-    <!-- Responsive Header -->
+
   </nav>
 </div>
-
-<div class="md:hidden sm:block w-10/12 m-auto bg-white rounded-3xl">
+<!-- Responsive Header -->
+<div class="md:hidden sm:block w-10/12 m-auto bg-white rounded-3xl py-2">
 
   <nav class="flex items-center justify-between flex-wrap px-6 py-2">
 
