@@ -11,7 +11,7 @@
     opacity: 0.9;
 }
 
-ul {
+.loginUl {
     display: inline-flex;
     list-style-type: none;
     margin: 0;

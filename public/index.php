@@ -40,10 +40,11 @@ function makeh1()
         },
         screens: {
           sm: "425px",
+          md: "768px",
           lg: "1440px",
-          maxSC: {
-            max: "426px"
-          },
+          // maxSC: {
+          //   max: "426px"
+          // },
         },
 
         extend: {},
@@ -55,9 +56,6 @@ function makeh1()
     };
   </script>
 
-  <div class="headerDiv">
-
-  </div>
 </head>
 
 
@@ -66,9 +64,11 @@ function makeh1()
 
 
 
-  <div class="flex justify-center m-0 h-[100vh] items-center font-open" id="homePage">
-    <main>
-      <div class="container bg-black/80 rounded-3xl m-auto w-[40rem] text-center">
+  <div class="flex flex-col justify-center m-0 h-[100vh] items-center font-open  id=" homePage">
+    <?php include 'header.php'; ?>
+    <main class="container m-auto h-[75vh]">
+
+      <div class="container bg-black/80 rounded-3xl m-auto w-[40rem] text-center ">
         <form id="homeSearch" class="pt-3 pb-1 px-2">
           <div class="mb-3">
             <h1 class="text-white text-6xl font-montser">Movie Browser</h1>

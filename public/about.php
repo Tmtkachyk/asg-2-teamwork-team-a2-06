@@ -49,10 +49,11 @@ $minutesRemaining = round(($timeRemaining - ($hoursRemaining * 60 * 60) - ($days
         },
         screens: {
           sm: "425px",
+          md: "768px",
           lg: "1440px",
-          maxSC: {
-            max: "426px"
-          },
+          // maxSC: {
+          //   max: "426px"
+          // },
         },
 
         extend: {},
@@ -66,14 +67,14 @@ $minutesRemaining = round(($timeRemaining - ($hoursRemaining * 60 * 60) - ($days
 
 </head>
 
-<div class="headerDiv"> 
 
-</div>
 
 <body class="bg-image-1 transition-all ease-linear duration-[3000ms] bg-cover bg-center bg-fixed">
 
 
   <div class="flex flex-col justify-center m-0 h-[100vh] items-center font-open min-h-400px">
+
+    <?php include 'header.php'; ?>
 
     <div class="container m-auto h-[75vh] w-10/12">
 
