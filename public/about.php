@@ -7,9 +7,9 @@ $todayDate = date("D, M d, Y");
 $currentTime = date("h:i a");
 $timeRemaining = $dueDate - $todayTime;
 
-$daysRemaining = round($timeRemaining / (60 * 60 * 24));
-$hoursRemaining = round(($timeRemaining - ($daysRemaining * 60 * 60 * 24)) / (60 * 60));
-$minutesRemaining = round(($timeRemaining - ($hoursRemaining * 60 * 60) - ($daysRemaining * 60 * 60 * 24)) / (60));
+$daysRemaining = floor($timeRemaining / (60 * 60 * 24));
+$hoursRemaining = floor(($timeRemaining - ($daysRemaining * 60 * 60 * 24)) / (60 * 60));
+$minutesRemaining = floor(($timeRemaining - ($hoursRemaining * 60 * 60) - ($daysRemaining * 60 * 60 * 24)) / (60));
 
 ?>
 
@@ -139,7 +139,7 @@ $minutesRemaining = round(($timeRemaining - ($hoursRemaining * 60 * 60) - ($days
                         <div class="font-semibold text-left">Travis Tkachyk</div>
                       </td>
                       <td>
-                        <div class="text-left font-semibold">Travis' Github</div>
+                        <div class="text-left font-semibold"><a href="https://github.com/Tmtkachyk">Github Profile</a></div>
                       </td>
                     </tr>
                     <tr>
@@ -147,7 +147,8 @@ $minutesRemaining = round(($timeRemaining - ($hoursRemaining * 60 * 60) - ($days
                         <div class="font-semibold text-left">Mohammed Hachmi</div>
                       </td>
                       <td>
-                        <div class="text-left font-semibold">Mohammeds Github</div>
+
+                        <div class="text-left font-semibold"><a href="https://github.com/mhach145">Github Profile</a></div>
                       </td>
                     </tr>
                     <tr>
@@ -155,7 +156,8 @@ $minutesRemaining = round(($timeRemaining - ($hoursRemaining * 60 * 60) - ($days
                         <div class="font-semibold text-left">James Holloway</div>
                       </td>
                       <td>
-                        <div class="text-left font-semibold">James' Github</div>
+                        <div class="text-left font-semibold"><a href="https://github.com/jholl810">Github Profile</a></div>
+
                       </td>
                     </tr>
                   </tbody>
