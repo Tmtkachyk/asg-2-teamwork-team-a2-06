@@ -64,7 +64,7 @@ function makeh1()
 
 
 
-  <div class="flex flex-col justify-center m-0 h-[100vh] items-center font-open  id=" homePage">
+  <div class="flex flex-col justify-center m-0 h-[100vh] items-center font-open" id="homePage">
     <?php include 'header.php'; ?>
     <main class="container m-auto h-[75vh]">
 
