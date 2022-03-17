@@ -125,6 +125,5 @@ function makeh1()
     </main>
   </div>
 </body>
-<script src="home.js"></script>
 
 </html>
