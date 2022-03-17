@@ -3,7 +3,6 @@
   <nav class="flex bg-white rounded-3xl">
     <div class="px-6 py-6 flex w-full ">
       <img class="h-12" src="../images/teamLogo.png" alt="logo">
-      </a>
       <!-- Nav Links -->
       <ul class="px-4 mx-auto font-semibold font-heading space-x-12 ">
         <li class="bg-black/80 text-white"><a href="index.php">Home</a></li>
@@ -15,30 +14,31 @@
   </nav>
 </div>
 
-<div class="md:hidden sm:block">
+<div class="md:hidden sm:block w-10/12 m-auto bg-white rounded-3xl">
 
-  <nav class="flex items-center justify-between flex-wrap ">
+  <nav class="flex items-center justify-between flex-wrap px-6 py-2">
 
-    <button class="navbar-burger flex items-center px-3 py-2 border rounded text-white  border-white hover:text-white hover:border-white">
+    <img class="h-12" src="../images/teamLogo.png" alt="logo">
+    <button class="navbar-burger flex items-center px-3 py-2 mr-5 border rounded text-black  border-black hover:text-black hover:border-black">
       <!-- <img src="../images/burgerIcon.png" alt=""> -->
-      <svg class="fill-current h-6 w-6 text-white-700" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+      <svg class="fill-current h-6 w-6 text-black-700" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
         <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
       </svg>
     </button>
 
     <div id="main-nav" class="w-full flex-grow lg:flex items-center lg:w-auto hidden  ">
-      <div class="text-sm lg:flex-grow mt-2 animated jackinthebox xl:mx-8">
-        <a href="index.php" class="block lg:inline-block text-md font-bold  text-white  sm:hover:border-indigo-400  hover:text-orange-500 mx-2 focus:text-blue-500  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">
+      <div class="text-sm lg:flex-grow mt-2 animated jackinthebox xl:mx-8 float-right">
+        <a href="index.php" class="block lg:inline-block text-md font-bold  text-black  sm:hover:border-indigo-400  hover:text-orange-500 mx-2 focus:text-blue-500  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">
           Home
         </a>
-        <a href="login.php" class="block lg:inline-block text-md font-bold  text-white  sm:hover:border-indigo-400  hover:text-orange-500 mx-2 focus:text-blue-500  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">
+        <a href="login.php" class="block lg:inline-block text-md font-bold  text-black  sm:hover:border-indigo-400  hover:text-orange-500 mx-2 focus:text-blue-500  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">
           Login
         </a>
-        <a href="about.php" class="block lg:inline-block text-md font-bold  text-white  sm:hover:border-indigo-400  hover:text-orange-500 mx-2 focus:text-blue-500  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">
+        <a href="about.php" class="block lg:inline-block text-md font-bold  text-black  sm:hover:border-indigo-400  hover:text-orange-500 mx-2 focus:text-blue-500  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">
           About Us
         </a>
       </div>
-
+    </div>
 
   </nav>
 

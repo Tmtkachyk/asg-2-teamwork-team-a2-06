@@ -69,7 +69,7 @@ $minutesRemaining = round(($timeRemaining - ($hoursRemaining * 60 * 60) - ($days
 
 
 
-<body class="bg-image-1 transition-all ease-linear duration-[3000ms] bg-cover bg-center bg-fixed">
+<body class="bg-image-1 transition-all ease-linear duration-[3000ms] bg-cover bg-center bg-fixed bg-gray-400">
 
 
   <div class="flex flex-col justify-center m-0 h-[100vh] items-center font-open min-h-400px">
