@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="loginStyle.css">
 
   <script src="header.js"></script>
+  <link rel="stylesheet" href="headerStyle.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet" />
@@ -56,10 +57,15 @@
 
 <body class="bg-image-1 transition-all ease-linear duration-[3000ms] bg-cover bg-center bg-fixed">
 
+  <div class="headerDiv">
+  </div>
+  <div class="smallMenu">
+  </div>
 
   <div class="flex flex-col justify-center m-0 h-[100vh] items-center font-open min-h-400px">
 
-    <?php include 'header.php'; ?>
+    <?php //include 'header.php'; 
+    ?>
 
     <div class="container m-auto h-[75vh] w-10/12">
       <form method="post" class="theForm">
