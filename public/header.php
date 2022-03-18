@@ -14,7 +14,7 @@
   </nav>
 </div>
 <!-- Responsive Header -->
-<div class="md:hidden sm:block w-10/12 m-auto bg-white rounded-3xl py-1">
+<div class="md:hidden sm:block w-10/12 m-auto bg-white rounded-3xl m-2">
 
   <nav class="flex items-center justify-between flex-wrap px-6 py-2">
 
