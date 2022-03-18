@@ -63,7 +63,6 @@
   <div class="smallMenu">
   </div> -->
 
-
   <div class="flex flex-col justify-center m-0 h-[100vh] items-center font-open" id="homePage">
 
 
