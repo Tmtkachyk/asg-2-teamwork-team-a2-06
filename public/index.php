@@ -62,13 +62,13 @@ function makeh1()
 
 <body class="bg-image-1 transition-all ease-linear duration-[3000ms] bg-cover bg-center bg-fixed">
 
-  <div class="headerDiv">
+  <!-- <div class="headerDiv">
   </div>
   <div class="smallMenu">
-  </div>
+  </div> -->
 
   <div class="flex flex-col justify-center m-0 h-[100vh] items-center font-open" id="homePage">
-    <?php //include 'header.php';
+    <?php include 'header.php';
     ?>
     <main class="container m-auto h-[75vh]">
 

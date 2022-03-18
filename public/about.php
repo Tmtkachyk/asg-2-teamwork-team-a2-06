@@ -71,15 +71,15 @@ $minutesRemaining = floor(($timeRemaining - ($hoursRemaining * 60 * 60) - ($days
 
 <body class="bg-image-1 transition-all ease-linear duration-[3000ms] bg-cover bg-center bg-fixed bg-gray-400">
 
-  <div class="headerDiv">
+  <!-- <div class="headerDiv">
   </div>
   <div class="smallMenu">
-  </div>
+  </div> -->
 
   <div class="flex flex-col justify-center m-0 h-[100vh] items-center font-open min-h-400px">
 
 
-    <?php //include 'header.php'; 
+    <?php include 'header.php';
     ?>
 
     <div class="container m-auto h-[75vh] w-10/12">
