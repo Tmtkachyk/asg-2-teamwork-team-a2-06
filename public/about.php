@@ -48,8 +48,11 @@ $minutesRemaining = floor(($timeRemaining - ($hoursRemaining * 60 * 60) - ($days
           montser: ["Montserrat", "serif"],
         },
         screens: {
-          sm: "425px",
-          md: "768px",
+          // sm: "425px",
+          'sm': {
+            'max': '650px'
+          },
+          md: "500px",
           lg: "1440px",
           // maxSC: {
           //   max: "426px"

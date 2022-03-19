@@ -35,7 +35,9 @@
           montser: ["Montserrat", "serif"],
         },
         screens: {
-          sm: "425px",
+          'sm': {
+            'max': '650px'
+          },
           md: "768px",
           lg: "1440px",
           // maxSC: {
