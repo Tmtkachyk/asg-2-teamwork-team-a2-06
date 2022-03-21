@@ -75,7 +75,7 @@ function makeh1()
     <main class="container m-auto h-[75vh]">
 
       <div class="container bg-black/80 rounded-3xl m-auto w-[40rem] text-center ">
-        <form id="homeSearch" class="pt-3 pb-1 px-2">
+        <form id="homeSearch" action="single-movie.php" method="POST" class="pt-3 pb-1 px-2">
           <div class="mb-3">
             <h1 class="text-white text-6xl font-montser">Movie Browser</h1>
           </div>
@@ -87,13 +87,8 @@ function makeh1()
             <button id="favouritesButton" class="bg-stone-600 hover:bg-stone-800 text-white font-bold py-2 px-4 ml-3 rounded focus:outline-none focus:shadow-outline disabled:bg-stone-900 disabled:text-stone-600 disabled:cursor-default" type="button">
               Login
             </button>
-            <button id="homeSearchButton" class="bg-stone-600 hover:bg-stone-800 text-white font-bold py-2 px-4 mr-3 lg:ml-2 rounded focus:outline-none focus:shadow-outline disabled:bg-stone-900 disabled:text-stone-600 disabled:cursor-default flex justify-center" type="button">
+            <button id="homeSearchButton" name="movieName" class="bg-stone-600 hover:bg-stone-800 text-white font-bold py-2 px-4 mr-3 lg:ml-2 rounded focus:outline-none focus:shadow-outline disabled:bg-stone-900 disabled:text-stone-600 disabled:cursor-default flex justify-center" type="button">
               Search
-
-              <!-- <svg class="animate-spin ml-1 mt-1 h-5 w-5 text-white hidden" xmlns="http://www.w3.org/2000/svg" id="loadingAnimation" fill="none" viewBox="0 0 24 24">
-                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-              </svg> -->
 
             </button>
           </div>
@@ -101,6 +96,7 @@ function makeh1()
             <span class="">Don't have an acocunt? <a href="#" class="text-blue-500 underline"> Register </a></span>
           </div>
         </form>
+
       </div>
       <div class="flex justify-center font-montser">
         <p id="image-2-credits" class="text-white/60 fixed bottom-0 content-center hidden">

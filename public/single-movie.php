@@ -1,3 +1,23 @@
+<?php
+include 'all-movie-ids.php';
+// var_dump($allIds);
+// var_dump($_GET);
+
+if (isset($_GET["id"])) {
+  $id = $_GET["id"];
+
+  if (!in_array($id, $allIds)) {
+    header("Location: error.php");
+  }
+} else {
+  header("Location: error.php");
+}
+
+// elseif (is_numeric($id) == true) {
+//   header("Location: error.php");}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -58,11 +78,6 @@
 
 <body class="bg-image-1 transition-all ease-linear duration-[3000ms] bg-cover bg-center bg-fixed bg-gray-400">
 
-  <!-- <div class="headerDiv">
-  </div>
-  <div class="smallMenu">
-  </div> -->
-
   <div class="flex flex-col justify-center m-0 h-[100vh] items-center font-open min-h-400px">
 
 
@@ -71,6 +86,11 @@
 
     <div class="container m-auto h-[75vh] w-10/12">
 
+      <?php
+      //var_dump($_GET);
+
+
+      ?>
 
     </div>
   </div>
