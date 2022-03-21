@@ -17,11 +17,23 @@
 <div class="logContainer">
 
   <label><b>First name</b></label>
-  <input type="text" placeholder="Enter Username" name="firstName" required>
+  <input type="text" placeholder="Enter your first name" name="firstName" required>
   <br>
 
   <label><b>Last name</b></label>
-  <input type="text" placeholder="Enter Username" name="lastName" required>
+  <input type="text" placeholder="Enter your last name" name="lastName" required>
+  <br>
+
+  <label><b>Country</b></label>
+  <input type="text" placeholder="Enter your country" name="country" required>
+  <br>
+  <label><b>Home city</b></label>
+  <input type="text" placeholder="Enter your city" name="country" required>
+  <br>
+
+
+  <label><b>e-mail</b></label>
+  <input type="text" placeholder="Enter your email address" name="email" required>
   <br>
 
   <label><b>Password</b></label>
