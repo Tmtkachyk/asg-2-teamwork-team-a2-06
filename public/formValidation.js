@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => 
 {
 
+    // validating the email input here 
     const email = document.querySelector(".email");
 
     email.addEventListener("input", function (event) {
@@ -14,5 +15,6 @@ document.addEventListener("DOMContentLoaded", () =>
     }
     });
 
+    
 
 });
