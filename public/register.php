@@ -29,7 +29,7 @@
   <br>
 
   <label><b>Confirm password</b></label>
-  <input type="password" placeholder="Enter Password" name="psw_confirm" required>
+  <input type="password" placeholder="Re-enter Password" name="psw_confirm" required>
   <br>
 
 
