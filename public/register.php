@@ -5,10 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="loginStyle.css">
+    <script src="formValidation.js"></script>
     <title>Login Page</title>
 </head>
 <body>
-<form method="post" class="theForm">
+<form method="post" class="theForm" action="testAction.php">
 
 <div class="imgcontainer">
   <img src="../images/registerIcon.png" alt="Register Icon" class="loginIcon">
@@ -32,9 +33,12 @@
   <br>
 
 
+
   <label><b>e-mail</b></label>
-  <input type="text" placeholder="Enter your email address" name="email" required>
+  <input type="email" class="email" placeholder="Enter your email address" name="email" required>
   <br>
+
+
 
   <label><b>Password</b></label>
   <input type="password" placeholder="Enter Password" name="psw" required>
@@ -48,6 +52,7 @@
   <button class="button" type="submit">Register</button>
 
 </div>
+
 
 <div class="registerContainer" style="background-color:#f1f1f1">
   <span class="psw">Already have an acocunt? <a href="#"> Login </a></span>
