@@ -41,11 +41,11 @@
 
 
   <label><b>Password</b></label>
-  <input type="password" placeholder="Enter Password" name="psw" required minlength="8" required>
+  <input type="password" class="password" placeholder="Enter Password" name="psw"  required minlength="8" required>
   <br>
 
   <label><b>Confirm password</b></label>
-  <input type="password" placeholder="Re-enter Password" name="psw_confirm" required minlength="8" required>
+  <input type="password" class="passwordConfirm" placeholder="Re-enter Password" name="psw_confirm"  required minlength="8" required>
   <br>
 
 
