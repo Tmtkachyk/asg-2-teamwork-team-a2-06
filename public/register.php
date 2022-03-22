@@ -33,19 +33,19 @@
   <br>
 
 
-
+  <!-- inline styling cause css did not work for some reason -->
   <label><b>e-mail</b></label>
-  <input type="email" class="email" placeholder="Enter your email address" name="email" required>
+  <input type="email" class="email" placeholder="Enter your email address" name="email" style="width:95%; padding:12px 20px; margin: 15px 0px; display: inline-block; border: 1px solid #ccc; box-sizing:border-box;border-radius:5px" required>
   <br>
 
 
 
   <label><b>Password</b></label>
-  <input type="password" placeholder="Enter Password" name="psw" required>
+  <input type="password" placeholder="Enter Password" name="psw" required minlength="8" required>
   <br>
 
   <label><b>Confirm password</b></label>
-  <input type="password" placeholder="Re-enter Password" name="psw_confirm" required>
+  <input type="password" placeholder="Re-enter Password" name="psw_confirm" required minlength="8" required>
   <br>
 
 

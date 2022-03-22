@@ -93,7 +93,7 @@ function makeh1()
             </button>
           </div>
           <div class="text-white">
-            <span class="">Don't have an acocunt? <a href="#" class="text-blue-500 underline"> Register </a></span>
+            <span class="">Don't have an acocunt? <a href="register.php" class="text-blue-500 underline"> Register </a></span>
           </div>
         </form>
 

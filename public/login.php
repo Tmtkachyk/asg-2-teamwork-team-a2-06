@@ -92,7 +92,7 @@
         </div>
 
         <div class="registerContainer" style="background-color:#f1f1f1">
-          <span class="psw">Don't have an acocunt? <a href="#"> Register </a></span>
+          <span class="psw">Don't have an acocunt? <a href="register.php"> Register </a></span>
         </div>
 
       </form>
