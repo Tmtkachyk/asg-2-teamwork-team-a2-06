@@ -3,11 +3,23 @@ include 'all-movie-ids.php';
 include 'mad-max.php';
 // var_dump($allIds);
 // var_dump($_GET);
+// there is no key called id (case sensitive!), or
+// there is more than one key, or
+// there is a key called id, and its value is not an integer, or
+// there is a key called id, and its value is an integer <= 0
 
+
+//if id key isn't empty
 if (isset($_GET["id"])) {
   $id = $_GET["id"];
 
+  if (count($_GET) > 1) {
+    header("Location: error.php");
+  }
   if (!in_array($id, $allIds)) {
+    header("Location: error.php");
+  }
+  if (ctype_upper($id)) {
     header("Location: error.php");
   }
 } else {
@@ -19,6 +31,15 @@ if (isset($_GET["id"])) {
 
 
 $title = $madMax["title"];
+$releaseDate = $madMax["release_date"];
+//revenue
+//runtime
+//tagline
+//popularity
+//average
+//count
+//IMDB link
+//TMDB link
 $posterPath = $madMax["poster_path"];
 ?>
 
