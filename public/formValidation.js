@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => 
 {
-    
 
     // validating the email input here 
     const email = document.querySelector(".email");
@@ -20,10 +19,9 @@ document.addEventListener("DOMContentLoaded", () =>
     const password = document.querySelector(".password");
     const passwordConfirm = document.querySelector(".passwordConfirm");
 
-    console.log(password);
-
-    passwordConfirm.addEventListener("input", function(event)
+    passwordConfirm.addEventListener("input", function()
     {
+        
         console.log(password.value);
         console.log(passwordConfirm.value);
 
@@ -31,7 +29,10 @@ document.addEventListener("DOMContentLoaded", () =>
         {
             passwordConfirm.setCustomValidity("password does not much, Please try again");
             passwordConfirm.reportValidity();
+        } else {
+            passwordConfirm.setCustomValidity("");
         }
+
     });
     
 
