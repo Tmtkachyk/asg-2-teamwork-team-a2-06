@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="loginStyle.css">
+    <link rel="stylesheet" href="registerStyle.css">
     <script src="formValidation.js"></script>
     <title>Login Page</title>
 </head>
@@ -41,7 +41,7 @@
 
 
   <label><b>Password</b></label>
-  <input type="password" class="password" placeholder="Enter Password" name="psw"  required minlength="8" required>
+  <input type="password" class="password" placeholder="Enter Password" name="password"  required minlength="8" required>
   <br>
 
   <label><b>Confirm password</b></label>

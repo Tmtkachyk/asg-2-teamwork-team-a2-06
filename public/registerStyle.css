@@ -89,7 +89,7 @@ input[type=text], input[type=password], input[type=email] {
    @media only screen and (max-width: 425px) {
 
     .theForm{
-        max-width: 100%;
+        max-width: 95%;
         display: block;
         margin-left: auto;
         margin-right: auto;
