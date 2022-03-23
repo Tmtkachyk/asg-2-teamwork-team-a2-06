@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", () =>
 
         if (password.value != passwordConfirm.value)
         {
+            isValid= false;
             passwordConfirm.setCustomValidity("Password does not much, Please try again");
             passwordConfirm.reportValidity();
         } else {
