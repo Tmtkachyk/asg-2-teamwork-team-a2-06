@@ -100,8 +100,8 @@
   <input type="password" class="passwordConfirm" placeholder="Re-enter Password" name="psw_confirm"  required minlength="8" required>
   <br>
 
-
-  <button class="button" type="submit">Register</button>
+    <!-- inline styling cause Tailwind was interferring with the css-->
+  <button class="button" type="submit" style="background-color: grey; color: white; padding: 8px 10px; margin: 8px 0; border: none; cursor: pointer; display: block; margin-left: auto; margin-right: auto;">Register</button>
 
 </div>
 

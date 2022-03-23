@@ -18,14 +18,6 @@
 
   <script>
     tailwind.config = {
-      theme: {
-        backgroundImage: {
-          "image-1": "url('../images/2049SS.jpg')",
-          "image-2": "url('../images/titanicSS.jpg')",
-          "image-3": "url('../images/interstellarSS.jpg')",
-          "image-4": "url('../images/jokerSS.jpg')",
-          "image-5": "url('../images/alienSS.png')",
-        },
 
         fontFamily: {
           Times: ["Times New Roman", "sans-serif"],
@@ -85,7 +77,7 @@
           <label><b>Password</b></label>
           <input type="password" placeholder="Enter Password" name="psw" required>
           <br>
-          <button class="button" type="submit">Login</button>
+          <button class="button" type="submit" style="background-color: grey; color: white; padding: 8px 10px; margin: 8px 0; border: none; cursor: pointer; display: block; margin-left: auto; margin-right: auto;">Login</button>
           <label class='rem'>
             <input type="checkbox" checked="checked" name="dontForget"> Remember me
           </label>
