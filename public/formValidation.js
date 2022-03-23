@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () =>
     const password = document.querySelector(".password");
     const passwordConfirm = document.querySelector(".passwordConfirm");
 
-    let isValid;
+    let isValid = false;
 
     passwordConfirm.addEventListener("input", function()
     {
