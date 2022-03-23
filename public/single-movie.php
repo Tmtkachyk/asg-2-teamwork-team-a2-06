@@ -1,6 +1,7 @@
 <?php
 include 'all-movie-ids.php';
 include 'mad-max.php';
+include 'movie-ids.php';
 // var_dump($allIds);
 // var_dump($_GET);
 // there is no key called id (case sensitive!), or
