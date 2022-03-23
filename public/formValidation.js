@@ -24,8 +24,6 @@ document.addEventListener("DOMContentLoaded", () =>
     passwordConfirm.addEventListener("input", function()
     {
         
-        console.log(password.value);
-        console.log(passwordConfirm.value);
 
         if (password.value != passwordConfirm.value)
         {
