@@ -19,6 +19,8 @@ document.addEventListener("DOMContentLoaded", () =>
     const password = document.querySelector(".password");
     const passwordConfirm = document.querySelector(".passwordConfirm");
 
+    let isValid;
+
     passwordConfirm.addEventListener("input", function()
     {
         
@@ -27,13 +29,28 @@ document.addEventListener("DOMContentLoaded", () =>
 
         if (password.value != passwordConfirm.value)
         {
-            passwordConfirm.setCustomValidity("password does not much, Please try again");
+            passwordConfirm.setCustomValidity("Password does not much, Please try again");
             passwordConfirm.reportValidity();
         } else {
             passwordConfirm.setCustomValidity("");
+            isValid = true;
         }
 
     });
+
+
+    let submitButotn = document.querySelector(".button");
+
+    submitButotn.addEventListener("click", () => {
     
+        if (email.checkValidity() == true && isValid == true)
+        {
+            console.log("Form is valid");
+        }
+        else{
+            console.log("Form is invalid.")
+        }
+    })
+ 
 
 });
