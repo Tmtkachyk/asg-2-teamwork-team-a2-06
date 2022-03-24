@@ -1,18 +1,20 @@
 <?php
 include 'all-movie-ids.php';
 include 'mad-max.php';
-include 'movie-ids.php';
-// var_dump($allIds);
-// var_dump($_GET);
-// there is no key called id (case sensitive!), or
-// there is more than one key, or
-// there is a key called id, and its value is not an integer, or
-// there is a key called id, and its value is an integer <= 0
+// include 'movie-ids.php';
+$config = include "../config.php";
+include "../database/Connection.php";
+include "../classes/Movie.php";
 
 
-//if id key isn't empty
 if (isset($_GET["id"])) {
   $id = $_GET["id"];
+
+  $pdo = Connection::connect($config['database']);
+  $selectStatment = "SELECT id FROM movie WHERE id=$id";
+  $idStatement = $pdo->prepare($selectStatment);
+  $idStatement->execute();
+  $resultingIDs = $idStatement->fetchAll(PDO::FETCH_ASSOC);
 
   if (count($_GET) > 1) {
     header("Location: error.php");
@@ -27,21 +29,73 @@ if (isset($_GET["id"])) {
   header("Location: error.php");
 }
 
+$rawMovieDetails =
+  "
+SELECT
+id as id,
+title as title,
+release_date as release_date,
+revenue as revenue,
+runtime as runtime,
+tagline as tagline,
+popularity as popularity,
+vote_average as vote_average,
+vote_count as vote_count,
+overview as overview,
+cast as cast,
+crew as crew,
+production_companies as companies,
+production_countries as countries,
+genres as genres,
+keywords as keywords,
+poster_path as poster_path,
+imdb_id as imdb_id,
+tmdb_id as tmdb_id
+FROM
+    movie
+WHERE
+    movie.id = $id
+";
+
+$statement = $pdo->prepare($rawMovieDetails);
+$statement->execute();
+$results = $statement->fetchAll(PDO::FETCH_OBJ);
+$movieObj = $results[0];
+
+$movie = new Movie(
+  $movieObj->id,
+  $movieObj->title,
+  $movieObj->release_date,
+  $movieObj->revenue,
+  $movieObj->runtime,
+  $movieObj->tagline,
+  $movieObj->popularity,
+  $movieObj->vote_average,
+  $movieObj->vote_count,
+  $movieObj->overview,
+  $movieObj->cast,
+  $movieObj->crew,
+  $movieObj->companies,
+  $movieObj->countries,
+  $movieObj->genres,
+  $movieObj->keywords,
+  $movieObj->poster_path,
+  $movieObj->imdb_id,
+  $movieObj->tmdb_id
+);
+
+
+
+
+
+//if id key isn't empty
+
+
 // elseif (is_numeric($id) == true) {
 //   header("Location: error.php");}
 
 
-$title = $madMax["title"];
-$releaseDate = $madMax["release_date"];
-//revenue
-//runtime
-//tagline
-//popularity
-//average
-//count
-//IMDB link
-//TMDB link
-$posterPath = $madMax["poster_path"];
+
 ?>
 
 
@@ -126,9 +180,9 @@ $posterPath = $madMax["poster_path"];
 
               <picture id="details-poster" class="flex justify-center cursor-pointer">
                 <source id="laptopPosterImg" media="(min-width: 1440px)" srcset="
-                  https://image.tmdb.org/t/p/w342<?= $posterPath ?>
+                  https://image.tmdb.org/t/p/w342<?= $movie->poster_path ?>
                 " />
-                <img id="mobilePosterImg" src="https://image.tmdb.org/t/p/w185<?= $posterPath ?>" alt="poster" />
+                <img id="mobilePosterImg" src="https://image.tmdb.org/t/p/w185<?= $movie->poster_path ?>" alt="poster" />
               </picture>
             </div>
 
@@ -145,7 +199,7 @@ $posterPath = $madMax["poster_path"];
 
                 <div id="movieHeaderSection">
                   <h2 class="text-2xl lg:text-4xl self-center text-center justify-center font-semibold p-1">
-                    <?= $title ?>
+                    <?= $movie->title ?>
                   </h2>
                 </div>
               </div>
@@ -153,50 +207,50 @@ $posterPath = $madMax["poster_path"];
               <div class="p-1">
                 <span class="text-lg lg:text-2xl"> Release Date: </span>
 
-                <span id="releaseDateSection" class="lg:text-2xl float-right text-neutral-300">2005-11-04</span>
+                <span id="releaseDateSection" class="lg:text-2xl float-right text-neutral-300"><?= $movie->release_date ?></span>
                 <br />
 
                 <span class="text-lg lg:text-2xl"> Revenue: </span>
-                <span id="revenueSection" class="lg:text-2xl float-right text-neutral-300">$97,076,152</span>
+                <span id="revenueSection" class="lg:text-2xl float-right text-neutral-300"><?= $movie->revenue ?></span>
                 <br />
 
                 <span class="text-lg lg:text-2xl"> Runtime: </span>
-                <span id="runtimeSection" class="lg:text-2xl float-right text-neutral-300">123 min</span>
+                <span id="runtimeSection" class="lg:text-2xl float-right text-neutral-300"><?= $movie->runtime ?> min</span>
                 <br />
 
                 <span class="text-lg lg:text-2xl">Tagline: </span>
-                <span id="taglineSection" class="lg:text-2xl float-right text-neutral-300 font-light italic">"Welcome to the suck"</span>
+                <span id="taglineSection" class="lg:text-2xl float-right text-neutral-300 font-light italic"><?= $movie->tagline ?></span>
                 <br />
 
                 <hr class="p-1" />
                 <div>
                   <span class="text-lg lg:text-2xl">Popularity:</span>
-                  <span id="popularitySection" class="lg:text-2xl float-right text-neutral-300">35.713
+                  <span id="popularitySection" class="lg:text-2xl float-right text-neutral-300"><?= $movie->popularity ?>
                   </span>
                   <br />
 
                   <span class="text-lg lg:text-2xl">Average: </span>
 
                   <span id="averageSection" class="lg:text-2xl float-right text-neutral-300">
-                    6.6
+                    <?= $movie->vote_average ?>
                   </span>
 
                   <br />
                   <span class="text-lg lg:text-2xl"> Count: </span>
 
-                  <span id="countSection" class="lg:text-2xl float-right text-neutral-300">2190</span>
+                  <span id="countSection" class="lg:text-2xl float-right text-neutral-300"><?= $movie->vote_count ?></span>
                 </div>
 
                 <div class="text-blue-500 font-semibold text-lg lg:text-2xl">
-                  <a id="imdbLink" href="" target="_blank">IMDB Link</a>
-                  <a id="tmdbLink" class="float-right" href="" target="_blank">TMDB Link</a>
+                  <a id="tmdbLink" class="float-right" href="https://www.imdb.com/title/<?= $movie->tmdb_id ?>" target="_blank">TMDB Link</a>
+                  <a id="imdbLink" href="https://www.themoviedb.org/movie/<?= $movie->imdb_id ?>" target="_blank">IMDB Link</a>
                 </div>
 
                 <hr class="p-1" />
 
                 <div class="maxSC:hidden mx-2 lg:mx-0">
                   <h2 class="text-lg lg:text-3xl">Overview:</h2>
-                  <p id="lapTopOverviewSection" class="text-xs ml-4 mr-1 lg:text-2xl font-source"></p>
+                  <p id="lapTopOverviewSection" class="text-xs ml-4 mr-1 lg:text-2xl font-source"><?= $movie->overview ?></p>
                 </div>
               </div>
             </div>
@@ -216,7 +270,9 @@ $posterPath = $madMax["poster_path"];
                     Actor
                   </h2>
                   <div class="text-s" id="castNameSection">
-                    <p>Staff Sgt. Sykes</p>
+                    <?php foreach ($movie->cast as $actor => $character)
+                      echo '<p>' . $actor . '</p>'
+                    ?>
                   </div>
                 </div>
                 <div class="col-span-3">
@@ -224,7 +280,9 @@ $posterPath = $madMax["poster_path"];
                     Character
                   </h2>
                   <div class="text-s" id="castCharacterSection">
-                    <p>Staff Sgt. Sykes</p>
+                    <?php foreach ($movie->cast as $actor => $character)
+                      echo '<p>' . $character . '</p>'
+                    ?>
                   </div>
                 </div>
               </div>
@@ -234,19 +292,19 @@ $posterPath = $madMax["poster_path"];
                     Department
                   </h2>
                   <div class="text-xs" id="crewDepartmentSection">
-                    <p>Staff Sgt. Sykes</p>
+                    <p><?= $movie->replace ?></p>
                   </div>
                 </div>
                 <div class="col-span-2">
                   <h2 class="underline underline-offset-2">Job</h2>
                   <div class="text-xs" id="crewJobSection">
-                    <p>Staff Sgt. Sykes</p>
+                    <p><?= $movie->replace ?></p>
                   </div>
                 </div>
                 <div class="col-span-2">
                   <h2 class="underline underline-offset-2">Name</h2>
                   <div class="text-xs" id="crewNameSection">
-                    <p>Staff Sgt. Sykes</p>
+                    <p><?= $movie->replace ?></p>
                   </div>
                 </div>
               </div>
@@ -287,6 +345,12 @@ $posterPath = $madMax["poster_path"];
                   <p class="font-semibold font-lg ml-1 lg:text-xl">Keywords</p>
                   <div class="font-semibold text-neutral-800 p-1" id="keywordsSection">
                     <span class="ml-2 bg-neutral-800 rounded p-1 hover:cursor-pointer inline-flex m-1">Desert storm</span>
+                    <?php
+                    $statment = $pdo->prepare("SELECT id FROM movie");
+                    $statment->execute();
+                    $results = $statment->fetchAll(PDO::FETCH_ASSOC);
+                    var_dump($results);
+                    ?>
                   </div>
                 </div>
               </div>
