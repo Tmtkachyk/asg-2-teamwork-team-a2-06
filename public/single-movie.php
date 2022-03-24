@@ -139,9 +139,9 @@ $movie = new Movie(
           },
           md: "500px",
           lg: "1440px",
-          // maxSC: {
-          //   max: "426px"
-          // },
+           maxSC: {
+             max: "426px"
+           },
         },
 
         extend: {},
@@ -242,8 +242,8 @@ $movie = new Movie(
                 </div>
 
                 <div class="text-blue-500 font-semibold text-lg lg:text-2xl">
-                  <a id="tmdbLink" class="float-right" href="https://www.imdb.com/title/<?= $movie->tmdb_id ?>" target="_blank">TMDB Link</a>
-                  <a id="imdbLink" href="https://www.themoviedb.org/movie/<?= $movie->imdb_id ?>" target="_blank">IMDB Link</a>
+                  <a id="tmdbLink" class="float-right" href="https://www.imdb.com/title/<?= $movie->imdb_id ?>" target="_blank">TMDB Link</a>
+                  <a id="imdbLink" href="https://www.themoviedb.org/movie/<?= $movie->tmdb_id ?>" target="_blank">IMDB Link</a>
                 </div>
 
                 <hr class="p-1" />
@@ -292,19 +292,25 @@ $movie = new Movie(
                     Department
                   </h2>
                   <div class="text-xs" id="crewDepartmentSection">
-                    <p><?= $movie->replace ?></p>
+                  <?php foreach ($movie->crew as $actor => $character)
+                      echo '<p>' . $character[2] . '</p>'
+                    ?>
                   </div>
                 </div>
                 <div class="col-span-2">
                   <h2 class="underline underline-offset-2">Job</h2>
                   <div class="text-xs" id="crewJobSection">
-                    <p><?= $movie->replace ?></p>
+                  <?php foreach ($movie->crew as $actor => $character)
+                      echo '<p>' . $character[1] . '</p>'
+                    ?>
                   </div>
                 </div>
                 <div class="col-span-2">
                   <h2 class="underline underline-offset-2">Name</h2>
                   <div class="text-xs" id="crewNameSection">
-                    <p><?= $movie->replace ?></p>
+                  <?php foreach ($movie->crew as $actor => $character)
+                      echo '<p>' . $character[0] . '</p>'
+                    ?>
                   </div>
                 </div>
               </div>
@@ -312,7 +318,7 @@ $movie = new Movie(
 
             <div class="lg:hidden mx-2">
               <h2 class="text-lg">Overview:</h2>
-              <p id="mobileOverviewSection" class="ml-4 mr-2"></p>
+              <p id="mobileOverviewSection" class="ml-4 mr-2"><?= $movie->overview?></p>
             </div>
 
             <div class="lg:col-span-3 p-2 lg:flex lg:">
@@ -320,37 +326,45 @@ $movie = new Movie(
                 <div class="font-semibold font-lg ml-1 lg:text-xl">
                   Companies
                   <div id="companySection">
-                    <p class="ml-4 mr-2">Red Wagon Entertainment</p>
-                  </div>
+                    <?php
+                    foreach ($movie->companies as $company){
+                    echo '<p class="ml-4 mr-2">'. $company .'</p>';
+                    }
+                  ?>
+                    </div>
                 </div>
 
                 <div>
                   <div class="font-semibold font-lg ml-1 lg:text-xl">
                     Countries
                     <div id="countriesSection">
-                      <p class="ml-4 mr-2">Germany</p>
+                    <?php
+                    foreach ($movie->countries as $country){
+                    echo '<p class="ml-4 mr-2">'. $country .'</p>';
+                    }
+                  ?>
                     </div>
                   </div>
                 </div>
                 <div>
                   <p class="font-semibold font-lg ml-1 lg:text-xl">Genres</p>
-                  <div class="font-semibold text-neutral-800 p-1" id="genreSection">
-                    <p class="ml-2 bg-neutral-800 rounded p-1 hover:cursor-pointer inline-flex m-1">
-                      Drama
-                    </p>
+                  <div class="font-semibold  p-1" id="genreSection">
+                  <?php
+                    foreach ($movie->genres as $keyword){
+                    echo '<span class="ml-2 bg-neutral-800 rounded p-1 hover:cursor-pointer inline-flex m-1  text-white">'. $keyword .'</span>';
+                    }
+                  ?>
                   </div>
                 </div>
 
                 <div class="lg:col-span-3">
                   <p class="font-semibold font-lg ml-1 lg:text-xl">Keywords</p>
                   <div class="font-semibold text-neutral-800 p-1" id="keywordsSection">
-                    <span class="ml-2 bg-neutral-800 rounded p-1 hover:cursor-pointer inline-flex m-1">Desert storm</span>
-                    <?php
-                    $statment = $pdo->prepare("SELECT id FROM movie");
-                    $statment->execute();
-                    $results = $statment->fetchAll(PDO::FETCH_ASSOC);
-                    var_dump($results);
-                    ?>
+                  <?php
+                    foreach ($movie->keywords as $genre){
+                    echo '<span class="ml-2 bg-neutral-800 rounded p-1 hover:cursor-pointer inline-flex m-1  text-white">'. $genre .'</span>';
+                    }
+                  ?>
                   </div>
                 </div>
               </div>
@@ -359,7 +373,7 @@ $movie = new Movie(
           </div>
         </div>
 
-        <script src="/JavaScript/details.js"></script>
+        <script src="JavaScript/details.js"></script>
 </body>
 
 </html>
