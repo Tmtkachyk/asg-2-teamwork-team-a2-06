@@ -16,19 +16,21 @@ if (isset($_GET["id"])) {
   $idStatement->execute();
   $resultingIDs = $idStatement->fetchAll(PDO::FETCH_ASSOC);
 
-  // $selectAllIdsStatment = "SELECT id FROM movie";
-  // $allIdsStatement = $pdo->prepare($selectAllIdsStatment);
-  // $allIdsStatement->execute();
-  // $allIds = $allIdsStatement->fetchAll(PDO::FETCH_ASSOC);
+  $selectAllIdsStatment = "SELECT id FROM movie";
+  $allIdsStatement = $pdo->prepare($selectAllIdsStatment);
+  $allIdsStatement->execute();
+  $allIds = array();
+  $allIds = $allIdsStatement->fetchAll(PDO::FETCH_ASSOC);
+
 
   if (count($_GET) > 1) {
     header("Location: error.php");
   }
-  // if (!in_array($id, $allIds)) {
-  //   //header("Location: error.php");
-  //   var_dump($allIds);
-  //   var_dump($resultingIDs);
-  // }
+  if (!in_array($id, $allIds)) {
+    // header("Location: error.php");
+    var_dump($allIds);
+    var_dump($resultingIDs);
+  }
   if (ctype_upper($id)) {
     header("Location: error.php");
   }
