@@ -369,11 +369,12 @@ $movie = new Movie(
                 </div>
               </div>
             </div>
-
           </div>
         </div>
+      </div>
+    </div>
 
-        <script src="JavaScript/details.js"></script>
+    <script src="JavaScript/details.js"></script>
 </body>
 
 </html>
