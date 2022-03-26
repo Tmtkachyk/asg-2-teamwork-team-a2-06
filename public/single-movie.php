@@ -1,7 +1,7 @@
 <?php
-include 'all-movie-ids.php';
-include 'mad-max.php';
-// include 'movie-ids.php';
+// include 'all-movie-ids.php';
+// include 'mad-max.php';
+
 $config = include "../config.php";
 include "../database/Connection.php";
 include "../classes/Movie.php";
@@ -139,9 +139,9 @@ $movie = new Movie(
           },
           md: "500px",
           lg: "1440px",
-           maxSC: {
-             max: "426px"
-           },
+          maxSC: {
+            max: "426px"
+          },
         },
 
         extend: {},
@@ -292,7 +292,7 @@ $movie = new Movie(
                     Department
                   </h2>
                   <div class="text-xs" id="crewDepartmentSection">
-                  <?php foreach ($movie->crew as $actor => $character)
+                    <?php foreach ($movie->crew as $actor => $character)
                       echo '<p>' . $character[2] . '</p>'
                     ?>
                   </div>
@@ -300,7 +300,7 @@ $movie = new Movie(
                 <div class="col-span-2">
                   <h2 class="underline underline-offset-2">Job</h2>
                   <div class="text-xs" id="crewJobSection">
-                  <?php foreach ($movie->crew as $actor => $character)
+                    <?php foreach ($movie->crew as $actor => $character)
                       echo '<p>' . $character[1] . '</p>'
                     ?>
                   </div>
@@ -308,7 +308,7 @@ $movie = new Movie(
                 <div class="col-span-2">
                   <h2 class="underline underline-offset-2">Name</h2>
                   <div class="text-xs" id="crewNameSection">
-                  <?php foreach ($movie->crew as $actor => $character)
+                    <?php foreach ($movie->crew as $actor => $character)
                       echo '<p>' . $character[0] . '</p>'
                     ?>
                   </div>
@@ -318,7 +318,7 @@ $movie = new Movie(
 
             <div class="lg:hidden mx-2">
               <h2 class="text-lg">Overview:</h2>
-              <p id="mobileOverviewSection" class="ml-4 mr-2"><?= $movie->overview?></p>
+              <p id="mobileOverviewSection" class="ml-4 mr-2"><?= $movie->overview ?></p>
             </div>
 
             <div class="lg:col-span-3 p-2 lg:flex lg:">
@@ -327,44 +327,44 @@ $movie = new Movie(
                   Companies
                   <div id="companySection">
                     <?php
-                    foreach ($movie->companies as $company){
-                    echo '<p class="ml-4 mr-2">'. $company .'</p>';
+                    foreach ($movie->companies as $company) {
+                      echo '<p class="ml-4 mr-2">' . $company . '</p>';
                     }
-                  ?>
-                    </div>
+                    ?>
+                  </div>
                 </div>
 
                 <div>
                   <div class="font-semibold font-lg ml-1 lg:text-xl">
                     Countries
                     <div id="countriesSection">
-                    <?php
-                    foreach ($movie->countries as $country){
-                    echo '<p class="ml-4 mr-2">'. $country .'</p>';
-                    }
-                  ?>
+                      <?php
+                      foreach ($movie->countries as $country) {
+                        echo '<p class="ml-4 mr-2">' . $country . '</p>';
+                      }
+                      ?>
                     </div>
                   </div>
                 </div>
                 <div>
                   <p class="font-semibold font-lg ml-1 lg:text-xl">Genres</p>
                   <div class="font-semibold  p-1" id="genreSection">
-                  <?php
-                    foreach ($movie->genres as $keyword){
-                    echo '<span class="ml-2 bg-neutral-800 rounded p-1 hover:cursor-pointer inline-flex m-1  text-white">'. $keyword .'</span>';
+                    <?php
+                    foreach ($movie->genres as $keyword) {
+                      echo '<span class="ml-2 bg-neutral-800 rounded p-1 hover:cursor-pointer inline-flex m-1  text-white">' . $keyword . '</span>';
                     }
-                  ?>
+                    ?>
                   </div>
                 </div>
 
                 <div class="lg:col-span-3">
                   <p class="font-semibold font-lg ml-1 lg:text-xl">Keywords</p>
                   <div class="font-semibold text-neutral-800 p-1" id="keywordsSection">
-                  <?php
-                    foreach ($movie->keywords as $genre){
-                    echo '<span class="ml-2 bg-neutral-800 rounded p-1 hover:cursor-pointer inline-flex m-1  text-white">'. $genre .'</span>';
+                    <?php
+                    foreach ($movie->keywords as $genre) {
+                      echo '<span class="ml-2 bg-neutral-800 rounded p-1 hover:cursor-pointer inline-flex m-1  text-white">' . $genre . '</span>';
                     }
-                  ?>
+                    ?>
                   </div>
                 </div>
               </div>
