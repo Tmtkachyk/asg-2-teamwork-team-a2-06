@@ -19,6 +19,9 @@ if (isset($_GET["id"])) {
   if (count($_GET) > 1) {
     header("Location: error.php");
   }
+  if (count($resultingIDs) == 0) {
+    header("Location: error.php");
+  }
   if (ctype_upper($id)) {
     header("Location: error.php");
   }
