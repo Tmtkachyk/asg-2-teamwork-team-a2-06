@@ -10,7 +10,7 @@
 
 <body>
   <h1>The page you were loooking for does not exist</h1>
-  <?php var_dump($allIds) ?>
+
 </body>
 
 </html>
