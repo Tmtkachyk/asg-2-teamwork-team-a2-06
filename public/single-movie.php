@@ -1,6 +1,6 @@
 <?php
-include 'all-movie-ids.php';
-include 'mad-max.php';
+// include 'all-movie-ids.php';
+// include 'mad-max.php';
 
 $config = include "../config.php";
 include "../database/Connection.php";
