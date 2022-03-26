@@ -15,6 +15,9 @@ if (isset($_GET["id"])) {
   $resultingIDs = $idStatement->fetchAll(PDO::FETCH_ASSOC);
 
 
+   if (is_string($id)){
+      header("Location: error.php");
+   }
 
   if (count($_GET) > 1) {
     header("Location: error.php");
@@ -25,6 +28,7 @@ if (isset($_GET["id"])) {
   if (ctype_upper($id)) {
     header("Location: error.php");
   }
+
 } else {
   header("Location: error.php");
 }
