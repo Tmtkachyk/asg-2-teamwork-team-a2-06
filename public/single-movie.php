@@ -1,5 +1,5 @@
 <?php
-include 'all-movie-ids.php';
+// include 'all-movie-ids.php';
 
 
 $config = include "../config.php";
@@ -27,7 +27,8 @@ if (isset($_GET["id"])) {
     header("Location: error.php");
   }
   if (!in_array($id, $allIds)) {
-    header("Location: error.php");
+    //header("Location: error.php");
+    var_dump($resultingIDs);
   }
   if (ctype_upper($id)) {
     header("Location: error.php");
