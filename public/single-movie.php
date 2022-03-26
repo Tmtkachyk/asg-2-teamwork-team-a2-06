@@ -1,6 +1,6 @@
 <?php
 // include 'all-movie-ids.php';
-// include 'mad-max.php';
+
 
 $config = include "../config.php";
 include "../database/Connection.php";
@@ -15,6 +15,11 @@ if (isset($_GET["id"])) {
   $idStatement = $pdo->prepare($selectStatment);
   $idStatement->execute();
   $resultingIDs = $idStatement->fetchAll(PDO::FETCH_ASSOC);
+
+  $selectAllIdsStatment = "SELECT id FROM movie";
+  $allIdsStatement = $pdo->prepare($selectAllIdsStatment);
+  $allIdsStatement->execute();
+  $allIds = $allIdsStatement->fetchAll(PDO::FETCH_ASSOC);
 
   if (count($_GET) > 1) {
     header("Location: error.php");
