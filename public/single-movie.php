@@ -27,6 +27,7 @@ if (isset($_GET["id"])) {
   if (!in_array($id, $allIds)) {
     //header("Location: error.php");
     var_dump($allIds);
+    var_dump($resultingIDs);
   }
   if (ctype_upper($id)) {
     header("Location: error.php");
