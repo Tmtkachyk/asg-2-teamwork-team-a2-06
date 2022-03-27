@@ -15,13 +15,8 @@ if (isset($_GET["id"])) {
   $resultingIDs = $idStatement->fetchAll(PDO::FETCH_ASSOC);
 
 
-//  if (gettype($id) != integer){
-//    header("Location: error.php");
-//  }
-  
-  var_dump($id);
-  
-    if (gettype($id) != 'integer'){
+
+    if (is_int($id) == false){
     header("Location: error.php");
   }
 
