@@ -16,7 +16,7 @@ if (isset($_GET["id"])) {
 
 
 
-    if (is_int($id) == false){
+    if (is_int($_GET["id"]) == false){
     header("Location: error.php");
   }
 
