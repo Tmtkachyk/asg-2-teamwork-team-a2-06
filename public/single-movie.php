@@ -8,7 +8,7 @@ include "../classes/Movie.php";
 if (isset($_GET["id"])) {
   $id = $_GET["id"];
 
-  if (preg_match("/^[A-Z]{2}$/", $_SERVER['QUERY_STRING'])) {
+  if (preg_match("/(.*[a-z]){3}/", $_SERVER['QUERY_STRING'])) {
     header("Location: error.php");
   }
 
