@@ -8,7 +8,7 @@ include "../classes/Movie.php";
 if (isset($_GET["id"])) {
   $id = $_GET["id"];
 
-  if (!preg_match("/^[A-Z]{2}$/", $_SERVER['QUERY_STRING'])) {
+  if (preg_match("/^[A-Z]{2}$/", $_SERVER['QUERY_STRING'])) {
     header("Location: error.php");
   }
 
@@ -170,17 +170,7 @@ $movie = new Movie(
               <div class="flex justify-center">
                 <button class="lg:text-2x text-white bg-neutral-600 hover:bg-neutral-700 font-bold py-2 px-4 my-2 lg:ml-2 rounded focus:outline-none focus:shadow-outline" type="submit" id="closeButton">
 
-                  <?php
-                  var_dump($_SERVER['QUERY_STRING']);
-
-                  ?><br>
-                  <?php
-
-                  var_dump($_GET);
-                  ?><br><?php
-                        var_dump($resultingIDs);
-
-                        ?>
+                  Favourite
 
                 </button>
               </div>
