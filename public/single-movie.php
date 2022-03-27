@@ -18,6 +18,12 @@ if (isset($_GET["id"])) {
 //  if (gettype($id) != integer){
 //    header("Location: error.php");
 //  }
+  
+  var_dump($id);
+  
+    if (gettype($id) != 'integer'){
+    header("Location: error.php");
+  }
 
   if (count($_GET) > 1) {
     header("Location: error.php");
