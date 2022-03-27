@@ -8,29 +8,27 @@ include "../classes/Movie.php";
 if (isset($_GET["id"])) {
   $id = $_GET["id"];
 
-  $pdo = Connection::connect($config['database']);
-  $selectStatment = "SELECT id FROM movie WHERE id=$id";
-  $idStatement = $pdo->prepare($selectStatment);
-  $idStatement->execute();
-  $resultingIDs = $idStatement->fetchAll(PDO::FETCH_ASSOC);
 
-
-
-//    if (is_int($_GET["id"]) == false){
- //   header("Location: error.php");
-//  }
 
   if (count($_GET) > 1) {
     header("Location: error.php");
   }
-  if (count($resultingIDs) == 0) {
-    header("Location: error.php");
-  }
-  if (ctype_upper($id)) {
-    header("Location: error.php");
-  }
 
+  if (!is_numeric($id)) {
+    header("Location: error.php");
+  }
 } else {
+  header("Location: error.php");
+}
+
+
+$pdo = Connection::connect($config['database']);
+$selectStatment = "SELECT id FROM movie WHERE id=$id";
+$idStatement = $pdo->prepare($selectStatment);
+$idStatement->execute();
+$resultingIDs = $idStatement->fetchAll(PDO::FETCH_ASSOC);
+
+if (count($resultingIDs) == 0) {
   header("Location: error.php");
 }
 
@@ -88,16 +86,6 @@ $movie = new Movie(
   $movieObj->imdb_id,
   $movieObj->tmdb_id
 );
-
-
-
-
-
-//if id key isn't empty
-
-
-// elseif (is_numeric($id) == true) {
-//   header("Location: error.php");}
 
 
 
@@ -179,7 +167,21 @@ $movie = new Movie(
             <div class="mx-2">
               <div class="flex justify-center">
                 <button class="lg:text-2x text-white bg-neutral-600 hover:bg-neutral-700 font-bold py-2 px-4 my-2 lg:ml-2 rounded focus:outline-none focus:shadow-outline" type="submit" id="closeButton">
-                  Favourite
+
+                  <?php
+                  // foreach ($_GET as $gets) {
+                  //   echo $gets;
+                  // }
+
+                  ?><br>
+                  <?php
+
+                  var_dump($_GET);
+                  ?><br><?php
+                        var_dump($resultingIDs);
+
+                        ?>
+
                 </button>
               </div>
 
