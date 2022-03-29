@@ -9,8 +9,12 @@
 </head>
 
 <body>
-  <h1>The page you were loooking for does not exist</h1>
-
+  <div>
+    <h1>The page you were loooking for does not exist</h1>
+    <div class="imgcontainer">
+      <img src="../images/binocular.jpg" alt="binocular Icon" class="binocular">
+    </div>
+  </div>
 </body>
 
 </html>

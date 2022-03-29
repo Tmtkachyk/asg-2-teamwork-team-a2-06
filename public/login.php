@@ -1,5 +1,11 @@
+<?php
+     // session_start();  -> uncomment later when line 3 is removed 
+      include 'login-authenticate.php'; // to be removed just to test the page
+  ?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 
 <head>
   <meta charset="UTF-8">
@@ -63,6 +69,7 @@
     <?php include 'header.php';
     ?>
     <main class="container m-auto h-[75vh]">
+
       <form method="post" class="theForm">
 
         <div class="imgcontainer">
@@ -75,7 +82,7 @@
           <input type="text" placeholder="Enter Username" name="username" required>
           <br>
           <label><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="psw" required>
+          <input type="password" placeholder="Enter Password" name="password" required>
           <br>
           <button class="button" type="submit" style="background-color: grey; color: white; padding: 8px 10px; margin: 8px 0; border: none; cursor: pointer; display: block; margin-left: auto; margin-right: auto;">Login</button>
           <label class='rem'>

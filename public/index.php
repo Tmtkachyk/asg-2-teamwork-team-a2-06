@@ -1,4 +1,10 @@
 <?php
+      session_start();  
+  ?>
+
+
+
+<?php
 //this is a comment
 function makeh1()
 {
