@@ -12,7 +12,7 @@
     
     if ($_SERVER["REQUEST_METHOD"] == "POST") 
     {
-        $id = $_POST["id"];
+        $id = $_POST["username"];
         $password = $_POST["password"];
 
         validateLogin($id, $password);
@@ -25,7 +25,7 @@
 
 
         $pdo = Connection::connect($config['users']); // ask james about this 
-        $userPasswordSQL = "SELECT id, password FROM users WHERE id=:id";
+        $userPasswordSQL = "SELECT id, password FROM users WHERE id=:id"; //ask james about this 
         $userPassStatement = $pdo->prepare($userPasswordSQL);
         $userPassStatement->execute();
 
@@ -36,6 +36,7 @@
             foreach($queryResult as $oneRow)
             {
                 // https://www.php.net/manual/en/function.password-verify.php
+
                 if(verify_password($password, $oneRow['password'])){
 
                     $_SESSION['LoggedIn'] = true;
@@ -52,7 +53,7 @@
             }
         }
         else{
-            loginError("User $email does not exist");
+            loginError("User $id does not exist");
         }
 
 

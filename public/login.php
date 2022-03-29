@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+  <?php
+      session_start();  // not sure if we need it here ?? 
+  ?>
 
 <head>
   <meta charset="UTF-8">
@@ -63,6 +66,7 @@
     <?php include 'header.php';
     ?>
     <main class="container m-auto h-[75vh]">
+
       <form method="post" class="theForm">
 
         <div class="imgcontainer">
