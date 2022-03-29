@@ -1,5 +1,6 @@
 <?php
-      session_start();  
+     // session_start();  -> uncomment later when line 3 is removed 
+      include 'login-authenticate.php'; // to be removed just to test the page
   ?>
 
 <!DOCTYPE html>
