@@ -75,7 +75,7 @@
           <input type="text" placeholder="Enter Username" name="username" required>
           <br>
           <label><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="psw" required>
+          <input type="password" placeholder="Enter Password" name="password" required>
           <br>
           <button class="button" type="submit" style="background-color: grey; color: white; padding: 8px 10px; margin: 8px 0; border: none; cursor: pointer; display: block; margin-left: auto; margin-right: auto;">Login</button>
           <label class='rem'>
