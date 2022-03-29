@@ -80,6 +80,7 @@
         // // $str .= 'let logContainer = document.querySelector(".logContainer");'
         // // $str .='let loginErrorMessage = document.createElement("H3");'
         // // $str .= 'loginErrorMessage.textContent =' . $message;
+        // // $str .= logContainer.appendChild(loginErrorMessage);
         // // $str .= '</script>';
         // // echo $str;
         // }
