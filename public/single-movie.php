@@ -1,11 +1,14 @@
 <?php
-include 'all-movie-ids.php';
 
 
 $config = include "../config.php";
 include "../database/Connection.php";
 include "../classes/Movie.php";
+include "API/titleSearch.php";
 
+if (isset($_GET['title'])) {
+  getMovieByTitle();
+}
 
 if (isset($_GET["id"])) {
   $id = $_GET["id"];
@@ -15,7 +18,7 @@ if (isset($_GET["id"])) {
   $idStatement = $pdo->prepare($selectStatment);
   $idStatement->execute();
   $resultingIDs = $idStatement->fetchAll(PDO::FETCH_ASSOC);
-
+  var_dump($resultingIDs);
   // $selectAllIdsStatment = "SELECT id FROM movie";
   // $allIdsStatement = $pdo->prepare($selectAllIdsStatment);
   // $allIdsStatement->execute();
@@ -28,8 +31,6 @@ if (isset($_GET["id"])) {
   }
   if (!in_array($id, $allIds)) {
     header("Location: error.php");
-    // var_dump($allIds);
-    // var_dump($resultingIDs);
   }
   if (ctype_upper($id)) {
     header("Location: error.php");
