@@ -1,8 +1,10 @@
+<?php
+      session_start();  
+  ?>
+
 <!DOCTYPE html>
 <html lang="en">
-  <?php
-      session_start();  // not sure if we need it here ?? 
-  ?>
+
 
 <head>
   <meta charset="UTF-8">
