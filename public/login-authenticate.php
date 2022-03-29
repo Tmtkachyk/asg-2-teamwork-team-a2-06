@@ -60,4 +60,13 @@
     }
 
 
+        function loginError($message){
+        echo "<script>";
+        echo 'let logContainer = document.querySelector(".logContainer");'
+        echo 'let loginErrorMessage = document.createElement("H3");'
+        echo 'loginErrorMessage.textContent =' . $message;
+        echo "</script>";
+    }
+
+
  
