@@ -77,6 +77,7 @@ class Movie
     }
     $this->cast = $cast;
     $this->crew = $crew;
+
     $companiesRaw = json_decode($companiesRaw);
     foreach ($companiesRaw as $val) {
       $objVars = get_object_vars($val);
@@ -111,4 +112,11 @@ class Movie
     $poster_path = $this->poster_path;
     return "https://image.tmdb.org/t/p/w$size/$poster_path";
   }
+
+
+
+  
+
+
+
 }

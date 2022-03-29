@@ -37,6 +37,20 @@
         <a href="about.php" class="block lg:inline-block text-md font-bold  text-black  sm:hover:border-indigo-400  hover:text-orange-500 mx-2 focus:text-blue-500  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">
           About Us
         </a>
+
+        <?php
+	        	if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
+            {
+		          	echo '<a href="favorites.php" class="block lg:inline-block text-md font-bold  text-black  sm:hover:border-indigo-400  hover:text-orange-500 mx-2 focus:text-blue-500  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">Favorites</a>';
+		          	echo '<a href="logout.php" class="block lg:inline-block text-md font-bold  text-black  sm:hover:border-indigo-400  hover:text-orange-500 mx-2 focus:text-blue-500  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">Logout</a>' ;
+	        	}
+            else
+            {
+		          	echo '<a href="login.php" class="block lg:inline-block text-md font-bold  text-black  sm:hover:border-indigo-400  hover:text-orange-500 mx-2 focus:text-blue-500  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">Login</a>' ;
+		          	echo '<a href="signup-form.php" class="block lg:inline-block text-md font-bold  text-black  sm:hover:border-indigo-400  hover:text-orange-500 mx-2 focus:text-blue-500  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">Sign Up</a>' ;
+		        }
+	      ?>
+
       </div>
     </div>
 
