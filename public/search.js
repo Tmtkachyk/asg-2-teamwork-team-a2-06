@@ -18,18 +18,19 @@ window.addEventListener("load", () => {
 // });
 
 
-//[HOME.4] A user should not be allowed to search for a title when the title search box is empty.
-// homeSearchBox.addEventListener("input", () => {
-//   if (homeSearchBox.value == "") {
-//     searchButton.disabled = true;
-//   } else {
-//     searchButton.disabled = false;
-// }
-// });
+//A user should not be allowed to search for a title when the title search box is empty.
+homeSearchBox.addEventListener("input", () => {
+  if (homeSearchBox.value == "") {
+    searchButton.disabled = true;
+  } else {
+    searchButton.disabled = false;
+}
+});
 
 //Search movie through click
 searchButton.addEventListener("click", () => {
 let userSearch = homeSearchBox.value;
 fetchingMatchingMovies(userSearch);
-// showLoadingAnimation();
+
+window.location.href = "/asg-2-teamwork-team-a2-06/public/browse-movies.php";
 })
