@@ -10,7 +10,7 @@
     include "../classes/Movie.php";
 
   
-    echo "Teeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeestt";
+    //echo "Teeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeestt";
 
     $password = "";
     $id = "";
@@ -22,32 +22,32 @@
 
         //echo $id; //works
 
-        validateLogin($id, $password);
+        validateLogin($id, $password, $config);
     }
 
 
 
 
-    function validateLogin($id, $password){
+    function validateLogin($id, $password, $config){
 
     
-        $pdo = Connection::connect($config['users']); // ask james about this 
-        $userPasswordSQL = "SELECT id, password FROM users WHERE id=:id"; //ask james about this 
+        $pdo = Connection::connect($config['database']); 
+        $userPasswordSQL = "SELECT `id`, `password_sha256` FROM `users` WHERE id=$id"; 
 
-        $userPassStatement = $pdo->prepare($userPasswordSQL);
-        $userPassStatement->execute();
+        $userStatement = $pdo->prepare($userPasswordSQL);
+        $userStatement->execute();
 
-        $queryResult = $userPassStatement->fetchAll(PDO::FETCH_ASSOC);
+        $queryResult = $userStatement->fetchAll(PDO::FETCH_ASSOC);
 
-        
+       // print_r($queryResult); //WORKS !
 
-        if($userPassStatement->rowCount())
+        if($userStatement->rowCount())
         {
             foreach($queryResult as $oneRow)
             {
                 // https://www.php.net/manual/en/function.password-verify.php
 
-                if(verify_password($password, $oneRow['password'])){
+                if(password_verify($password, $oneRow['password_sha256'])){
 
                     $_SESSION['LoggedIn'] = true;
                     $_SESSION['id'] = $oneRow['id'];
@@ -58,12 +58,13 @@
 
                 }
                 else{
-                    loginError("Incorrect password");
+                    //loginError("Incorrect password");
+                    echo "incorrect password";
                 }
             }
         }
         else{
-            echo "shiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiitttt";
+            echo 'user does not exist';
             //loginError("User $id does not exist");
         }
 
@@ -73,17 +74,17 @@
 
         // to be uncommented when the database stuff is fixed 
 
-        // function loginError($message)
-        // {
-        //     echo "heeeeeeellllo"
-        // // $str = '<script>';
-        // // $str .= 'let logContainer = document.querySelector(".logContainer");'
-        // // $str .='let loginErrorMessage = document.createElement("H3");'
-        // // $str .= 'loginErrorMessage.textContent =' . $message;
-        // // $str .= logContainer.appendChild(loginErrorMessage);
-        // // $str .= '</script>';
-        // // echo $str;
-        // }
+        function loginError($message)
+        {
+            echo "heeeeeeellllo";
+            $str = '<script>';
+            $str .= 'let logContainer = document.querySelector(".logContainer")';
+            $str .='let loginErrorMessage = document.createElement("H3")';
+            $str .= 'loginErrorMessage.textContent =' . $message;
+            $str .= 'logContainer.appendChild(loginErrorMessage)';
+            $str .= '</script>';
+            echo $str;
+        }
 
 
  
