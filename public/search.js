@@ -19,22 +19,40 @@ window.addEventListener("load", () => {
 
 
 //A user should not be allowed to search for a title when the title search box is empty.
+// homeSearchBox.addEventListener("input", () => {
+//   if (homeSearchBox.value == "") {
+//     searchButton.disabled = true;
+   
+//   } else {
+//     searchButton.disabled = false;
+  
+// }
+// });
+
+// //Search movie through click
+// searchButton.addEventListener("click", () => {
+// let userSearch = homeSearchBox.value;
+// fetchingMatchingMovies(userSearch);
+// })
+
+
+
+//A user should not be allowed to search for a title when the title search box is empty.
 homeSearchBox.addEventListener("input", () => {
   if (homeSearchBox.value == "") {
     searchButton.disabled = true;
+    console.log("empty");
   } else {
-    searchButton.disabled = false;
+  //Search movie through click
+searchButton.addEventListener("click", () => {
+  let userSearch = homeSearchBox.value;
+  fetchingMatchingMovies(userSearch);
+  })
 }
 });
 
-//Search movie through click
-searchButton.addEventListener("click", () => {
-let userSearch = homeSearchBox.value;
-fetchingMatchingMovies(userSearch);
 
-
-
-})
+ 
  
      //Clear session and local
      function clearEverything(){
