@@ -32,5 +32,6 @@ searchButton.addEventListener("click", () => {
 let userSearch = homeSearchBox.value;
 fetchingMatchingMovies(userSearch);
 
-window.location.href = "/asg-2-teamwork-team-a2-06/public/browse-movies.php";
+
+
 })

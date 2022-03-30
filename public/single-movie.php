@@ -388,6 +388,7 @@ $movie = new Movie(
     </div>
   </div>
   <script src="JavaScript/details.js"></script>
+
 </body>
 
 </html>
