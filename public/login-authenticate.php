@@ -32,7 +32,7 @@
 
     
         $pdo = Connection::connect($config['database']); 
-        $userPasswordSQL = "SELECT `id`, `password_sha256` FROM `users` WHERE id=$id"; 
+        $userPasswordSQL = "SELECT `id`, `password` FROM `users` WHERE id=$id"; 
 
         $userStatement = $pdo->prepare($userPasswordSQL);
         $userStatement->execute();
@@ -47,7 +47,7 @@
             {
                 // https://www.php.net/manual/en/function.password-verify.php
 
-                if(password_verify($password, $oneRow['password_sha256'])){
+                if(password_verify($password, $oneRow['password'])){
 
                     $_SESSION['LoggedIn'] = true;
                     $_SESSION['id'] = $oneRow['id'];
