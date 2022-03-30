@@ -2,7 +2,8 @@
 function fetchingMatchingMovies(searchTerm) {
   sessionStorage.clear();
   
-  fetch (`http://localhost/asg-2-teamwork-team-a2-06/public/api/movies.php?title=${searchTerm}`)
+  //fetch (`http://localhost/asg-2-teamwork-team-a2-06/public/api/movies.php?title=${searchTerm}`)
+  fetch (`https://comp-3512-w22-team-6.herokuapp.com/api/movies.php?title=${searchTerm}`)
     .then(turnResponseIntoSearchResultObject)
     .then(turnSearchResultObjectIntoTitleMatches)
     .then(sortMovies)
@@ -33,8 +34,8 @@ function sortAlpha(unSortedMovies){
 
 function saveMoviesToSessionStorage(sortedMovies){
   sessionStorage.setItem("matchingMovies", JSON.stringify(sortedMovies));
-  window.location.href = "/asg-2-teamwork-team-a2-06/public/browse-movies.php";
-
+  //window.location.href = "/asg-2-teamwork-team-a2-06/public/browse-movies.php";
+  window.location.href = "/browse-movies.php";
 
 }
 
