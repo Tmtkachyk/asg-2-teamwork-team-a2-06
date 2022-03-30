@@ -1,15 +1,11 @@
 <?php
-      session_start();  
-  ?>
+session_start();
+?>
 
 
 
 <?php
-//this is a comment
-function makeh1()
-{
-  return "<h1>It's alive</h1>";
-}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,6 +22,9 @@ function makeh1()
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="headerStyle.css">
   <script src="header.js"></script>
+
+
+
   <script>
     tailwind.config = {
       theme: {
@@ -133,5 +132,7 @@ function makeh1()
     </main>
   </div>
 </body>
+<script src="search.js"></script>
+<script src="movieHelpers.js"></script>
 
 </html>

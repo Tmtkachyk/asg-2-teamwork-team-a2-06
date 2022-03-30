@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-
-=======
->>>>>>> 7dab040b3016f083fd78d76ae4e178292179abaf
 
 $config = include "../config.php";
 include "../database/Connection.php";
@@ -16,37 +12,27 @@ if (isset($_GET['title'])) {
 if (isset($_GET["id"])) {
   $id = $_GET["id"];
 
-<<<<<<< HEAD
   $pdo = Connection::connect($config['database']);
   $selectStatment = "SELECT id FROM movie WHERE id=$id";
   $idStatement = $pdo->prepare($selectStatment);
   $idStatement->execute();
   $resultingIDs = $idStatement->fetchAll(PDO::FETCH_ASSOC);
   var_dump($resultingIDs);
+
   // $selectAllIdsStatment = "SELECT id FROM movie";
   // $allIdsStatement = $pdo->prepare($selectAllIdsStatment);
   // $allIdsStatement->execute();
   // $allIds = array();
   // $allIds = $allIdsStatement->fetchAll(PDO::FETCH_ASSOC);
 
-=======
-  if (preg_match("/(.*[a-z]){3}/", $_SERVER['QUERY_STRING'])) {
-    header("Location: error.php");
-  }
->>>>>>> 7dab040b3016f083fd78d76ae4e178292179abaf
 
   if (count($_GET) > 1) {
     header("Location: error.php");
   }
-<<<<<<< HEAD
   if (!in_array($id, $allIds)) {
     header("Location: error.php");
   }
   if (ctype_upper($id)) {
-=======
-
-  if (!is_numeric($id)) {
->>>>>>> 7dab040b3016f083fd78d76ae4e178292179abaf
     header("Location: error.php");
   }
 } else {
