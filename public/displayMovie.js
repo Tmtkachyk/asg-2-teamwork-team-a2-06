@@ -58,11 +58,5 @@ document.addEventListener("DOMContentLoaded", (event) => {
       but.classList.add("text-[25px]", "focus:outline-none", "focus:shadow-outline");
       return but;
     }
- 
-     //Clear session and local
- function clearEverything(){
-   sessionStorage.clear();
-   localStorage.clear();
-   
- }
+
  
