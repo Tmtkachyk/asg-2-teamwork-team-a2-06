@@ -35,3 +35,10 @@ fetchingMatchingMovies(userSearch);
 
 
 })
+ 
+     //Clear session and local
+     function clearEverything(){
+      sessionStorage.clear();
+      localStorage.clear();
+      
+    }
