@@ -1,10 +1,3 @@
-<?php
-//   session_start();
-
-   //$_SESSION['log'] = 'in';
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
