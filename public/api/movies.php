@@ -8,7 +8,8 @@ if (!validTitleQuery()) {
   return [];
 } else {
 
-  $titleQuery = $_GET["title"];
+  $titleSearch = $_GET["title"];
+  $titleSearch = $_GET["title"];
   //echo $titleQuery;
   //$id = 170;
   $rawMovieDetails =
@@ -36,11 +37,12 @@ tmdb_id as tmdb_id
 FROM
   movie
 WHERE
-  movie.title LIKE '%$titleQuery%'
+  movie.title LIKE :title
 ";
   $pdo = Connection::connect($config['database']);
   $statement = $pdo->prepare($rawMovieDetails);
-  $statement->execute();
+  $titleQuery = "%$titleSearch%";
+  $statement->execute(["title" => $titleQuery]);
 
 
   echo json_encode($statement->fetchAll(PDO::FETCH_ASSOC));
