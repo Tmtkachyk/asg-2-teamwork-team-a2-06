@@ -1,10 +1,10 @@
 <?php
-
+    session_start();
     $config = include_once "../config.php";
     include "../database/Connection.php";
     include "../classes/Movie.php";
 
-    $_SESSION['log'] = 'in';
+ 
 
     $password = "";
     $id = "";
@@ -13,8 +13,6 @@
     {
         $email = $_POST["email"];
         $password = $_POST["password"];
-
-        //echo $id; //works
 
         validateLogin($email, $password, $config);
     }
@@ -25,6 +23,7 @@
     function validateLogin($email, $password, $config){
 
     
+   
         $pdo = Connection::connect($config['database']); 
         $emailPasswordSQL = "SELECT `id`, `password` FROM `users` WHERE id=$email"; 
 
@@ -32,6 +31,8 @@
         $userStatement->execute();
 
         $queryResult = $userStatement->fetchAll(PDO::FETCH_ASSOC);
+        
+
 
        // print_r($queryResult); //WORKS !
 
@@ -46,22 +47,23 @@
 
 
                     $_SESSION['log'] = 'in';
-
-                   header("location:index.php");
+                    header("location:index.php");
 
                 }
                 else{
+                    
                     $_SESSION['log'] = 'out';
                     //loginError("Incorrect password");
                     echo "incorrect password";
                 }
             }
         }
-        else{
-            $_SESSION['log'] = 'out';
-            $state = 'out';
+        else
+        {
+          
+            
             echo 'user does not exist';
-            //loginError("User $id does not exist");
+          
         }
 
 
