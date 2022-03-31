@@ -1,12 +1,12 @@
+
 <?php
-session_start();
+    session_start();
+   
+    
+   // echo $_SESSION["LoggedIn"];
 ?>
 
 
-
-<?php
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -98,7 +98,17 @@ session_start();
             </button>
           </div>
           <div class="text-white">
-            <span class="">Don't have an acocunt? <a href="register.php" class="text-blue-500 underline"> Register </a></span>
+
+          <?php
+
+            if(isset($_SESSION['log']) && $_SESSION['log'] == 'out')
+            {
+                  echo '<span class="">Dont have an account? <a href="register.php" class="text-blue-500 underline"> Register </a></span>';
+            }
+
+          ?>
+
+
           </div>
         </form>
 

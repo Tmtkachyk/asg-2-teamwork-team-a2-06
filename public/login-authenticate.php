@@ -1,40 +1,34 @@
 <?php
-   
-       // starting session named loggedIn 
-    session_id("loggedIn");
-    session_start();
 
-    
-   $config = include_once "../config.php";
+    $config = include_once "../config.php";
     include "../database/Connection.php";
     include "../classes/Movie.php";
 
-  
-    //echo "Teeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeestt";
+    $_SESSION['log'] = 'in';
 
     $password = "";
     $id = "";
     
     if ($_SERVER["REQUEST_METHOD"] == "POST") 
     {
-        $id = $_POST["username"];
+        $email = $_POST["email"];
         $password = $_POST["password"];
 
         //echo $id; //works
 
-        validateLogin($id, $password, $config);
+        validateLogin($email, $password, $config);
     }
 
 
 
 
-    function validateLogin($id, $password, $config){
+    function validateLogin($email, $password, $config){
 
     
         $pdo = Connection::connect($config['database']); 
-        $userPasswordSQL = "SELECT `id`, `password` FROM `users` WHERE id=$id"; 
+        $emailPasswordSQL = "SELECT `id`, `password` FROM `users` WHERE id=$email"; 
 
-        $userStatement = $pdo->prepare($userPasswordSQL);
+        $userStatement = $pdo->prepare($emailPasswordSQL);
         $userStatement->execute();
 
         $queryResult = $userStatement->fetchAll(PDO::FETCH_ASSOC);
@@ -47,23 +41,25 @@
             {
                 // https://www.php.net/manual/en/function.password-verify.php
 
-                if(password_verify($password, $oneRow['password'])){
+                if(password_verify($password, $oneRow['password']))
+                {
 
-                    $_SESSION['LoggedIn'] = true;
-                    $_SESSION['id'] = $oneRow['id'];
-                    $_SESSION["favs"] = []; 
 
-                    //send user to the home page
-                    header("location:index.php");
+                    $_SESSION['log'] = 'in';
+
+                   header("location:index.php");
 
                 }
                 else{
+                    $_SESSION['log'] = 'out';
                     //loginError("Incorrect password");
                     echo "incorrect password";
                 }
             }
         }
         else{
+            $_SESSION['log'] = 'out';
+            $state = 'out';
             echo 'user does not exist';
             //loginError("User $id does not exist");
         }
@@ -76,7 +72,7 @@
 
         function loginError($message)
         {
-            echo "heeeeeeellllo";
+       
             $str = '<script>';
             $str .= 'let logContainer = document.querySelector(".logContainer")';
             $str .='let loginErrorMessage = document.createElement("H3")';

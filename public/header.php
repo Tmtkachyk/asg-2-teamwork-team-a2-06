@@ -1,4 +1,15 @@
 <!-- navbar -->
+<?php
+  //  $_SESSION['log'] = 'out';
+
+include_once 'login-authenticate.php';
+
+
+
+
+?>
+
+
 <div class="md:block sm:hidden w-10/12 m-auto">
   <nav class="flex bg-white rounded-3xl">
     <div class="px-6 py-6 flex w-full ">
@@ -6,8 +17,20 @@
       <!-- Nav Links -->
       <ul class="px-4 mx-auto font-semibold font-heading space-x-12 ">
         <li class="bg-black/80 text-white"><a href="index.php">Home</a></li>
-        <li class="bg-black/80 text-white"><a href="login.php">Login</a></li>
         <li class="bg-black/80 text-white"><a href="about.php">About Us</a></li>
+      
+      <?php
+        if(isset($_SESSION['log']) && $_SESSION['log'] == 'in')
+            {
+       		    echo '<li class="bg-black/80 text-white"><a href="logout.php">Log out</a></li>';
+              echo '<li class="bg-black/80 text-white"><a href="favourties.php">Favourites</a></li>';    
+            }
+            else
+            {
+              echo '<li class="bg-black/80 text-white"><a href="login.php">Login</a></li>';
+	        	}
+	      ?>
+
       </ul>
     </div>
 
@@ -38,18 +61,9 @@
           About Us
         </a>
 
-        <?php
-	        	if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
-            {
-		          	echo '<a href="favorites.php" class="block lg:inline-block text-md font-bold  text-black  sm:hover:border-indigo-400  hover:text-orange-500 mx-2 focus:text-blue-500  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">Favorites</a>';
-		          	echo '<a href="logout.php" class="block lg:inline-block text-md font-bold  text-black  sm:hover:border-indigo-400  hover:text-orange-500 mx-2 focus:text-blue-500  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">Logout</a>' ;
-	        	}
-            else
-            {
-		          	echo '<a href="login.php" class="block lg:inline-block text-md font-bold  text-black  sm:hover:border-indigo-400  hover:text-orange-500 mx-2 focus:text-blue-500  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">Login</a>' ;
-		          	echo '<a href="signup-form.php" class="block lg:inline-block text-md font-bold  text-black  sm:hover:border-indigo-400  hover:text-orange-500 mx-2 focus:text-blue-500  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">Sign Up</a>' ;
-		        }
-	      ?>
+        
+
+
 
       </div>
     </div>
