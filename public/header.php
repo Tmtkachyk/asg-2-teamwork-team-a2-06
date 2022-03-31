@@ -1,5 +1,6 @@
 <?php
       //include_once 'login-authenticate.php';
+      session_start();
 ?>
 
 

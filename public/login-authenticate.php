@@ -2,9 +2,8 @@
     session_start();
     $config = include_once "../config.php";
     include "../database/Connection.php";
-    include "../classes/Movie.php";
 
- 
+    echo " TTTTTTTTTTTEST";
 
     $password = "";
     $id = "";
@@ -13,44 +12,35 @@
     {
         $email = $_POST["email"];
         $password = $_POST["password"];
-
         validateLogin($email, $password, $config);
     }
 
 
 
 
-    function validateLogin($email, $password, $config){
-
-    
-   
+    function validateLogin($email, $password, $config)
+    {
         $pdo = Connection::connect($config['database']); 
         $emailPasswordSQL = "SELECT `id`, `password` FROM `users` WHERE id=$email"; 
-
         $userStatement = $pdo->prepare($emailPasswordSQL);
         $userStatement->execute();
-
         $queryResult = $userStatement->fetchAll(PDO::FETCH_ASSOC);
         
 
 
-       // print_r($queryResult); //WORKS !
-
+        // checking if there's a result then validating the password 
         if($userStatement->rowCount())
         {
             foreach($queryResult as $oneRow)
             {
-                // https://www.php.net/manual/en/function.password-verify.php
 
                 if(password_verify($password, $oneRow['password']))
                 {
-
-
                     $_SESSION['log'] = 'in';
                     header("location:index.php");
-
                 }
-                else{
+                else
+                {
                     
                     $_SESSION['log'] = 'out';
                     //loginError("Incorrect password");
@@ -58,31 +48,27 @@
                 }
             }
         }
+
         else
         {
-          
-            
             echo 'user does not exist';
-          
         }
-
-
     }
 
 
-        // to be uncommented when the database stuff is fixed 
+        // // to be uncommented when the database stuff is fixed 
 
-        function loginError($message)
-        {
+        // function loginError($message)
+        // {
        
-            $str = '<script>';
-            $str .= 'let logContainer = document.querySelector(".logContainer")';
-            $str .='let loginErrorMessage = document.createElement("H3")';
-            $str .= 'loginErrorMessage.textContent =' . $message;
-            $str .= 'logContainer.appendChild(loginErrorMessage)';
-            $str .= '</script>';
-            echo $str;
-        }
+        //     $str = '<script>';
+        //     $str .= 'let logContainer = document.querySelector(".logContainer")';
+        //     $str .='let loginErrorMessage = document.createElement("H3")';
+        //     $str .= 'loginErrorMessage.textContent =' . $message;
+        //     $str .= 'logContainer.appendChild(loginErrorMessage)';
+        //     $str .= '</script>';
+        //     echo $str;
+        // }
 
 
  

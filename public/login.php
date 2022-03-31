@@ -45,7 +45,6 @@
         },
 
         extend: {},
-      },
       height: {
         128: "32rem",
       },
@@ -71,7 +70,7 @@
     ?>
     <main class="container m-auto h-[75vh]">
 
-      <form method="post" class="theForm">
+      <form method="post" class="theForm" action="login-authenticate.php">
 
         <div class="imgcontainer">
           <img src="../images/logIcon.jpg" alt="Login Icon" class="loginIcon">
