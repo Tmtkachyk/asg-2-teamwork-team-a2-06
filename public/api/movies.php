@@ -36,7 +36,7 @@ tmdb_id as tmdb_id
 FROM
   movie
 WHERE
-  movie.title LIKE '%$titleStuff%'
+  movie.title LIKE '%$titleQuery%'
 ";
   $pdo = Connection::connect($config['database']);
   $statement = $pdo->prepare($rawMovieDetails);
