@@ -2,12 +2,17 @@
 $config = include "../../config.php";
 include "../../database/Connection.php";
 include "../../classes/Movie.php";
+include "queryHelper.php";
 
-$titleQuery = $_GET["title"];
-//echo $titleQuery;
-//$id = 170;
-$rawMovieDetails =
-  "
+if (!validTitleQuery()) {
+  return [];
+} else {
+
+  $titleQuery = $_GET["title"];
+  //echo $titleQuery;
+  //$id = 170;
+  $rawMovieDetails =
+    "
 SELECT
 id as id,
 title as title,
@@ -31,46 +36,47 @@ tmdb_id as tmdb_id
 FROM
   movie
 WHERE
-  movie.title LIKE '%$titleQuery%'
+  movie.title LIKE '%$titleStuff%'
 ";
-$pdo = Connection::connect($config['database']);
-$statement = $pdo->prepare($rawMovieDetails);
-$statement->execute();
+  $pdo = Connection::connect($config['database']);
+  $statement = $pdo->prepare($rawMovieDetails);
+  $statement->execute();
 
 
-echo json_encode($statement->fetchAll(PDO::FETCH_ASSOC));
-// $results = $statement->fetchAll(PDO::FETCH_OBJ);
-// $arrayOfMovies = array();
-// foreach ($results as $movieObj) {
-//   $movie = new Movie(
-//     $movieObj->id,
-//     $movieObj->title,
-//     $movieObj->release_date,
-//     $movieObj->revenue,
-//     $movieObj->runtime,
-//     $movieObj->tagline,
-//     $movieObj->popularity,
-//     $movieObj->vote_average,
-//     $movieObj->vote_count,
-//     $movieObj->overview,
-//     $movieObj->cast,
-//     $movieObj->crew,
-//     $movieObj->companies,
-//     $movieObj->countries,
-//     $movieObj->genres,
-//     $movieObj->keywords,
-//     $movieObj->poster_path,
-//     $movieObj->imdb_id,
-//     $movieObj->tmdb_id
-//   );
-//   array_push($arrayOfMovies, $movie);
-// }
+  echo json_encode($statement->fetchAll(PDO::FETCH_ASSOC));
+  // $results = $statement->fetchAll(PDO::FETCH_OBJ);
+  // $arrayOfMovies = array();
+  // foreach ($results as $movieObj) {
+  //   $movie = new Movie(
+  //     $movieObj->id,
+  //     $movieObj->title,
+  //     $movieObj->release_date,
+  //     $movieObj->revenue,
+  //     $movieObj->runtime,
+  //     $movieObj->tagline,
+  //     $movieObj->popularity,
+  //     $movieObj->vote_average,
+  //     $movieObj->vote_count,
+  //     $movieObj->overview,
+  //     $movieObj->cast,
+  //     $movieObj->crew,
+  //     $movieObj->companies,
+  //     $movieObj->countries,
+  //     $movieObj->genres,
+  //     $movieObj->keywords,
+  //     $movieObj->poster_path,
+  //     $movieObj->imdb_id,
+  //     $movieObj->tmdb_id
+  //   );
+  //   array_push($arrayOfMovies, $movie);
+  // }
 
-// foreach ($arrayOfMovies as $movie) {
-//   echo "MOVIE: <br>";
-//   echo "$movie->title";
-//   echo "<br>";
-// }
+  // foreach ($arrayOfMovies as $movie) {
+  //   echo "MOVIE: <br>";
+  //   echo "$movie->title";
+  //   echo "<br>";
+  // }
 
-// var_dump(json_encode($arrayOfMovies));
-// return json_encode($arrayOfMovies);
+  // var_dump(json_encode($arrayOfMovies));
+  // return json_encode($arrayOfMovies);
+}
