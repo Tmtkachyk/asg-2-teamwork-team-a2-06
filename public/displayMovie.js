@@ -5,9 +5,16 @@ document.addEventListener("DOMContentLoaded", (event) => {
  function displayMatchingMovies(){
       
   let listOfMovies = JSON.parse(sessionStorage.getItem("matchingMovies"));
-       listOfMovies.forEach(movie =>{
-         populateDefault(movie);
-         });
+
+  if (listOfMovies.length == 0) {
+    //showNoResults();
+    document.querySelector("#noMovies").classList.remove("hidden");
+  }else {
+    listOfMovies.forEach(movie =>{
+      populateDefault(movie);
+      });
+  }
+
      }
  
  
@@ -59,4 +66,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
       return but;
     }
 
- 
+    function showNoResults() {
+      document.querySelector("#noMovies").classList.remove("hidden");
+    }
