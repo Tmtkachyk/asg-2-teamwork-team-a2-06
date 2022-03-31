@@ -1,6 +1,7 @@
 <?php
-     // session_start();  -> uncomment later when line 3 is removed 
-      include 'login-authenticate.php'; // to be removed just to test the page
+    
+  //    include 'login-authenticate.php'; 
+      
   ?>
 
 <!DOCTYPE html>
@@ -79,7 +80,7 @@
         <div class="logContainer">
 
           <label><b>Username</b></label>
-          <input type="text" placeholder="Enter Username" name="username" required>
+          <input type="text" placeholder="Enter Username" name="email" required>
           <br>
           <label><b>Password</b></label>
           <input type="password" placeholder="Enter Password" name="password" required>

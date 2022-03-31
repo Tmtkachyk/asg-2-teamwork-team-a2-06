@@ -1,9 +1,7 @@
-
 <?php
-    session_start();
-   
-    
-   // echo $_SESSION["LoggedIn"];
+//   session_start();
+
+   //$_SESSION['log'] = 'in';
 ?>
 
 
@@ -101,7 +99,7 @@
 
           <?php
 
-            if(isset($_SESSION['log']) && $_SESSION['log'] == 'out')
+            if(!isset($_SESSION['log']) || isset($_SESSION['log']) && $_SESSION['log'] != 'in')
             {
                   echo '<span class="">Dont have an account? <a href="register.php" class="text-blue-500 underline"> Register </a></span>';
             }
