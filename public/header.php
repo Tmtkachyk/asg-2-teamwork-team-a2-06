@@ -1,12 +1,5 @@
-<!-- navbar -->
 <?php
-  //  $_SESSION['log'] = 'out';
-
-include_once 'login-authenticate.php';
-
-
-
-
+      //include_once 'login-authenticate.php';
 ?>
 
 
@@ -23,7 +16,7 @@ include_once 'login-authenticate.php';
         if(isset($_SESSION['log']) && $_SESSION['log'] == 'in')
             {
        		    echo '<li class="bg-black/80 text-white"><a href="logout.php">Log out</a></li>';
-              echo '<li class="bg-black/80 text-white"><a href="favourties.php">Favourites</a></li>';    
+              echo '<li class="bg-black/80 text-white"><a href="favourites.php">Favourites</a></li>';    
             }
             else
             {
