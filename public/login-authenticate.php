@@ -3,16 +3,18 @@
     $config = include_once "../config.php";
     include "../database/Connection.php";
 
-    echo " TTTTTTTTTTTEST";
+    
 
     $password = "";
     $id = "";
+    $quote = '"';
     
     if ($_SERVER["REQUEST_METHOD"] == "POST") 
     {
-        $email = $_POST["email"];
+        $email = $quote . sanitizeEmailInput($_POST['email']) . $quote; 
         $password = $_POST["password"];
-        validateLogin($email, $password, $config);
+       // echo $email;
+         validateLogin($email, $password, $config);
     }
 
 
@@ -21,7 +23,7 @@
     function validateLogin($email, $password, $config)
     {
         $pdo = Connection::connect($config['database']); 
-        $emailPasswordSQL = "SELECT `id`, `password` FROM `users` WHERE id=$email"; 
+        $emailPasswordSQL = "SELECT `email`, `password` FROM `users` WHERE email=$email"; 
         $userStatement = $pdo->prepare($emailPasswordSQL);
         $userStatement->execute();
         $queryResult = $userStatement->fetchAll(PDO::FETCH_ASSOC);
@@ -43,7 +45,7 @@
                 {
                     
                     $_SESSION['log'] = 'out';
-                    //loginError("Incorrect password");
+                    loginError("Incorrect password");
                     echo "incorrect password";
                 }
             }
@@ -54,6 +56,22 @@
             echo 'user does not exist';
         }
     }
+
+
+
+        function sanitizeEmailInput($inpEmail){
+
+            $inpEmail = trim($inpEmail);
+            $inpEmail = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
+
+            return $inpEmail;
+        }
+
+        function sanitizePassword($pasw){
+
+            $inpEmail = trim($pasw);
+            return $inpEmail;
+        }
 
 
         // // to be uncommented when the database stuff is fixed 
