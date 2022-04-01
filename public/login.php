@@ -1,6 +1,5 @@
 <?php
     
-  //    include 'login-authenticate.php'; 
       
   ?>
 
@@ -85,9 +84,16 @@
           <input type="password" placeholder="Enter Password" name="password" required>
           <br>
           <button class="button" type="submit" style="background-color: grey; color: white; padding: 8px 10px; margin: 8px 0; border: none; cursor: pointer; display: block; margin-left: auto; margin-right: auto;">Login</button>
-          <label class='rem'>
-            <input type="checkbox" checked="checked" name="dontForget"> Remember me
-          </label>
+
+          <?php
+            if (isset($_SESSION['incorrectPassword']) && $_SESSION['incorrectPassword'] == true)
+            {
+              echo '<h3> Password Incorrect, please try again </h3>';
+            }
+
+          ?>
+
+
         </div>
 
         <div class="registerContainer" style="background-color:#f1f1f1">

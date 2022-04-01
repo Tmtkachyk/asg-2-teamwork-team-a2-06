@@ -45,8 +45,8 @@
                 {
                     
                     $_SESSION['log'] = 'out';
-                    loginError("Incorrect password");
-                    echo "incorrect password";
+
+                    $_SESSION['incorrectPassword'] = true;
                 }
             }
         }
