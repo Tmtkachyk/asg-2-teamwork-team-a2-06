@@ -77,18 +77,27 @@
 
         <div class="logContainer">
 
-          <label><b>Username</b></label>
-          <input type="text" placeholder="Enter Username" name="email" required>
+          <label><b>Email</b></label>
+          <input type="text" placeholder="Enter email" name="email" required>
           <br>
           <label><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="password" required>
+          <input type="password" placeholder="Enter Password" name="password" required minlength="8" required>
           <br>
           <button class="button" type="submit" style="background-color: grey; color: white; padding: 8px 10px; margin: 8px 0; border: none; cursor: pointer; display: block; margin-left: auto; margin-right: auto;">Login</button>
 
           <?php
             if (isset($_SESSION['incorrectPassword']) && $_SESSION['incorrectPassword'] == true)
             {
-              echo '<h3> Password Incorrect, please try again </h3>';
+              echo '<h3 style="text-align:center; color:red;"> Password Incorrect, please try again </h3>';
+
+              unset($_SESSION['incorrectPassword']);
+            }
+
+            if (isset($_SESSION['exist']) && $_SESSION['exist'] == false)
+            {
+              echo '<h3 style="text-align:center; color:red;"> User does not exist, please try again </h3>';
+
+              unset($_SESSION['exist']);
             }
 
           ?>

@@ -56,7 +56,7 @@ input[type=text], input[type=password], input[type=email] {
 
 
   button {
-    background-color: grey;
+    background-color: lightblue;
     color: white;
     padding: 8px 10px;
     margin: 8px 0;
@@ -65,7 +65,7 @@ input[type=text], input[type=password], input[type=email] {
     display: block;
     margin-left: auto;
     margin-right: auto;
-
+    border-radius: 5px;
   }
 
   .rem{

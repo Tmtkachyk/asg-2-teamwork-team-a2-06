@@ -47,13 +47,17 @@
                     $_SESSION['log'] = 'out';
 
                     $_SESSION['incorrectPassword'] = true;
+                    header("location:login.php");
                 }
             }
         }
 
         else
         {
-            echo 'user does not exist';
+         //  echo 'user does not exist';
+            $_SESSION['exist'] = false;
+            header("location:login.php");
+
         }
     }
 
