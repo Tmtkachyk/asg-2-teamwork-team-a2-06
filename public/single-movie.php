@@ -7,10 +7,6 @@ include "../database/Connection.php";
 include "../classes/Movie.php";
 
 
-// if (isset($_GET['title'])) {
-//   getMovieByTitle();
-// }
-
 if (isset($_GET["id"])) {
   $id = $_GET["id"];
 
