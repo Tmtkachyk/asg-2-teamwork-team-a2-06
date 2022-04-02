@@ -26,15 +26,15 @@ document.addEventListener("DOMContentLoaded", (event) => {
        document.querySelector("#defaultInfo").append(makeDiv(theMovie.vote_average));
 
    
-       if ( document.querySelector(".ghettoFix"))
+     //  if ( document.querySelector(".ghettoFix"))
        {
 
-        document.querySelector(".ghettoFix").remove();
+     ///   document.querySelector(".ghettoFix").remove();
 
         let favouriteButton = makeFavButton(theMovie);
         document.querySelector("#defaultInfo").append(makeDiv(favouriteButton));
 
-       }
+    //   }
    
 
      }
