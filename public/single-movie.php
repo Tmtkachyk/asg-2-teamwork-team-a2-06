@@ -1,13 +1,11 @@
 <?php
+// include 'all-movie-ids.php';
+// include 'mad-max.php';
 
 $config = include "../config.php";
 include "../database/Connection.php";
 include "../classes/Movie.php";
-include "API/titleSearch.php";
 
-if (isset($_GET['title'])) {
-  getMovieByTitle();
-}
 
 if (isset($_GET["id"])) {
   $id = $_GET["id"];
@@ -17,36 +15,17 @@ if (isset($_GET["id"])) {
   $idStatement = $pdo->prepare($selectStatment);
   $idStatement->execute();
   $resultingIDs = $idStatement->fetchAll(PDO::FETCH_ASSOC);
-  var_dump($resultingIDs);
-
-  // $selectAllIdsStatment = "SELECT id FROM movie";
-  // $allIdsStatement = $pdo->prepare($selectAllIdsStatment);
-  // $allIdsStatement->execute();
-  // $allIds = array();
-  // $allIds = $allIdsStatement->fetchAll(PDO::FETCH_ASSOC);
-
 
   if (count($_GET) > 1) {
     header("Location: error.php");
   }
-  if (!in_array($id, $allIds)) {
-    header("Location: error.php");
-  }
+  // if (!in_array($id, $allIds)) {
+  //   header("Location: error.php");
+  // }
   if (ctype_upper($id)) {
     header("Location: error.php");
   }
 } else {
-  header("Location: error.php");
-}
-
-
-$pdo = Connection::connect($config['database']);
-$selectStatment = "SELECT id FROM movie WHERE id=$id";
-$idStatement = $pdo->prepare($selectStatment);
-$idStatement->execute();
-$resultingIDs = $idStatement->fetchAll(PDO::FETCH_ASSOC);
-
-if (count($resultingIDs) == 0) {
   header("Location: error.php");
 }
 
@@ -104,6 +83,16 @@ $movie = new Movie(
   $movieObj->imdb_id,
   $movieObj->tmdb_id
 );
+
+
+
+
+
+//if id key isn't empty
+
+
+// elseif (is_numeric($id) == true) {
+//   header("Location: error.php");}
 
 
 
@@ -185,9 +174,7 @@ $movie = new Movie(
             <div class="mx-2">
               <div class="flex justify-center">
                 <button class="lg:text-2x text-white bg-neutral-600 hover:bg-neutral-700 font-bold py-2 px-4 my-2 lg:ml-2 rounded focus:outline-none focus:shadow-outline" type="submit" id="closeButton">
-
                   Favourite
-
                 </button>
               </div>
 
@@ -382,13 +369,11 @@ $movie = new Movie(
                 </div>
               </div>
             </div>
+
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-  <script src="JavaScript/details.js"></script>
 
+        <script src="JavaScript/details.js"></script>
 </body>
 
 </html>
