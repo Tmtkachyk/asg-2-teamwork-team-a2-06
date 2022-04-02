@@ -25,16 +25,18 @@ document.addEventListener("DOMContentLoaded", (event) => {
        document.querySelector("#defaultInfo").append(makeDiv(theMovie.release_date));
        document.querySelector("#defaultInfo").append(makeDiv(theMovie.vote_average));
    
-       let favouriteButton = makeFavButton(theMovie);
-       let favB = makeDiv(favouriteButton)
        
+   
 
-      if (document.querySelector(".empty") != undefined)
+      if ( typeof(document.querySelector(".empty")) && document.querySelector(".empty") != null)
       {
-          favB.style.display="none";
+          let favouriteButton = makeFavButton(theMovie);
+          document.querySelector("#defaultInfo").append(makeDiv(favouriteButton));
+
+          document.querySelector(".empty").remove();
       }
 
-        document.querySelector("#defaultInfo").append(favB);
+        
 
      
      }
