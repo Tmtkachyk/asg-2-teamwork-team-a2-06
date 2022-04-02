@@ -90,14 +90,13 @@
           </div>
           <div class="text-white">
 
-          <?php
+            <?php
 
-            if(!isset($_SESSION['log']) || isset($_SESSION['log']) && $_SESSION['log'] != 'in')
-            {
-                  echo '<span class="">Dont have an account? <a href="register.php" class="text-blue-500 underline"> Register </a></span>';
+            if (!isset($_SESSION['log']) || isset($_SESSION['log']) && $_SESSION['log'] != 'in') {
+              echo '<span class="">Dont have an account? <a href="register.php" class="text-blue-500 underline"> Register </a></span>';
             }
 
-          ?>
+            ?>
 
 
           </div>
