@@ -29,16 +29,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
        if ( document.querySelector(".ghettoFix"))
        {
 
-        document.querySelector(".ghettoFix").style.display = "none";
+        document.querySelector(".ghettoFix").remove();
 
         let favouriteButton = makeFavButton(theMovie);
         document.querySelector("#defaultInfo").append(makeDiv(favouriteButton));
 
        }
-       else{
-        document.querySelector(".ghettoFix").style.display = "none";
-       }
-
+   
 
      }
  
