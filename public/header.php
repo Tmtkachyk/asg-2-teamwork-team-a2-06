@@ -22,7 +22,7 @@
             }
             else
             {
-              echo '<li class="bg-black/80 text-white"><a href="login.php">Login</a></li>';
+              echo '<li class="bg-black/80 text-white" id="forFav"><a href="login.php">Login</a></li>';
               echo '<li class="bg-black/80 text-white"><a href="register.php">Register</a></li>'; 
 	        	}
 	      ?>
