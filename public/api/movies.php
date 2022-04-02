@@ -15,25 +15,25 @@ if (!validTitleQuery()) {
   $rawMovieDetails =
     "
 SELECT
-id as id,
-title as title,
-release_date as release_date,
-revenue as revenue,
-runtime as runtime,
-tagline as tagline,
-popularity as popularity,
-vote_average as vote_average,
-vote_count as vote_count,
-overview as overview,
-cast as cast,
-crew as crew,
+id ,
+title ,
+release_date,
+revenue,
+runtime,
+tagline,
+popularity,
+vote_average,
+vote_count,
+overview,
+cast,
+crew,
 production_companies as companies,
 production_countries as countries,
-genres as genres,
-keywords as keywords,
-poster_path as poster_path,
-imdb_id as imdb_id,
-tmdb_id as tmdb_id
+genres,
+keywords,
+poster_path,
+imdb_id,
+tmdb_id
 FROM
   movie
 WHERE
