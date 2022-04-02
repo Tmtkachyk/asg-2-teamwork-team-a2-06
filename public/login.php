@@ -88,14 +88,14 @@
           <?php
             if (isset($_SESSION['incorrectPassword']) && $_SESSION['incorrectPassword'] == true)
             {
-              echo '<h3 style="text-align:center; color:red;"> Password Incorrect, please try again </h3>';
+              echo '<h3 style="text-align:center; color:red;"> Incorrect email or password, please try again </h3>';
 
               unset($_SESSION['incorrectPassword']);
             }
 
             if (isset($_SESSION['exist']) && $_SESSION['exist'] == false)
             {
-              echo '<h3 style="text-align:center; color:red;"> User does not exist, please try again </h3>';
+              echo '<h3 style="text-align:center; color:red;"> Incorrect email or password, please try again </h3>';
 
               unset($_SESSION['exist']);
             }
