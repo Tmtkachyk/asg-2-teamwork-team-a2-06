@@ -3,7 +3,7 @@ function validTitleQuery()
 {
 
   return queryHasOneKey() && titleQueryExists() && titleIsString()
-    && titleIsValidString();
+    && titleIsValidString() && containsOnlyOneQuery();
 }
 
 function titleQueryExists()
@@ -32,17 +32,15 @@ function titleIsValidString()
   }
 }
 
-// function containsOnlyOneQuery()
-// {
-//   $pattern = "/&*/";
-
-//   $titleQuery = $_GET["title"];
-//   if (preg_match($pattern, $titleQuery, $matches)) {
-//     var_dump($matches);
-//     return false;
-//   } else
-//     return true;
-// }
+function containsOnlyOneQuery()
+{
+  $pattern = "&";
+  $titleQuery = $_SERVER['QUERY_STRING'];
+  if (str_contains($titleQuery, $pattern)) {
+    return false;
+  } else
+    return true;
+}
 
 
 
