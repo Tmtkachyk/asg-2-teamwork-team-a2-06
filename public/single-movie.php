@@ -3,11 +3,11 @@
 $config = include "../config.php";
 include "../database/Connection.php";
 include "../classes/Movie.php";
-include "API/titleSearch.php";
 
-if (isset($_GET['title'])) {
-  getMovieByTitle();
-}
+
+// if (isset($_GET['title'])) {
+//   getMovieByTitle();
+// }
 
 if (isset($_GET["id"])) {
   $id = $_GET["id"];

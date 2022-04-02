@@ -1,15 +1,17 @@
 <?php
 $config = include "../../config.php";
 include "../../database/Connection.php";
-include "../../classes/Movie.php";
+// include "../../classes/Movie.php";
 include "queryHelper.php";
 
 if (!validTitleQuery()) {
+  echo "bad query";
   return [];
 } else {
 
   $titleSearch = $_GET["title"];
-  $titleSearch = $_GET["title"];
+  echo "This is the query string $titleSearch";
+
   //echo $titleQuery;
   //$id = 170;
   $rawMovieDetails =
