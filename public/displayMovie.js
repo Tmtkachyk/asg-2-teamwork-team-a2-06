@@ -35,6 +35,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
          // document.querySelector(".empty").remove();
       }
+      else{
+        let favouriteButton = makeFavButton(theMovie);
+        favouriteButton.style.display="none";
+        document.querySelector("#defaultInfo").append(makeDiv(favouriteButton));
+
+      }
 
         
 
