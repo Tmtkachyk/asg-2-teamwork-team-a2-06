@@ -24,10 +24,22 @@ document.addEventListener("DOMContentLoaded", (event) => {
         document.querySelector("#defaultInfo").append(makeDiv(titleFrom(theMovie)));
        document.querySelector("#defaultInfo").append(makeDiv(theMovie.release_date));
        document.querySelector("#defaultInfo").append(makeDiv(theMovie.vote_average));
+
    
-       let favouriteButton = makeFavButton(theMovie);
-  document.querySelector("#defaultInfo").append(makeDiv(favouriteButton));
-     
+       if ( document.querySelector(".ghettoFix"))
+       {
+
+        document.querySelector(".ghettoFix").style.display = "none";
+
+        let favouriteButton = makeFavButton(theMovie);
+        document.querySelector("#defaultInfo").append(makeDiv(favouriteButton));
+
+       }
+       else{
+        document.querySelector(".ghettoFix").style.display = "none";
+       }
+
+
      }
  
      function imageFrom(movie){

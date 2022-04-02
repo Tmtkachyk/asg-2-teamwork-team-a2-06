@@ -149,7 +149,18 @@
                 </div>
 
                 <div class="col-span-5">
-                  <div class="grid grid-cols-5 gap-2" id="defaultInfo"></div>
+                  <div class="grid grid-cols-5 gap-2" id="defaultInfo">
+
+                  <?php
+
+                  if(isset($_SESSION['log']) && $_SESSION['log'] == 'in')
+                  {
+                    echo '<div class="ghettoFix"> </div>';
+                  }
+                  
+                  ?>
+
+                  </div>
                 </div>
 
                 <div class="col-span-5 flex justify-center font-montser text-5xl hidden" id="noResultsFilter">
