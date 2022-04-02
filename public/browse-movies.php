@@ -1,8 +1,3 @@
-<?php
-  session_start();
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -156,8 +151,6 @@
                 <div class="col-span-5">
                   <div class="grid grid-cols-5 gap-2" id="defaultInfo"></div>
                 </div>
-
-
 
                 <div class="col-span-5 flex justify-center font-montser text-5xl hidden" id="noResultsFilter">
                   No Filtered Movies
