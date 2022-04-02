@@ -157,14 +157,7 @@
                   <div class="grid grid-cols-5 gap-2" id="defaultInfo"></div>
                 </div>
 
-                                                <?php
 
-                                if(isset($_SESSION['log']) && $_SESSION['log'] == 'in')
-                                {
-                                  echo '<div class="ghettoFix"> </div>'
-                                }
-
-                                ?>
 
                 <div class="col-span-5 flex justify-center font-montser text-5xl hidden" id="noResultsFilter">
                   No Filtered Movies
