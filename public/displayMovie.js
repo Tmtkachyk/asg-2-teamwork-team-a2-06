@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
    
        
    
+       // kind of a ghetto fix but it works -> this hides/unhide the favourtie button based on the login state in the Session varible 'Log' 
 
       if ( typeof(document.querySelector(".empty")) && document.querySelector(".empty") != null)
       {
