@@ -26,7 +26,16 @@ document.addEventListener("DOMContentLoaded", (event) => {
        document.querySelector("#defaultInfo").append(makeDiv(theMovie.vote_average));
    
        let favouriteButton = makeFavButton(theMovie);
-  document.querySelector("#defaultInfo").append(makeDiv(favouriteButton));
+       let favB = makeDiv(favouriteButton)
+       
+
+      if (document.querySelector(".empty") != undefined)
+      {
+          favB.style.display="none";
+      }
+
+        document.querySelector("#defaultInfo").append(favB);
+
      
      }
  

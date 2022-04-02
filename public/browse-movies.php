@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -58,6 +62,14 @@
 
 
 <body class="bg-image-1 transition-all ease-linear duration-[3000ms] bg-cover bg-center bg-fixed bg-gray-400">
+
+    <?php
+
+        if(isset($_SESSION['log']) && $_SESSION['log'] == 'in'){
+          echo '<div class="empty" style="display:none;"> </div>';
+        }
+
+    ?>
 
   <div class="flex flex-col justify-center m-0 h-[100vh] items-center font-open min-h-400px">
 
