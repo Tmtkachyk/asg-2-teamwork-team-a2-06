@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
           let favouriteButton = makeFavButton(theMovie);
           document.querySelector("#defaultInfo").append(makeDiv(favouriteButton));
 
-          document.querySelector(".empty").remove();
+         // document.querySelector(".empty").remove();
       }
 
         
