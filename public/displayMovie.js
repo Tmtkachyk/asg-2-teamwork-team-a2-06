@@ -25,23 +25,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
        document.querySelector("#defaultInfo").append(makeDiv(theMovie.release_date));
        document.querySelector("#defaultInfo").append(makeDiv(theMovie.vote_average));
 
-
-      if (document.querySelector("#forFav") != undefined){
-
-      
-       let wasLoginClicked = document.querySelector("#forFav");
-
-       wasLoginClicked.addEventListener("click", () => {
                 let favouriteButton = makeFavButton(theMovie);
                 document.querySelector("#defaultInfo").append(makeDiv(favouriteButton));
-       })
-         
-       }
-
-
-   
-
-     
      }
  
      function imageFrom(movie){
