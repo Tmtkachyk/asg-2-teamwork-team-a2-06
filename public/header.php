@@ -17,11 +17,13 @@
         if(isset($_SESSION['log']) && $_SESSION['log'] == 'in')
             {
        		    echo '<li class="bg-black/80 text-white"><a href="logout.php">Log out</a></li>';
-              echo '<li class="bg-black/80 text-white"><a href="favourites.php">Favourites</a></li>';    
+              echo '<li class="bg-black/80 text-white"><a href="favourites.php">Favourites</a></li>'; 
+
             }
             else
             {
               echo '<li class="bg-black/80 text-white"><a href="login.php">Login</a></li>';
+              echo '<li class="bg-black/80 text-white"><a href="register.php">Register</a></li>'; 
 	        	}
 	      ?>
 
