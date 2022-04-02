@@ -24,14 +24,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
         document.querySelector("#defaultInfo").append(makeDiv(titleFrom(theMovie)));
        document.querySelector("#defaultInfo").append(makeDiv(theMovie.release_date));
        document.querySelector("#defaultInfo").append(makeDiv(theMovie.vote_average));
-
    
-
-        let favouriteButton = makeFavButton(theMovie);
-        document.querySelector("#defaultInfo").append(makeDiv(favouriteButton));
-
-
-
+       let favouriteButton = makeFavButton(theMovie);
+  document.querySelector("#defaultInfo").append(makeDiv(favouriteButton));
+     
      }
  
      function imageFrom(movie){
