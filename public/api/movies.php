@@ -10,7 +10,7 @@ if (!validTitleQuery()) {
 } else {
 
   $titleSearch = $_GET["title"];
-  echo "This is the query string $titleSearch";
+
 
   //echo $titleQuery;
   //$id = 170;
