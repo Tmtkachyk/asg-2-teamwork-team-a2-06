@@ -71,7 +71,8 @@
     <main class="container m-auto h-[75vh]">
 
       <div class="container bg-black/80 rounded-3xl m-auto w-[40rem] text-center ">
-        <form id="homeSearch" action="single-movie.php" method="POST" class="pt-3 pb-1 px-2">
+        <!--goes down below-> action="single-movie.php" method="POST"  -->
+        <form id="homeSearch" class="pt-3 pb-1 px-2">
           <div class="mb-3">
             <h1 class="text-white text-6xl font-montser">Movie Browser</h1>
           </div>

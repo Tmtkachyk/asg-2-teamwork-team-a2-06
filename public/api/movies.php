@@ -5,8 +5,7 @@ include "../../database/Connection.php";
 include "queryHelper.php";
 
 if (!validTitleQuery()) {
-  echo "bad query";
-  return [];
+  echo json_encode([]);
 } else {
 
   $titleSearch = $_GET["title"];
