@@ -1,5 +1,5 @@
 <?php
- // session_start();
+  session_start();
 ?>
 
 <meta charset="UTF-8">
@@ -116,7 +116,7 @@
             {
               echo '<h3 style="text-align:center; color:red;"> E-mail entered is already in use, please try a different email </h3>';
 
-              unset($_SESSION['alreadyExists']);
+           //   unset($_SESSION['alreadyExists']);
             }
 
 

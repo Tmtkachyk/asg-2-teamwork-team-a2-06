@@ -37,6 +37,7 @@
                     header("location:register.php");
                 }
                 else{
+                    $_SESSION['alreadyExists'] = true;
                     // create a new user on the database: firstname, lastname, email, city, country 
                 }
 
