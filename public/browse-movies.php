@@ -98,7 +98,8 @@ session_start();
               <p class="text-lg">Rating</p>
               <input id="radioBelow" type="radio" name="range" value="ratingBeforeButton" />
               Below <br />
-              <input type="range" name="range" id="belowRating" class="form-range w-28 bg-transparent focus:outline-none focus:ring-0 focus:shadow-none" min="0" max="10" list="steplist" /><span id="belowValue">5</span>
+              <span id="aboveValue">1</span>
+              <input type="range" name="range" id="belowRating" class="form-range w-28 bg-transparent focus:outline-none focus:ring-0 focus:shadow-none" min="0" max="10" list="steplist" /><span id="belowValue">10</span>
               <datalist id="steplist">
                 <br />
                 <option value="0" label="0">0</option>
@@ -116,12 +117,15 @@ session_start();
               <br />
               <input type="radio" name="range" value="ratingAfterButton" id="radioAbove" />
               Above <br />
+              <span id="aboveValue">1</span>
               <input type="range" title="range" id="aboveRating" class="form-range bg-transparent w-28 focus:outline-none focus:ring-0 focus:shadow-none" min="0" max="10" list="steplist" />
-              <span id="aboveValue">5</span>
+              <span id="aboveValue">10</span>
               <br />
               <input type="radio" name="range" value="ratingInBetweenButton" id="radioInbetween" />
               Inbetween <br />
-              <input type="range" title="range" id="betweenRatingLowerBounds" class="form-range w-28 bg-transparent focus:outline-none focus:ring-0 focus:shadow-none" min="0" max="10" list="steplist" /><span id="lowerBoundsValue">5</span> <br /><input type="range" title="range" id="betweenRatingHigherBounds" class="form-range w-28 bg-transparent focus:outline-none focus:ring-0 focus:shadow-none" min="0" max="10" list="steplist" /><span id="higherBoundsValue">5</span>
+              <span id="aboveValue">1</span>
+
+              <input type="range" title="range" id="betweenRatingLowerBounds" class="form-range w-28 bg-transparent focus:outline-none focus:ring-0 focus:shadow-none" min="0" max="10" list="steplist" /><span id="lowerBoundsValue">10</span> <br /> <span id="aboveValue">1</span><input type="range" title="range" id="betweenRatingHigherBounds" class="form-range w-28 bg-transparent focus:outline-none focus:ring-0 focus:shadow-none" min="0" max="10" list="steplist" /><span id="higherBoundsValue">10</span>
               <br />
               <div class="m-2">
                 <div class="flex justify-evenly">

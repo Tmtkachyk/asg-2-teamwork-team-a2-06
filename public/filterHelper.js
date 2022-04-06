@@ -33,10 +33,31 @@ function filteredMoviesToSessionStorage(){
 
   //filter the array
   //working vote_average array
-  let postFilterMovieArray = preFilterArray.filter(movie => movie.vote_average > 5 );
+  //let postFilterMovieArray = preFilterArray.filter(movie => movie.vote_average > 5 );
+
+
+  //Below rating filter
+  if(document.getElementById('radioBelow').checked) {
+ 
+    let belowFilterValue = document.getElementById('belowRating').value;
+    let postFilterMovieArray = preFilterArray.filter(movie => movie.vote_average < belowFilterValue );
+      //put filtered movies into session storage filteredMovies
+    sessionStorage.setItem("filteredMovies", JSON.stringify(postFilterMovieArray));
   
-  //put filtered movies into session storage filteredMovies
-  sessionStorage.setItem("filteredMovies", JSON.stringify(postFilterMovieArray));
+  }
+
+  //Above rating filter
+  if(document.getElementById('radioAbove').checked) {
+ 
+    let aboveFilterValue = document.getElementById('aboveRating').value;
+    let postFilterMovieArray = preFilterArray.filter(movie => movie.vote_average > aboveFilterValue );
+      //put filtered movies into session storage filteredMovies
+    sessionStorage.setItem("filteredMovies", JSON.stringify(postFilterMovieArray));
+  
+  }
+  
+
+  
   
 }
 
