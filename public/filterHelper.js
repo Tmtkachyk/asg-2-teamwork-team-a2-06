@@ -32,12 +32,12 @@ function filteredMoviesToSessionStorage(){
   let preFilterArray = JSON.parse(sessionStorage.getItem("matchingMovies"));
 
   //filter the array
-  //working
-  let postFilterMovieArray = preFilterArray.filter(movie => movie.title.length < 6 );
+  //working vote_average array
+  let postFilterMovieArray = preFilterArray.filter(movie => movie.vote_average > 5 );
   
   //put filtered movies into session storage filteredMovies
   sessionStorage.setItem("filteredMovies", JSON.stringify(postFilterMovieArray));
-  //console.log(postFilterMovieArray);
+  
 }
 
 function resetFilters(){
