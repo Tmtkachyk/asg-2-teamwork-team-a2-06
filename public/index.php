@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -76,7 +78,7 @@
 
       <?php
 
-        if (!isset($_SESSION['log']) || isset($_SESSION['log']) && $_SESSION['log'] == 'in') 
+        if (isset($_SESSION['log']) && $_SESSION['log'] == 'in') 
         {
 
           echo ' <div class="grid-container"> <div class="item1">';

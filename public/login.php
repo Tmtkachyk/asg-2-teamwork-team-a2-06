@@ -1,6 +1,9 @@
 <?php
     
-      
+    session_start();
+    // var_dump($_SESSION);
+    // var_dump($_GET);
+    // var_dump("foo");
   ?>
 
 <!DOCTYPE html>
@@ -66,6 +69,7 @@
 
 
     <?php include 'header.php';
+            
     ?>
     <main class="container m-auto h-[75vh]">
 

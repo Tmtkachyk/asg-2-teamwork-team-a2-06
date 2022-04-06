@@ -1,6 +1,6 @@
 <?php
       //include_once 'login-authenticate.php';
-      session_start();
+      // session_start();
 ?>
 
 
@@ -14,6 +14,7 @@
         <li class="bg-black/80 text-white"><a href="about.php">About Us</a></li>
       
       <?php
+
         if(isset($_SESSION['log']) && $_SESSION['log'] == 'in')
             {
        		    echo '<li class="bg-black/80 text-white"><a href="logout.php">Log out</a></li>';
