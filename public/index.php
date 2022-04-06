@@ -104,9 +104,9 @@
           
           echo '
           
-          <div class="item3">Main</div>  
-          <div class="item4">Right</div>
-          <div class="item5">Footer</div>
+          <div class="item3">Fav</div>  
+          <div class="item4">Suggestions</div>
+          <div class="item5">Something else</div>
            </div>
          ';
 
