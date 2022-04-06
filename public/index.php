@@ -11,6 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+  <link href="indexStyle.css" rel="stylesheet">
   <link rel="stylesheet" href="headerStyle.css">
   <script src="header.js"></script>
 
@@ -70,38 +71,90 @@
     ?>
     <main class="container m-auto h-[75vh]">
 
-      <div class="container bg-black/80 rounded-3xl m-auto w-[40rem] text-center ">
-        <!--goes down below-> action="single-movie.php" method="POST"  -->
-        <form id="homeSearch" class="pt-3 pb-1 px-2">
-          <div class="mb-3">
-            <h1 class="text-white text-6xl font-montser">Movie Browser</h1>
-          </div>
-          <div class="py-1 px-3 mb-3">
-            <input type="text" id="homeSearchBox" class="search border rounded w-full py-2 px-3 text-gray-700" placeholder="Find a movie..." list="filterList" />
-            <datalist id="filterList"></datalist>
-          </div>
-          <div class="flex items-center justify-between mb-3 lg:justify-end">
-            <button id="favouritesButton" class="bg-stone-600 hover:bg-stone-800 text-white font-bold py-2 px-4 ml-3 rounded focus:outline-none focus:shadow-outline disabled:bg-stone-900 disabled:text-stone-600 disabled:cursor-default" type="button">
-              Login
-            </button>
-            <button id="homeSearchButton" name="movieName" class="bg-stone-600 hover:bg-stone-800 text-white font-bold py-2 px-4 mr-3 lg:ml-2 rounded focus:outline-none focus:shadow-outline disabled:bg-stone-900 disabled:text-stone-600 disabled:cursor-default flex justify-center" type="button">
-              Search
-
-            </button>
-          </div>
-          <div class="text-white">
-
-            <?php
-
-            if (!isset($_SESSION['log']) || isset($_SESSION['log']) && $_SESSION['log'] != 'in') {
-              echo '<span class="">Dont have an account? <a href="register.php" class="text-blue-500 underline"> Register </a></span>';
-            }
-
-            ?>
 
 
-          </div>
-        </form>
+
+      <?php
+
+        if (!isset($_SESSION['log']) || isset($_SESSION['log']) && $_SESSION['log'] == 'in') 
+        {
+
+          echo ' <div class="grid-container"> <div class="item1">';
+          echo  '<h1 style="font-weight:bold" >Welcome back ' . $_SESSION["firstname"] . '! </h1>';
+          echo "<br>";
+          echo '<div class="py-1 px-3 mb-3 ">
+          <input type="text" id="homeSearchBox" class="search border rounded border-4 shadow-xl w-50 py-2 px-3 text-gray-700" placeholder="Find a movie..." list="filterList" />
+          <datalist id="filterList"></datalist>
+        </div>
+        <div class="flex items-center justify-between mb-3 lg:justify-center">
+          <button id="homeSearchButton" name="movieName" class="bg-gray-200 hover:bg-stone-800 text-black py-1 px-3 mr-3 lg:ml-2 rounded shadow-xl focus:outline-none focus:shadow-outline disabled:bg-stone-900 disabled:text-stone-600 disabled:cursor-default flex justify-center" type="button">
+            Search
+          </button>
+        </div></div>';
+
+         
+          echo'<div class="item2" >';
+          echo '<h2 class="shadow-2xl"> Your Info </h2>';
+          echo '<h3 class="shadow-2xl">' . 'Name: ' . $_SESSION['firstname'] . " " . $_SESSION['lastname'] . '</h3>';
+          echo '<h3 class="shadow-2xl">'. 'Country: ' . $_SESSION['country'] . '</h3>';
+          echo '<h3 class="shadow-2xl">'. 'City: ' . $_SESSION['city'] . '</h3> </div>';
+
+
+          
+          
+          echo '
+          
+          <div class="item3">Main</div>  
+          <div class="item4">Right</div>
+          <div class="item5">Footer</div>
+           </div>
+         ';
+
+        }
+
+
+        else
+        {
+
+          echo '<div class="container bg-white rounded-3xl m-auto w-[40rem] text-center ">
+          <!--goes down below-> action="single-movie.php" method="POST"  -->
+  
+          <form id="homeSearch" class="pt-3 pb-1 px-2">
+  
+            <div class="mb-3">
+              <h1 class="text-silver text-6xl font-montser">Movie Browser</h1>
+            </div>
+            <div class="py-1 px-3 mb-3">
+              <input type="text" id="homeSearchBox" class="search border rounded w-full py-2 px-3 text-gray-700 shadow-xl" placeholder="Find a movie..." list="filterList" />
+              <datalist id="filterList"></datalist>
+            </div>
+            <div class="flex items-center justify-between mb-3 lg:justify-end">
+              <button id="favouritesButton" class="bg-stone-600 hover:bg-stone-800 text-white font-bold py-2 px-4 ml-3 rounded focus:outline-none focus:shadow-outline disabled:bg-stone-900 disabled:text-stone-600 disabled:cursor-default shadow-xl" type="button">
+                Login
+              </button>
+              <button id="homeSearchButton" name="movieName" class="bg-stone-600 hover:bg-stone-800 text-white font-bold py-2 px-4 mr-3 lg:ml-2 rounded focus:outline-none focus:shadow-outline disabled:bg-stone-900 disabled:text-stone-600 disabled:cursor-default flex justify-center shadow-xl" type="button">
+                Search
+  
+              </button>
+            </div>
+  
+            <div class="text-white">
+                <span style="color:gray">Dont have an account? <a href="register.php" class="text-blue-500 underline"> Register </a></span>
+            </div>
+  
+          </form> ';
+
+
+        }
+
+      ?>
+
+
+ 
+
+
+
+
 
       </div>
       <div class="flex justify-center font-montser">
