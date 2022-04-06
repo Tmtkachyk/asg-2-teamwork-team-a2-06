@@ -63,13 +63,13 @@ session_start();
 
 <body class="bg-image-1 transition-all ease-linear duration-[3000ms] bg-cover bg-center bg-fixed bg-gray-400">
 
-    <?php
+  <?php
 
-        if(isset($_SESSION['log']) && $_SESSION['log'] == 'in'){
-          echo '<div class="empty" style="display:none;"> </div>';
-        }
+  if (isset($_SESSION['log']) && $_SESSION['log'] == 'in') {
+    echo '<div class="empty" style="display:none;"> </div>';
+  }
 
-    ?>
+  ?>
 
   <div class="flex flex-col justify-center m-0 h-[100vh] items-center font-open min-h-400px">
 
@@ -77,11 +77,11 @@ session_start();
     <?php include 'header.php';
     ?>
 
-    <div class="container m-auto h-[75vh]">
+    <div class=" w-10/12 h-[75vh]">
 
-      <div class="min-h-screen grid place-items-center font-open" id="defaultPage">
-        <div class="grid grid-cols-9 m-1 rounded-lg gap-1">
-          <form id="filterForm" class="bg-black/80 text-white lg:w-40 col-span-3 lg:col-span-1">
+      <div class="min-h-screen grid place-items-center font-open " id="defaultPage">
+        <div class="grid grid-cols-9 m-1 rounded-lg gap-1 ">
+          <form id="filterForm" class="bg-black/80 text-white lg:w-40 col-span-3 lg:col-span-1 w-auto">
             <h2 class="text-xl font-semibold m-1">Movie Filters</h2>
             <div class="m-3 h-32" id="movieFilters">
               <h2 class="text-lg">Title</h2>
@@ -184,5 +184,6 @@ session_start();
 </body>
 
 <script src="movieHelpers.js"></script>
+<script src="filterHelper.js"></script>
 
 </html>

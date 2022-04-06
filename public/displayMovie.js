@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         document.querySelector("#defaultInfo").append(makeDiv(titleFrom(theMovie)));
        document.querySelector("#defaultInfo").append(makeDiv(theMovie.release_date));
        document.querySelector("#defaultInfo").append(makeDiv(theMovie.vote_average));
-   
+       //document.querySelector("#defaultInfo").append(makeFavButton(theMovie));
        
    
        // kind of a ghetto fix but it works -> this hides/unhide the favourtie button based on the login state in the Session varible 'Log' 
