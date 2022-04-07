@@ -110,11 +110,7 @@ session_start();
               <br />
               <!-- rating input -->
               <p class="text-lg">Rating</p>
-              <!-- radio below -->
-              <input id="radioBelow" type="radio" name="filterRadioBtns" value="ratingBeforeButton" />
-              Below: <span id="belowValue">5</span><br />
-              <span>1</span>
-              <input type="range" name="filterRadioBtns" id="belowRating" class="form-range w-28 bg-transparent focus:outline-none focus:ring-0 focus:shadow-none" min="0" max="10" list="steplist" /><span>10</span>
+
               <datalist id="steplist">
                 <br />
                 <option value="0" label="0">0</option>
@@ -129,7 +125,7 @@ session_start();
                 <option value="9"></option>
                 <option value="10" label="10"></option>
               </datalist>
-              <br />
+
               <!-- radio above -->
               <input type="radio" name="filterRadioBtns" value="ratingAfterButton" id="radioAbove" />
               Above: <span id="aboveValue">5</span> <br />
@@ -137,6 +133,13 @@ session_start();
               <input type="range" title="range" id="aboveRating" class="form-range bg-transparent w-28 focus:outline-none focus:ring-0 focus:shadow-none" min="0" max="10" list="steplist" />
               <span>10</span>
               <br />
+              <!-- radio below -->
+              <input id="radioBelow" type="radio" name="filterRadioBtns" value="ratingBeforeButton" />
+              Below: <span id="belowValue">5</span><br />
+              <span>1</span>
+              <input type="range" name="filterRadioBtns" id="belowRating" class="form-range w-28 bg-transparent focus:outline-none focus:ring-0 focus:shadow-none" min="0" max="10" list="steplist" /><span>10</span>
+              <br />
+              <!-- Inbetween radio -->
               <input type="radio" name="filterRadioBtns" value="ratingInBetweenButton" id="radioInbetween" />
               Inbetween <br />
               <span id="aboveValue">1</span>
