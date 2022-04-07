@@ -66,6 +66,9 @@
                 $pdo = Connection::connect($config['database']); 
                 $userStatement = $pdo->prepare($addUserSQL);
                 $userStatement->execute();
+
+            
+                loginNewUser($email, $config);
             }
 
         }
@@ -86,4 +89,39 @@
     }
 
 
+    function loginNewUser($email, $config){
+
+        
+
+      //  $email =  sanitizeEmailInput($email);
+
+      //  echo '<br> ' . $email . '<br>';
+
+      //  $email =  "'" . $email . "'";
+
+       // echo $email;
+
+     //   $email = 'hemmens0@de.vu';
+
+        $pdo = Connection::connect($config['database']); 
+        $emailPasswordSQL = "SELECT email, password, firstname, lastname, city, country FROM users WHERE email='$email'"; 
+        $userStatement = $pdo->prepare($emailPasswordSQL);
+        $userStatement->execute();
+        $queryResult = $userStatement->fetchAll(PDO::FETCH_ASSOC);
+
+        // log the user 
+
+        var_dump($queryResult);
+
+    
+        $_SESSION['log'] = 'in';
+        $_SESSION['firstname'] = $queryResult[0]['firstname'];
+        $_SESSION['lastname'] = $queryResult[0]['lastname'];
+        $_SESSION['city'] = $queryResult[0]['city'];
+        $_SESSION['country'] = $queryResult[0]['country'];
+        
+       header("location:index.php");
+
+
+    }
 
