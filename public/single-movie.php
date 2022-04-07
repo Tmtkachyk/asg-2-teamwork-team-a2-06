@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $config = include "../config.php";
 include "../database/Connection.php";
 include "../classes/Movie.php";
@@ -174,21 +174,20 @@ $movie = new Movie(
                 <input type="hidden" id="posterPath" name="posterPath" value="<?= $movie->poster_path ?>">
                 <input type="hidden" id="location" name="location" value="single-movie.php">
                 
-                <button class="lg:text-2x <?php echo "fuck you";?>text-white bg-neutral-600 hover:bg-neutral-700 font-bold py-2 px-4 my-2 lg:ml-2 rounded focus:outline-none focus:shadow-outline" type="submit" id="closeButton">
+                <button class="lg:text-2x <?php if(isset($_SESSION['favs'])){
+                if(array_key_exists($movie->id,$_SESSION['favs'])){
+                  echo "bg-yellow-600 hover:bg-yellow-700 text-black" ;
+                }else{
+                  echo "bg-neutral-600 hover:bg-neutral-700 text-white";
+                }
+                }else
+                {
+                  echo "bg-neutral-600 hover:bg-neutral-700 text-white";
+                }?>  font-bold py-2 px-4 my-2 lg:ml-2 rounded focus:outline-none focus:shadow-outline" type="submit" id="closeButton">
                   Favourite
                 </button>
+                
                 </form>
-                <span><?php if(isset($_SESSION['favs'])){
-  echo "favs is set";
-  if(array_key_exists($movieID, $_SESSION['favs'])){
-    echo "is fav" ;
-  }else{
-    echo "is not fav";
-  }
-  }else
-  {
-    echo "is not fav";
-  } ?><span>
               </div>
 
               <picture id="details-poster" class="flex justify-center cursor-pointer">
