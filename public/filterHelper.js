@@ -30,6 +30,8 @@ function filterMovies(){
   belowRatingfilter(preFilterArray);  
   //Above rating filter
   aboveRatingFilter(preFilterArray);
+  //inbetween rating Filter
+  inbetweenRatingFilter(preFilterArray);
 
 }
 
@@ -82,8 +84,23 @@ function aboveRatingFilter(preFilterArray) {
 }
 
 //Inbetween rating filter
-function inbetweenRatingFilter() {
-  return;
+function inbetweenRatingFilter(preFilterArray) {
+  if(document.getElementById('radioInbetween').checked) {
+    let lowerFilterValue = document.getElementById('betweenRatingLowerBounds').value;
+    let higherFilterValue = document.getElementById('betweenRatingHigherBounds').value;
+
+    //If higher and lower are same value displays movies with that number
+    if (lowerFilterValue == higherFilterValue) {
+      let postFilterMovieArray = preFilterArray.filter(movie => movie.vote_average > lowerFilterValue && movie.vote_average < parseInt(higherFilterValue)+1 );
+      //put filtered movies into session storage filteredMovies
+    sessionStorage.setItem("filteredMovies", JSON.stringify(postFilterMovieArray));
+    }
+    else {
+      let postFilterMovieArray = preFilterArray.filter(movie => movie.vote_average > lowerFilterValue && movie.vote_average < higherFilterValue );
+      //put filtered movies into session storage filteredMovies
+    sessionStorage.setItem("filteredMovies", JSON.stringify(postFilterMovieArray));
+    }
+  }
 }
 
 //Displays the filtered movies from session storage onto the page
