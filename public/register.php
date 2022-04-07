@@ -86,7 +86,7 @@
   <input type="text" placeholder="Enter your country" name="countryRegister" required>
   <br>
   <label><b>Home city</b></label>
-  <input type="text" placeholder="Enter your city" name="countryRegister" required>
+  <input type="text" placeholder="Enter your city" name="cityRegister" required>
   <br>
 
 
