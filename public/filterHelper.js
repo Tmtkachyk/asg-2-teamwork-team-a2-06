@@ -2,8 +2,9 @@ let filterButton = document.querySelector("#filterButton");
 let resetButton = document.querySelector("#resetButton");
    
    filterButton.addEventListener("click", () => {
-    
-    filteredMoviesToSessionStorage();
+
+
+    filterMovies();
     displayFilteredMovies();
 
 
@@ -22,7 +23,7 @@ let resetButton = document.querySelector("#resetButton");
 //    }
 
 
-function filteredMoviesToSessionStorage(){
+function filterMovies(){
   //gets it as a normal array
   //console.log(JSON.parse(sessionStorage.getItem("filteredMovies"))[0].title);
   //working
@@ -36,6 +37,20 @@ function filteredMoviesToSessionStorage(){
   //let postFilterMovieArray = preFilterArray.filter(movie => movie.vote_average > 5 );
 
 
+//Title Filter
+
+  //Before Year Filter
+  if(document.getElementById('radioTitle').checked) {
+
+    let titleFilterValue = document.getElementById('titleFilter').value.toLowerCase();
+    let postFilterMovieArray = preFilterArray.filter(movie => movie.title.toLowerCase().includes(titleFilterValue));
+    //put filtered movies into session storage filteredMovies
+  sessionStorage.setItem("filteredMovies", JSON.stringify(postFilterMovieArray));
+
+
+  // filtered = myArray.filter(function (str) { return str.includes(PATTERN); });
+  }
+
   //Below rating filter
   if(document.getElementById('radioBelow').checked) {
  
@@ -43,7 +58,6 @@ function filteredMoviesToSessionStorage(){
     let postFilterMovieArray = preFilterArray.filter(movie => movie.vote_average < belowFilterValue );
       //put filtered movies into session storage filteredMovies
     sessionStorage.setItem("filteredMovies", JSON.stringify(postFilterMovieArray));
-  
   }
 
   //Above rating filter
@@ -53,7 +67,7 @@ function filteredMoviesToSessionStorage(){
     let postFilterMovieArray = preFilterArray.filter(movie => movie.vote_average > aboveFilterValue );
       //put filtered movies into session storage filteredMovies
     sessionStorage.setItem("filteredMovies", JSON.stringify(postFilterMovieArray));
-  
+    console.log(aboveFilterValue);
   }
   
 
@@ -61,6 +75,7 @@ function filteredMoviesToSessionStorage(){
   
 }
 
+//reset filters
 function resetFilters(){
   clearDefault();
   sessionStorage.removeItem("filteredMovies");

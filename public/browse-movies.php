@@ -79,27 +79,42 @@ session_start();
 
     <div class=" w-10/12 h-[75vh]">
 
-      <div class="min-h-screen grid place-items-center font-open " id="defaultPage">
+      <div class="min-h-screen grid place-items-center font-open" id="defaultPage">
         <div class="grid grid-cols-9 m-1 rounded-lg gap-1 ">
-          <form id="filterForm" class="bg-black/80 text-white lg:w-40 col-span-3 lg:col-span-1 w-auto">
+          <form id="filterForm" class="bg-black/80 text-white col-span-3  w-auto">
             <h2 class="text-xl font-semibold m-1">Movie Filters</h2>
             <div class="m-3 h-32" id="movieFilters">
               <h2 class="text-lg">Title</h2>
+              <input id="radioTitle" type="radio" name="filterRadioBtns" value="1" />
+              Contains <br />
               <input id="titleFilter" type="text" title="title" class="border rounded w-28 text-black" placeholder="Jarhead" /><br />
+              <!-- Year filter -->
               <p class="text-lg">Year</p>
-              <input id="radioBefore" type="radio" name="yearValue" value="1" />
+              <!-- Year radioBefore -->
+              <input id="radioBefore" type="radio" name="filterRadioBtns" value="1" />
               Before <br />
+              <!-- Year textBefore -->
               <input id="beforeFilter" type="text" title="year" class="w-28 border rounded text-black" placeholder="2000" /><br />
-              <input id="radioAfter" type="radio" name="yearValue" value="2" />
-              After <br /><input id="afterFilter" type="text" title="year" class="border rounded w-28 text-black" placeholder="1980" /><br />
-              <input id="radioBetween" type="radio" name="yearValue" value="3" />
-              Between <br /><input id="betweenFilterLowerBounds" type="text" title="year" class="border rounded my-1 w-28 text-black" placeholder="1985" /><br /><input id="betweenFilterHigherBounds" type="text" title="year" class="border rounded w-28 text-black" placeholder="2000" />
+              <!-- Year radioAfter -->
+              <input id="radioAfter" type="radio" name="filterRadioBtns" value="2" />
+              After <br />
+              <!-- Year textAfter -->
+              <input id="afterFilter" type="text" title="year" class="border rounded w-28 text-black" placeholder="1980" /><br />
+              <!-- Year radioBetween-->
+              <input id="radioBetween" type="radio" name="filterRadioBtns" value="3" />
+              Between <br />
+              <!-- Year textBetween Lower -->
+              <input id="betweenFilterLowerBounds" type="text" title="year" class="border rounded my-1 w-28 text-black" placeholder="1985" /><br />
+              <!-- Year textBetween Higher -->
+              <input id="betweenFilterHigherBounds" type="text" title="year" class="border rounded w-28 text-black" placeholder="2000" />
               <br />
+              <!-- rating input -->
               <p class="text-lg">Rating</p>
-              <input id="radioBelow" type="radio" name="range" value="ratingBeforeButton" />
+              <!-- radio below -->
+              <input id="radioBelow" type="radio" name="filterRadioBtns" value="ratingBeforeButton" />
               Below <br />
               <span id="aboveValue">1</span>
-              <input type="range" name="range" id="belowRating" class="form-range w-28 bg-transparent focus:outline-none focus:ring-0 focus:shadow-none" min="0" max="10" list="steplist" /><span id="belowValue">10</span>
+              <input type="range" name="filterRadioBtns" id="belowRating" class="form-range w-28 bg-transparent focus:outline-none focus:ring-0 focus:shadow-none" min="0" max="10" list="steplist" /><span id="belowValue">10</span>
               <datalist id="steplist">
                 <br />
                 <option value="0" label="0">0</option>
@@ -115,13 +130,14 @@ session_start();
                 <option value="10" label="10"></option>
               </datalist>
               <br />
-              <input type="radio" name="range" value="ratingAfterButton" id="radioAbove" />
+              <!-- radio above -->
+              <input type="radio" name="filterRadioBtns" value="ratingAfterButton" id="radioAbove" />
               Above <br />
               <span id="aboveValue">1</span>
               <input type="range" title="range" id="aboveRating" class="form-range bg-transparent w-28 focus:outline-none focus:ring-0 focus:shadow-none" min="0" max="10" list="steplist" />
               <span id="aboveValue">10</span>
               <br />
-              <input type="radio" name="range" value="ratingInBetweenButton" id="radioInbetween" />
+              <input type="radio" name="filterRadioBtns" value="ratingInBetweenButton" id="radioInbetween" />
               Inbetween <br />
               <span id="aboveValue">1</span>
 
@@ -146,7 +162,7 @@ session_start();
             </div>
           </form>
 
-          <div class="col-span-6 lg:col-span-8 overflow-auto bg-black/80 text-white font-source w-auto">
+          <div class="col-span-6 overflow-auto bg-black/80 text-white font-source w-auto">
             <div id="moviesList" class="m-1">
               <h2 class="text-xl font-semibold">Results</h2>
 
@@ -154,7 +170,9 @@ session_start();
                 <div class="text-lg">Sort by:</div>
                 <div class="grid grid-cols-8 col-span-4 justify-items-start" id="sortButtons">
                   <div class="col-span-2">
-                    <a href="#" class="text-lg underline" id="titleSort">Title</a>
+                    <a href="#" class="text-lg underline" id="titleSort">
+                      <Title></Title>
+                    </a>
                   </div>
                   <div class="col-span-2">
                     <a href="#" class="text-lg underline" id="yearSort">Year</a>
