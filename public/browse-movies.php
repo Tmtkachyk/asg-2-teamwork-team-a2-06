@@ -113,7 +113,7 @@ session_start();
               <!-- radio below -->
               <input id="radioBelow" type="radio" name="filterRadioBtns" value="ratingBeforeButton" />
               Below: <span id="belowValue">5</span><br />
-              <span id="aboveValue">1</span>
+              <span>1</span>
               <input type="range" name="filterRadioBtns" id="belowRating" class="form-range w-28 bg-transparent focus:outline-none focus:ring-0 focus:shadow-none" min="0" max="10" list="steplist" /><span>10</span>
               <datalist id="steplist">
                 <br />
@@ -132,10 +132,10 @@ session_start();
               <br />
               <!-- radio above -->
               <input type="radio" name="filterRadioBtns" value="ratingAfterButton" id="radioAbove" />
-              Above <br />
+              Above: <span id="aboveValue">5</span> <br />
               <span id="aboveValue">1</span>
               <input type="range" title="range" id="aboveRating" class="form-range bg-transparent w-28 focus:outline-none focus:ring-0 focus:shadow-none" min="0" max="10" list="steplist" />
-              <span id="aboveValue">10</span>
+              <span>10</span>
               <br />
               <input type="radio" name="filterRadioBtns" value="ratingInBetweenButton" id="radioInbetween" />
               Inbetween <br />

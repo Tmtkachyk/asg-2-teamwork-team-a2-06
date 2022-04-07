@@ -143,13 +143,26 @@ function clearFilters() {
   }
   };
 
+  document.addEventListener("DOMContentLoaded", (event) => {
+    
+    //display below rating slider amount
+    displaySliderAmounts('belowRating', 'belowValue');
+    //display above rating slider amount
+    displaySliderAmounts('aboveRating', 'aboveValue');
+  });
 
-//displays below rating slider input amount
-document.getElementById('belowRating').addEventListener('input', (event) => {
-  let belowFilterValue = document.getElementById('belowRating').value;
-  document.getElementById('belowValue').textContent = `${belowFilterValue}`;
- });
- 
+//displays slider input amount
+ function displaySliderAmounts(slider, span) {
+  document.getElementById(slider).addEventListener('input', (event) => {
+    let belowFilterValue = document.getElementById(slider).value;
+    document.getElementById(span).textContent = `${belowFilterValue}`;
+   });
+ }
+
+//  document.getElementById('belowRating').addEventListener('input', (event) => {
+//   let belowFilterValue = document.getElementById('belowRating').value;
+//   document.getElementById('belowValue').textContent = `${belowFilterValue}`;
+//  });
  
 
 
