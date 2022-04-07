@@ -117,8 +117,6 @@ $_SESSION["fav"] = $moviesList;
           echo "<p class='text-lg font-semibold'>" . $val['title'] . "</p>";
           echo "<img src='https://image.tmdb.org/t/p/w342" .  $val['posterPath'] . "' alt='Movie Poster' />";
           echo "</div>";
-          //var_dump($key);
-          // var_dump($val);
         }
         ?>
       </div>

@@ -168,11 +168,27 @@ $movie = new Movie(
 
             <div class="mx-2">
               <div class="flex justify-center">
-                <button class="lg:text-2x text-white bg-neutral-600 hover:bg-neutral-700 font-bold py-2 px-4 my-2 lg:ml-2 rounded focus:outline-none focus:shadow-outline" type="submit" id="closeButton">
-
+                <form action="favMovieHelper.php" method="post">
+                <input type="hidden" id="movieID" name="movieID" value="<?= $movie->id?>">
+                <input type="hidden" id="movieTitle" name="movieTitle" value="<?= $movie->title?>">
+                <input type="hidden" id="posterPath" name="posterPath" value="<?= $movie->poster_path ?>">
+                <input type="hidden" id="location" name="location" value="single-movie.php">
+                
+                <button class="lg:text-2x <?php echo "fuck you";?>text-white bg-neutral-600 hover:bg-neutral-700 font-bold py-2 px-4 my-2 lg:ml-2 rounded focus:outline-none focus:shadow-outline" type="submit" id="closeButton">
                   Favourite
-
                 </button>
+                </form>
+                <span><?php if(isset($_SESSION['favs'])){
+  echo "favs is set";
+  if(array_key_exists($movieID, $_SESSION['favs'])){
+    echo "is fav" ;
+  }else{
+    echo "is not fav";
+  }
+  }else
+  {
+    echo "is not fav";
+  } ?><span>
               </div>
 
               <picture id="details-poster" class="flex justify-center cursor-pointer">
