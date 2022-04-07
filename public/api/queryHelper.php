@@ -41,8 +41,3 @@ function containsOnlyOneQuery()
   } else
     return true;
 }
-
-
-
-// ?title=alien&title=alien
-// ?title=alien&title=alien&title=alien

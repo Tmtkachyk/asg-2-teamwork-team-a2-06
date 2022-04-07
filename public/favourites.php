@@ -1,3 +1,47 @@
+<?php
+#add log in check
+#add pulling from session storage
+
+$movieID = 170;
+$title = "Mad Max 2: The Road Warrior";
+$posterpath = "/cjh3bj1tc49RZcQwDPJtNHsdvHq.jpg";
+$movie[$movieID] = array(
+  "title" => $title,
+  "posterPath" => $posterpath
+);
+$moviesList[$movieID] = $movie[$movieID];
+$movieID2 = 2;
+$title2 = "The Princess Diaries 2: Royal Engagement";
+$posterpath2 = "/9GkLjwvqjwDfLZkWLGjLLfQf2Be.jpg";
+$movie[$movieID2] = array(
+  "title" => $title2,
+  "posterPath" => $posterpath2
+);
+$moviesList[$movieID2] = $movie[$movieID2];
+$movieID3 = 11;
+$title3 = "Rocky";
+$posterpath3 = "/eeUqKTX0YYw3T53rjYQMKOwf0TF.jpg";
+$movie[$movieID3] = array(
+  "title" => $title3,
+  "posterPath" => $posterpath3
+);
+$moviesList[$movieID3] = $movie[$movieID3];
+
+$_SESSION["fav"] = $moviesList;
+
+
+// if(!array_key_exists($keyToAdd,$_SESSION['favs']){
+
+// }
+
+// $_SESSION["faves"] = $moviesList;
+
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -65,16 +109,19 @@
     <?php include 'header.php';
     ?>
     <main class="container m-auto h-[75vh]">
-
-      <?php
-      if (isset($_SESSION['log']) && $_SESSION['log'] == 'in') {
-        //echo '<li class="bg-black/80 text-white"><a href="logout.php">Log out</a></li>';
-        echo "you belong here";
-      } else {
-        echo "you don't belong here";
-      }
-      ?>
-
+      <div class="flex justify-center">
+        <?php
+        $activeMovieList = $_SESSION["fav"];
+        foreach ($activeMovieList as $key => $val) {
+          echo "<div>";
+          echo "<p class='text-lg font-semibold'>" . $val['title'] . "</p>";
+          echo "<img src='https://image.tmdb.org/t/p/w342" .  $val['posterPath'] . "' alt='Movie Poster' />";
+          echo "</div>";
+          //var_dump($key);
+          // var_dump($val);
+        }
+        ?>
+      </div>
     </main>
   </div>
 </body>
