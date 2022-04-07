@@ -154,7 +154,7 @@ session_start();
                   <br />
                 </div>
                 <div class="flex justify-evenly">
-                  <button id="hideFilters" class="bg-stone-500 hover:bg-stone-800 text-white font-bold rounded justify-self-center focus:outline-none focus:shadow-outline m-1 p-1" type="button">
+                  <button id="hideFilterButton" class="bg-stone-500 hover:bg-stone-800 text-white font-bold rounded justify-self-center focus:outline-none focus:shadow-outline m-1 p-1" type="button">
                     Hide Filters
                   </button>
                 </div>
