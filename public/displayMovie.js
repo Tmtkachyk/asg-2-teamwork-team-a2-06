@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
        let anchor = document.createElement("a");
        let img = document.createElement("img");
        img.setAttribute("data-type", "posterOrTitle");
-       anchor.setAttribute("href", "#");
+       anchor.setAttribute("href", `single-movie.php?id=${movie.id}`);
        img.alt = "No Image Found!";
        img.src = `https://image.tmdb.org/t/p/w92/${movie.poster_path}`;
        img.setAttribute("data-id",movie.id);
@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
        let anchor = document.createElement("a");
        anchor.setAttribute("data-id", movie.id);
        anchor.setAttribute("data-type", "posterOrTitle");
-       anchor.setAttribute("href", "#");
+       anchor.setAttribute("href", `single-movie.php?id=${movie.id}`);
        anchor.textContent = movie.title;
        return anchor;
      
