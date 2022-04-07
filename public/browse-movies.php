@@ -112,9 +112,9 @@ session_start();
               <p class="text-lg">Rating</p>
               <!-- radio below -->
               <input id="radioBelow" type="radio" name="filterRadioBtns" value="ratingBeforeButton" />
-              Below <br />
+              Below: <span id="belowValue">5</span><br />
               <span id="aboveValue">1</span>
-              <input type="range" name="filterRadioBtns" id="belowRating" class="form-range w-28 bg-transparent focus:outline-none focus:ring-0 focus:shadow-none" min="0" max="10" list="steplist" /><span id="belowValue">10</span>
+              <input type="range" name="filterRadioBtns" id="belowRating" class="form-range w-28 bg-transparent focus:outline-none focus:ring-0 focus:shadow-none" min="0" max="10" list="steplist" /><span>10</span>
               <datalist id="steplist">
                 <br />
                 <option value="0" label="0">0</option>

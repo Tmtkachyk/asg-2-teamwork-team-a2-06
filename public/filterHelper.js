@@ -144,6 +144,14 @@ function clearFilters() {
   };
 
 
+//displays below rating slider input amount
+document.getElementById('belowRating').addEventListener('input', (event) => {
+  let belowFilterValue = document.getElementById('belowRating').value;
+  document.getElementById('belowValue').textContent = `${belowFilterValue}`;
+ });
+ 
+ 
+
 
 
   //gets it as a normal array

@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   displayMatchingMovies();
 });
 
+
  function displayMatchingMovies(){
       
   let listOfMovies = JSON.parse(sessionStorage.getItem("matchingMovies"));
