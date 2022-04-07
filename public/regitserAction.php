@@ -11,6 +11,15 @@
 
     checkIfEmailExists($email, $config);
 
+
+
+
+
+
+
+
+
+
     function checkIfEmailExists($email, $config)
     {
         // grabbing emails from database 
@@ -20,11 +29,12 @@
         $userStatement->execute();
         $queryResult = $userStatement->fetchAll(PDO::FETCH_ASSOC);
 
-      //  var_dump($queryResult);
-      //  echo $email;
+
+        $_SESSION['alreadyExists'] = false;
 
         //checking if there is a result returned 
 
+        
         if($userStatement->rowCount())
         {
             
@@ -36,13 +46,31 @@
                     $_SESSION['alreadyExists'] = true;
                     header("location:register.php");
                 }
-                else{
-                    $_SESSION['alreadyExists'] = true;
-                    // create a new user on the database: firstname, lastname, email, city, country 
-                }
-
             }
+
+
+            if ($_SESSION['alreadyExists'] == false){
+
+                $firstN = $_POST['firstNameRegister'];
+                $lastN = $_POST['lastNameRegister'];
+                $email = '"' . $_POST['emailRegister'] . '"';
+                $city = $_POST['cityRegister'];
+                $country = $_POST['countryRegister'];
+                $password = $_POST['passwordRegister'];
+            
+                //hashing the password 
+                $digest = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
+            
+                $addUserSQL = "INSERT INTO users (firstname, lastname, city, country, email, password) VALUES ('$firstN', '$lastN', '$city', '$country', '$email', '$digest')";
+              
+                $pdo = Connection::connect($config['database']); 
+                $userStatement = $pdo->prepare($addUserSQL);
+                $userStatement->execute();
+            }
+
         }
+
+
 
     }
 
@@ -56,3 +84,6 @@
 
             return $inpEmail;
     }
+
+
+
