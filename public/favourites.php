@@ -140,9 +140,9 @@ if (!isset($_SESSION['log']) || $_SESSION['log'] == 'out') {
               echo "<img src='https://image.tmdb.org/t/p/w200" .  $val['posterPath'] . "' alt='Movie Poster' />";
               echo "<a>";
               echo "<form action='favMovieHelper.php' method='post'>
-          <input type='hidden' id='movieID' name='movieID' value='<?= $key?>'>
-          <input type='hidden' id='movieTitle' name='movieTitle' value='<?=" . $val['title'] . "?>'>
-          <input type='hidden' id='posterPath' name='posterPath' value='<?=" . $val['posterPath'] . "?>'>
+          <input type='hidden' id='movieID' name='movieID' value=' $key'>
+          <input type='hidden' id='movieTitle' name='movieTitle' value='" . $val['title'] . "'>
+          <input type='hidden' id='posterPath' name='posterPath' value='" . $val['posterPath'] . "'>
           <input type='hidden' id='location' name='location' value='favourites.php'>
           <input type='hidden' id='removeAll' name='removeAll' value='false'>
           <button class='bg-yellow-600 hover:bg-yellow-700 text-black  font-bold py-2 px-4 my-2 lg:ml-2 rounded focus:outline-none focus:shadow-outline justify-self-auto' type='submit' id='unfav'>
