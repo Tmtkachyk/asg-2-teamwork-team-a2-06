@@ -1,4 +1,5 @@
 <?php
+header("Content-Type: application/json");
 $config = include "../../config.php";
 include "../../database/Connection.php";
 // include "../../classes/Movie.php";
