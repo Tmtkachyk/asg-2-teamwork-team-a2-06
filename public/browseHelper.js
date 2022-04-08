@@ -141,7 +141,7 @@ function resetFilter(){
   document.querySelector("#noMovies").classList.add("hidden");
  } ;
 
-  displayMatchingMovies(preFilterArray);
+  displayMatchingMovies(JSON.parse(sessionStorage.getItem("matchingMovies")));
 }
 
 //resets the input filter values
@@ -176,15 +176,19 @@ function clearFilters() {
    });
  }
 
-//Title sort event listener
+
+
+ 
+//Year sort event listener
 document.getElementById('yearSort').addEventListener("click", () => {
   sortYear();
  })
 
-
   //Sort Year
 function sortYear(){
   clearDefault();
-  // let sortedMoviesYear = unSortedMovies.sort((movie1, movie2) => movie1.title.localeCompare(movie2.title));
+  let sortedArray = preFilterArray;
+  let sortedMoviesYear = sortedArray.sort((movie1, movie2) => movie1.release_date.localeCompare(movie2.release_date));
   // return sortedMoviesAlpha;
+  displayMatchingMovies(sortedMoviesYear);
     }
