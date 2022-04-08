@@ -1,33 +1,34 @@
 <?php
+session_start();
 #add log in check
 #add pulling from session storage
+//header("Location: error.php");
+// $movieID = 170;
+// $title = "Mad Max 2: The Road Warrior";
+// $posterpath = "/cjh3bj1tc49RZcQwDPJtNHsdvHq.jpg";
+// $movie[$movieID] = array(
+//   "title" => $title,
+//   "posterPath" => $posterpath
+// );
+// $moviesList[$movieID] = $movie[$movieID];
+// $movieID2 = 2;
+// $title2 = "The Princess Diaries 2: Royal Engagement";
+// $posterpath2 = "/9GkLjwvqjwDfLZkWLGjLLfQf2Be.jpg";
+// $movie[$movieID2] = array(
+//   "title" => $title2,
+//   "posterPath" => $posterpath2
+// );
+// $moviesList[$movieID2] = $movie[$movieID2];
+// $movieID3 = 11;
+// $title3 = "Rocky";
+// $posterpath3 = "/eeUqKTX0YYw3T53rjYQMKOwf0TF.jpg";
+// $movie[$movieID3] = array(
+//   "title" => $title3,
+//   "posterPath" => $posterpath3
+// );
+// $moviesList[$movieID3] = $movie[$movieID3];
 
-$movieID = 170;
-$title = "Mad Max 2: The Road Warrior";
-$posterpath = "/cjh3bj1tc49RZcQwDPJtNHsdvHq.jpg";
-$movie[$movieID] = array(
-  "title" => $title,
-  "posterPath" => $posterpath
-);
-$moviesList[$movieID] = $movie[$movieID];
-$movieID2 = 2;
-$title2 = "The Princess Diaries 2: Royal Engagement";
-$posterpath2 = "/9GkLjwvqjwDfLZkWLGjLLfQf2Be.jpg";
-$movie[$movieID2] = array(
-  "title" => $title2,
-  "posterPath" => $posterpath2
-);
-$moviesList[$movieID2] = $movie[$movieID2];
-$movieID3 = 11;
-$title3 = "Rocky";
-$posterpath3 = "/eeUqKTX0YYw3T53rjYQMKOwf0TF.jpg";
-$movie[$movieID3] = array(
-  "title" => $title3,
-  "posterPath" => $posterpath3
-);
-$moviesList[$movieID3] = $movie[$movieID3];
-
-$_SESSION["fav"] = $moviesList;
+// $_SESSION["fav"] = $moviesList;
 
 
 // if(!array_key_exists($keyToAdd,$_SESSION['favs']){
@@ -109,14 +110,48 @@ $_SESSION["fav"] = $moviesList;
     <?php include 'header.php';
     ?>
     <main class="container m-auto h-[75vh]">
-      <div class="flex justify-center">
+      <div class="grid justify-center">
         <?php
-        $activeMovieList = $_SESSION["fav"];
+
+        
+
+
+        if(!isset($_SESSION['favs'])){
+          echo" <span class='col-span-5 justify-center text-5xl' >
+                  No Favourites Found
+                </span>";
+        }else{
+          if(count($_SESSION['favs']) > 0){
+            echo "<form action='favMovieHelper.php' method='post'>
+        <input type='hidden' id='location' name='location' value='favourites.php'>
+        <input type='hidden' id='removeAll' name='removeAll' value='true'>
+        <button class='bg-red-600 hover:bg-red-700 text-black  font-bold py-2 px-4 my-2 lg:ml-2 rounded focus:outline-none focus:shadow-outline justify-self-auto' type='submit' id='unfavAll'>
+            Remove All Favourites
+          </button>
+        </form>";
+        $activeMovieList = $_SESSION['favs'];
         foreach ($activeMovieList as $key => $val) {
-          echo "<div>";
+          echo "<div class'justify-center'>";
           echo "<p class='text-lg font-semibold'>" . $val['title'] . "</p>";
           echo "<img src='https://image.tmdb.org/t/p/w342" .  $val['posterPath'] . "' alt='Movie Poster' />";
+          echo "<form action='favMovieHelper.php' method='post'>
+          <input type='hidden' id='movieID' name='movieID' value='<?= $key?>'>
+          <input type='hidden' id='movieTitle' name='movieTitle' value='<?=" . $val['title'] ."?>'>
+          <input type='hidden' id='posterPath' name='posterPath' value='<?=" . $val['posterPath'] . "?>'>
+          <input type='hidden' id='location' name='location' value='favourites.php'>
+          <input type='hidden' id='removeAll' name='removeAll' value='false'>
+          <button class='bg-yellow-600 hover:bg-yellow-700 text-black  font-bold py-2 px-4 my-2 lg:ml-2 rounded focus:outline-none focus:shadow-outline justify-self-auto' type='submit' id='unfav'>
+              Unfavourite
+            </button>
+          </form>";
           echo "</div>";
+        }
+      }else{
+        echo" <span class='col-span-5 justify-center text-5xl' >
+        No Favourites Found
+      </span>";
+      echo "</div>";
+      } 
         }
         ?>
       </div>

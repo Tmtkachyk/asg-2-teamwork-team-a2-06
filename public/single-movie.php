@@ -172,7 +172,8 @@ $movie = new Movie(
                 <input type="hidden" id="movieID" name="movieID" value="<?= $movie->id?>">
                 <input type="hidden" id="movieTitle" name="movieTitle" value="<?= $movie->title?>">
                 <input type="hidden" id="posterPath" name="posterPath" value="<?= $movie->poster_path ?>">
-                <input type="hidden" id="location" name="location" value="single-movie.php">
+                <input type="hidden" id="location" name="location" value="single-movie.php?id=<?=$movie->id?>">
+                <input type="hidden" id="removeAll" name="removeAll" value="false">
                 
                 <button class="lg:text-2x <?php if(isset($_SESSION['favs'])){
                 if(array_key_exists($movie->id,$_SESSION['favs'])){

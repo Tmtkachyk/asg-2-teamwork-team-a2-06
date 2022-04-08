@@ -4,10 +4,12 @@ $movieID =$_POST['movieID'];
 $movieTitle =$_POST['movieTitle'];
 $moviePosterPath =$_POST['posterPath'];
 $location = $_POST['location'];
+$removeAll =$_POST['removeAll'];
 
-
-
-$movie[$movieID] = array(
+if($removeAll == "true"){
+  $_SESSION['favs'] = [];
+}else{
+  $movie[$movieID] = array(
   "title" => $movieTitle,
   "posterPath" => $moviePosterPath
 );
@@ -31,8 +33,6 @@ foreach($_SESSION['favs'] as $key => $value)
   var_dump($value['title']);
   var_dump($value['posterPath']);
 }
-header("Location: $location" . "?id=$movieID");
-
 if(isset($_SESSION['favs'])){
   echo " is set ";
   if(array_key_exists($movieID,$_SESSION['favs'])){
@@ -44,7 +44,7 @@ if(isset($_SESSION['favs'])){
   {
     echo " is not set ";
   }
-
-
+}
+header("Location: $location");
 ?>
 
