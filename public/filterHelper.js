@@ -26,8 +26,12 @@ function filterMovies(){
 
   //Title Filter
   titleFilter(preFilterArray);
-  //Title Filter
+  //before Year Filter
   beforeYearFilter(preFilterArray);
+  //after Year Filter
+  afterYearFilter(preFilterArray);
+  //between Year Filter
+  betweenYearFilter(preFilterArray);
   //Below rating filter
   belowRatingfilter(preFilterArray);  
   //Above rating filter
@@ -50,7 +54,19 @@ function titleFilter(preFilterArray){
 //YEAR FILTERS BELOW
 //before year filter
 function beforeYearFilter(preFilterArray) {
+  if(document.getElementById('radioAfter').checked) {
+    clearFilters();
+    let afterYearValue = document.getElementById('afterFilter').value;
+    let postFilterMovieArray = preFilterArray.filter(movie => movie.release_date > afterYearValue );
+      //put filtered movies into session storage filteredMovies
+    sessionStorage.setItem("filteredMovies", JSON.stringify(postFilterMovieArray));
+  }
+}
+
+//after year filter
+function afterYearFilter(preFilterArray) {
   if(document.getElementById('radioBefore').checked) {
+    
     let beforeYearValue = document.getElementById('beforeFilter').value;
     let postFilterMovieArray = preFilterArray.filter(movie => movie.release_date < beforeYearValue );
       //put filtered movies into session storage filteredMovies
@@ -58,14 +74,16 @@ function beforeYearFilter(preFilterArray) {
   }
 }
 
-//after year filter
-function afterYearFilter() {
-  return;
-}
-
 //between year filter
-function betweenYearFilter() {
-  return;
+function betweenYearFilter(preFilterArray) {
+  if(document.getElementById('radioBetween').checked) {
+    let betweenFilterLowerBounds = document.getElementById('betweenFilterLowerBounds').value;
+    let betweenFilterHigherBounds = document.getElementById('betweenFilterHigherBounds').value;
+
+    let postFilterMovieArray = preFilterArray.filter(movie => movie.release_date > betweenFilterLowerBounds && movie.release_date < betweenFilterHigherBounds );
+      //put filtered movies into session storage filteredMovies
+    sessionStorage.setItem("filteredMovies", JSON.stringify(postFilterMovieArray));
+  }
 }
 
 
