@@ -140,7 +140,7 @@ if (!isset($_SESSION['log']) || $_SESSION['log'] == 'out') {
               echo "<img src='https://image.tmdb.org/t/p/w200" .  $val['posterPath'] . "' alt='Movie Poster' />";
               echo "<a>";
               echo "<form action='favMovieHelper.php' method='post'>
-          <input type='hidden' id='movieID' name='movieID' value=' $key'>
+          <input type='hidden' id='movieID' name='movieID' value='$key'>
           <input type='hidden' id='movieTitle' name='movieTitle' value='" . $val['title'] . "'>
           <input type='hidden' id='posterPath' name='posterPath' value='" . $val['posterPath'] . "'>
           <input type='hidden' id='location' name='location' value='favourites.php'>

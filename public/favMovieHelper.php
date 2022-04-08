@@ -13,7 +13,6 @@ if ($removeAll == "true") {
     "title" => $movieTitle,
     "posterPath" => $moviePosterPath
   );
-
   if (isset($_SESSION['favs'])) {
     $listOfMovies =  $_SESSION['favs'];
     if (array_key_exists($movieID, $listOfMovies)) {
@@ -26,21 +25,21 @@ if ($removeAll == "true") {
     $listOfMovies[$movieID] = $movie[$movieID];
     $_SESSION['favs'] = $listOfMovies;
   }
-  var_dump($_SESSION['favs']);
-  foreach ($_SESSION['favs'] as $key => $value) {
-    var_dump($key);
-    var_dump($value['title']);
-    var_dump($value['posterPath']);
-  }
-  if (isset($_SESSION['favs'])) {
-    echo " is set ";
-    if (array_key_exists($movieID, $_SESSION['favs'])) {
-      echo " is fav ";
-    } else {
-      echo " is not fav ";
-    }
-  } else {
-    echo " is not set ";
-  }
+  // var_dump($_SESSION['favs']);
+  // foreach ($_SESSION['favs'] as $key => $value) {
+  //   var_dump($key);
+  //   var_dump($value['title']);
+  //   var_dump($value['posterPath']);
+  // }
+  // if (isset($_SESSION['favs'])) {
+  //   echo " is set ";
+  //   if (array_key_exists($movieID, $_SESSION['favs'])) {
+  //     echo " is fav ";
+  //   } else {
+  //     echo " is not fav ";
+  //   }
+  // } else {
+  //   echo " is not set ";
+  // }
 }
 header("Location: $location");
