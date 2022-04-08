@@ -1,11 +1,13 @@
 let filterButton = document.querySelector("#filterButton");
 let resetButton = document.querySelector("#resetButton");
 let hideFilterButton = document.querySelector("#hideFilterButton");
+let preFilterArray = JSON.parse(sessionStorage.getItem("matchingMovies"));
    
 //click event listener on filter button
    filterButton.addEventListener("click", () => {
-    filterMovies();
-    displayFilteredMovies();
+    filterMovies(preFilterArray);
+    let listOfFilteredMovies = JSON.parse(sessionStorage.getItem("filteredMovies"));
+    displayMatchingMovies(listOfFilteredMovies);
   })
 
 //click event listener on reset button
@@ -20,9 +22,9 @@ let hideFilterButton = document.querySelector("#hideFilterButton");
 
 
 //Checks filters
-function filterMovies(){
+function filterMovies(preFilterArray){
   //pulls out matchingMovies session storage into an array
-  let preFilterArray = JSON.parse(sessionStorage.getItem("matchingMovies"));
+
 
   //Title Filter
   titleFilter(preFilterArray);
@@ -128,20 +130,6 @@ function inbetweenRatingFilter(preFilterArray) {
   }
 }
 
-//Displays the filtered movies from session storage onto the page
-function displayFilteredMovies(){  
-  let listOfMovies = JSON.parse(sessionStorage.getItem("filteredMovies"));
-
-  if (listOfMovies.length == 0 || listOfMovies == null ) {
-    clearDefault();
-    document.querySelector("#noMovies").classList.remove("hidden");
-  }else {
-    clearDefault();
-    listOfMovies.forEach(movie =>{
-      populateDefault(movie);
-      }); 
-  }};
-
 
 //After reset button is clicked sets everything back to starting
 function resetFilter(){
@@ -153,7 +141,7 @@ function resetFilter(){
   document.querySelector("#noMovies").classList.add("hidden");
  } ;
 
-  displayMatchingMovies();
+  displayMatchingMovies(preFilterArray);
 }
 
 //resets the input filter values
@@ -188,25 +176,15 @@ function clearFilters() {
    });
  }
 
-//  document.getElementById('belowRating').addEventListener('input', (event) => {
-//   let belowFilterValue = document.getElementById('belowRating').value;
-//   document.getElementById('belowValue').textContent = `${belowFilterValue}`;
-//  });
- 
+//Title sort event listener
+document.getElementById('yearSort').addEventListener("click", () => {
+  sortYear();
+ })
 
 
-
-  //gets it as a normal array
-  //console.log(JSON.parse(sessionStorage.getItem("filteredMovies"))[0].title);
-  //working
-  //sessionStorage.setItem("filteredMovies", sessionStorage.getItem("matchingMovies"));
-  //filter the array
-  //working vote_average array
-  //let postFilterMovieArray = preFilterArray.filter(movie => movie.vote_average > 5 );
-
-
-
-  // function titleFilter(listOfMovies){
-  //   let sortedMovies = sortAlpha(listOfMovies);
-  //    return sortedMovies;
-  //    }
+  //Sort Year
+function sortYear(){
+  clearDefault();
+  // let sortedMoviesYear = unSortedMovies.sort((movie1, movie2) => movie1.title.localeCompare(movie2.title));
+  // return sortedMoviesAlpha;
+    }

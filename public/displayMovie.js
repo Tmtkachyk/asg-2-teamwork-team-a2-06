@@ -1,23 +1,21 @@
 document.addEventListener("DOMContentLoaded", (event) => {
-  displayMatchingMovies();
+  let preFilterArray = JSON.parse(sessionStorage.getItem("matchingMovies"));
+  displayMatchingMovies(preFilterArray);
 });
 
 
- function displayMatchingMovies(){
-      
-  let listOfMovies = JSON.parse(sessionStorage.getItem("matchingMovies"));
-
-  if (listOfMovies.length == 0) {
-    //showNoResults();
+function displayMatchingMovies(listOfMovies){  
+  if (listOfMovies.length == 0 || listOfMovies == null ) {
+    clearDefault();
     document.querySelector("#noMovies").classList.remove("hidden");
   }else {
+    clearDefault();
     listOfMovies.forEach(movie =>{
       populateDefault(movie);
-      });
-  }
+      }); 
+  }};
 
-     }
- 
+
  
      function populateDefault(theMovie){
       let fullDate = theMovie.release_date;
