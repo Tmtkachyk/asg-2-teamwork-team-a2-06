@@ -46,5 +46,3 @@ if(isset($_SESSION['favs'])){
   }
 }
 header("Location: $location");
-?>
-
