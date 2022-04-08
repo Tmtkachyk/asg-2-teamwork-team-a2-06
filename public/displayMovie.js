@@ -80,15 +80,15 @@ document.addEventListener("DOMContentLoaded", (event) => {
       form.setAttribute("action", "favMovieHelper.php"); 
       form.setAttribute("method", "post");
       form.append(addInput("movieID",movie.id));
-      form.append(addInput(movieTitle,movie.title));
-      form.append(addInput(posterPath,movie.poster_path));
-      form.append(addInput(location,"browse-movies.php"));
-      form.append(addInput(removeAll,"false"));
+      form.append(addInput("movieTitle",movie.title));
+      form.append(addInput("posterPath",movie.poster_path));
+      form.append(addInput("location","browse-movies.php"));
+      form.append(addInput("removeAll","false"));
       let but = document.createElement("button");
       but.setAttribute("data-id", movie.id);
       but.setAttribute("data-type", "favButton");
       but.append('\u2605'); 
-      but.title = "Favourite"
+      but.title = "Favourites"
       but.classList.add("text-[25px]", "focus:outline-none", "focus:shadow-outline");
       form.append(but);
       return form;

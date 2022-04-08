@@ -174,7 +174,7 @@ session_start();
                 <div class="grid grid-cols-8 col-span-4 justify-items-start" id="sortButtons">
                   <div class="col-span-2">
                     <a href="#" class="text-lg underline" id="titleSort">
-                      <Title></Title>
+                      Title
                     </a>
                   </div>
                   <div class="col-span-2">
