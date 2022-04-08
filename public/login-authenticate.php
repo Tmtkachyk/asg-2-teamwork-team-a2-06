@@ -47,7 +47,7 @@
                    $_SESSION['lastname'] = $queryResult[0]['lastname'];
                    $_SESSION['city'] = $queryResult[0]['city'];
                    $_SESSION['country'] = $queryResult[0]['country'];
-                   
+                   // add fav
                    header("location:index.php");
                }
                else
