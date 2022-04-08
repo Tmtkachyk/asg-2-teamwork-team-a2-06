@@ -174,19 +174,30 @@ $movie = new Movie(
                 <input type="hidden" id="posterPath" name="posterPath" value="<?= $movie->poster_path ?>">
                 <input type="hidden" id="location" name="location" value="single-movie.php?id=<?=$movie->id?>">
                 <input type="hidden" id="removeAll" name="removeAll" value="false">
-                
-                <button class="lg:text-2x <?php if(isset($_SESSION['favs'])){
-                if(array_key_exists($movie->id,$_SESSION['favs'])){
-                  echo "bg-yellow-600 hover:bg-yellow-700 text-black" ;
-                }else{
-                  echo "bg-neutral-600 hover:bg-neutral-700 text-white";
-                }
-                }else
+      
+
+                <?php
+                if(isset($_SESSION['log']) && $_SESSION['log'] == 'in' )
                 {
-                  echo "bg-neutral-600 hover:bg-neutral-700 text-white";
-                }?>  font-bold py-2 px-4 my-2 lg:ml-2 rounded focus:outline-none focus:shadow-outline" type="submit" id="closeButton">
-                  Favourite
-                </button>
+
+                  if(isset($_SESSION["favs"]))
+                  {
+                    if(array_key_exists($movie->id,$_SESSION["favs"]))
+                    {
+                      echo '<button class="lg:text-2x bg-yellow-600 hover:bg-yellow-700 text-black font-bold py-2 px-4 my-2 lg:ml-2 rounded focus:outline-none focus:shadow-outline" type="submit" id="closeButton">Favourite</button>';
+                    }
+
+                    else
+                    {
+                      echo '<button class="lg:text-2x bg-neutral-600 hover:bg-yellow-700 text-black font-bold py-2 px-4 my-2 lg:ml-2 rounded focus:outline-none focus:shadow-outline" type="submit" id="closeButton">Favourite</button>';
+                    }
+
+
+                  }
+                }
+
+                ?>
+
                 
                 </form>
               </div>
