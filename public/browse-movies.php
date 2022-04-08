@@ -213,6 +213,6 @@ session_start();
 </body>
 
 <script src="movieHelpers.js"></script>
-<script src="filterHelper.js"></script>
+<script src="browseHelper.js"></script>
 
 </html>

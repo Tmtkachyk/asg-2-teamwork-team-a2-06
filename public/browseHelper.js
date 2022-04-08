@@ -54,10 +54,9 @@ function titleFilter(preFilterArray){
 //YEAR FILTERS BELOW
 //before year filter
 function beforeYearFilter(preFilterArray) {
-  if(document.getElementById('radioAfter').checked) {
-    clearFilters();
-    let afterYearValue = document.getElementById('afterFilter').value;
-    let postFilterMovieArray = preFilterArray.filter(movie => movie.release_date > afterYearValue );
+  if(document.getElementById('radioBefore').checked) {
+    let beforeYearValue = document.getElementById('beforeFilter').value;
+    let postFilterMovieArray = preFilterArray.filter(movie => movie.release_date < beforeYearValue );
       //put filtered movies into session storage filteredMovies
     sessionStorage.setItem("filteredMovies", JSON.stringify(postFilterMovieArray));
   }
@@ -65,10 +64,10 @@ function beforeYearFilter(preFilterArray) {
 
 //after year filter
 function afterYearFilter(preFilterArray) {
-  if(document.getElementById('radioBefore').checked) {
+  if(document.getElementById('radioAfter').checked) {
     
-    let beforeYearValue = document.getElementById('beforeFilter').value;
-    let postFilterMovieArray = preFilterArray.filter(movie => movie.release_date < beforeYearValue );
+    let afterYearValue = document.getElementById('afterFilter').value;
+    let postFilterMovieArray = preFilterArray.filter(movie => movie.release_date > afterYearValue );
       //put filtered movies into session storage filteredMovies
     sessionStorage.setItem("filteredMovies", JSON.stringify(postFilterMovieArray));
   }
