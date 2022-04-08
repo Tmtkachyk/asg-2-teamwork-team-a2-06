@@ -76,15 +76,43 @@ document.addEventListener("DOMContentLoaded", (event) => {
      }
 
      function makeFavButton(movie){
+      let form = document.createElement("form");
+      form.setAttribute("action", "favMovieHelper.php"); 
+      form.setAttribute("method", "post");
+      form.append(addInput("movieID",movie.id));
+      form.append(addInput(movieTitle,movie.title));
+      form.append(addInput(posterPath,movie.poster_path));
+      form.append(addInput(location,"browse-movies.php"));
+      form.append(addInput(removeAll,"false"));
       let but = document.createElement("button");
       but.setAttribute("data-id", movie.id);
       but.setAttribute("data-type", "favButton");
       but.append('\u2605'); 
       but.title = "Favourite"
       but.classList.add("text-[25px]", "focus:outline-none", "focus:shadow-outline");
-      return but;
+      form.append(but);
+      return form;
     }
 
+    
+        // <input type='hidden' id='movieID' name='movieID' value='<?= $key?>'>
+        // /* <input type='hidden' id='movieTitle' name='movieTitle' value='<?=" . $val['title'] ."?>'>
+        // <input type='hidden' id='posterPath' name='posterPath' value='<?=" . $val['posterPath'] . "?>'>
+        // <input type='hidden' id='location' name='location' value='favourites.php'>
+        // <input type='hidden' id='removeAll' name='removeAll' value='false'>
+        // <button class='bg-yellow-600 hover:bg-yellow-700 text-black  font-bold py-2 px-4 my-2 lg:ml-2 rounded focus:outline-none focus:shadow-outline justify-self-auto' type='submit' id='unfav'>
+        //     Unfavourite
+        //   </button>
+        // </form>"; */}
+  
+    function addInput(id,val){
+      let input = document.createElement("input");
+      input.setAttribute("type","hidden");
+      input.setAttribute("id", id);
+      input.setAttribute("name", id);
+      input.setAttribute("value", val);
+      return input;
+    }
     function showNoResults() {
       document.querySelector("#noMovies").classList.remove("hidden");
     }
