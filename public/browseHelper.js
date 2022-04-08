@@ -2,6 +2,8 @@ let filterButton = document.querySelector("#filterButton");
 let resetButton = document.querySelector("#resetButton");
 let hideFilterButton = document.querySelector("#hideFilterButton");
 let preFilterArray = JSON.parse(sessionStorage.getItem("matchingMovies"));
+
+
    
 //click event listener on filter button
    filterButton.addEventListener("click", () => {
@@ -177,18 +179,51 @@ function clearFilters() {
  }
 
 
+//Title sort event listener
+document.getElementById('titleSort').addEventListener("click", () => {
+  sortTitle();
+ })
+//Sort Title
+function sortTitle(){
+  clearDefault();
+  if (JSON.parse(sessionStorage.getItem("filteredMovies")) !== null) {
+    let sortedMoviesTitle = JSON.parse(sessionStorage.getItem("filteredMovies")).sort((movie1, movie2) => movie1.title.localeCompare(movie2.title));
+    displayMatchingMovies(sortedMoviesTitle);
+  } else{
+    let sortedMoviesTitle = preFilterArray.sort((movie1, movie2) => movie1.title.localeCompare(movie2.title));
+    displayMatchingMovies(sortedMoviesTitle);
+  }
 
+    }
  
 //Year sort event listener
 document.getElementById('yearSort').addEventListener("click", () => {
   sortYear();
  })
-
-  //Sort Year
+//Sort Year
 function sortYear(){
   clearDefault();
-  let sortedArray = preFilterArray;
-  let sortedMoviesYear = sortedArray.sort((movie1, movie2) => movie1.release_date.localeCompare(movie2.release_date));
-  // return sortedMoviesAlpha;
+  if (JSON.parse(sessionStorage.getItem("filteredMovies")) !== null) {
+    let sortedMoviesYear = JSON.parse(sessionStorage.getItem("filteredMovies")).sort((movie1, movie2) => movie1.release_date.localeCompare(movie2.release_date));
   displayMatchingMovies(sortedMoviesYear);
+  } else {
+    let sortedMoviesYear = preFilterArray.sort((movie1, movie2) => movie1.release_date.localeCompare(movie2.release_date));
+    displayMatchingMovies(sortedMoviesYear);
+  }
+    }
+ 
+//Rating sort event listener
+document.getElementById('ratingSort').addEventListener("click", () => {
+  sortRating();
+ })
+//Sort rating
+function sortRating(){
+  clearDefault();
+  if (JSON.parse(sessionStorage.getItem("filteredMovies")) !== null) {
+    let sortedMoviesRating = JSON.parse(sessionStorage.getItem("filteredMovies")).sort((movie1, movie2) => movie1.vote_average.localeCompare(movie2.vote_average));
+  displayMatchingMovies(sortedMoviesRating);
+  } else {
+    let sortedMoviesRating = preFilterArray.sort((movie1, movie2) => movie1.vote_average.localeCompare(movie2.vote_average));
+    displayMatchingMovies(sortedMoviesRating);
+  }
     }
