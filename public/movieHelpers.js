@@ -41,7 +41,7 @@ function sortAlpha(unSortedMovies){
 function saveMoviesToSessionStorage(sortedMovies){
   sessionStorage.setItem("matchingMovies", JSON.stringify(sortedMovies));
   //vvv This one for Local vvv
-  window.location.href = "/asg-2-teamwork-team-a2-06/public/browse-movies.php";
+  window.location.href = "browse-movies.php";
   //vvv This one for Heroku vvv
   //window.location.href = "/browse-movies.php";
 
