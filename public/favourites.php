@@ -1,7 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['log']) || $_SESSION['log'] == 'out') 
-{
+if (!isset($_SESSION['log']) || $_SESSION['log'] == 'out') {
   header("Location: error.php");
 }
 #add log in check
@@ -117,15 +116,15 @@ if (!isset($_SESSION['log']) || $_SESSION['log'] == 'out')
       <div class="grid justify-center">
         <?php
 
-        
 
 
-        if(!isset($_SESSION['favs'])){
-          echo" <span class='col-span-5 justify-center text-5xl' >
+
+        if (!isset($_SESSION['favs'])) {
+          echo " <span class='col-span-5 justify-center text-5xl' >
                   No Favourites Found
                 </span>";
-        }else{
-          if(count($_SESSION['favs']) > 0){
+        } else {
+          if (count($_SESSION['favs']) > 0) {
             echo "<form action='favMovieHelper.php' method='post'>
         <input type='hidden' id='location' name='location' value='favourites.php'>
         <input type='hidden' id='removeAll' name='removeAll' value='true'>
@@ -133,16 +132,16 @@ if (!isset($_SESSION['log']) || $_SESSION['log'] == 'out')
             Remove All Favourites
           </button>
         </form>";
-        $activeMovieList = $_SESSION['favs'];
-        foreach ($activeMovieList as $key => $val) {
-          echo "<div class'justify-center'>";
-          echo "<a href='single-movie.php?id=170'>";
-          echo "<p class='text-lg font-semibold'>" . $val['title'] . "</p>";
-          echo "<img src='https://image.tmdb.org/t/p/w200" .  $val['posterPath'] . "' alt='Movie Poster' />";
-          echo "<a>";
-          echo "<form action='favMovieHelper.php' method='post'>
+            $activeMovieList = $_SESSION['favs'];
+            foreach ($activeMovieList as $key => $val) {
+              echo "<div class'justify-center'>";
+              echo "<a href='single-movie.php?id=$key'>";
+              echo "<p class='text-lg font-semibold'>" . $val['title'] . "</p>";
+              echo "<img src='https://image.tmdb.org/t/p/w200" .  $val['posterPath'] . "' alt='Movie Poster' />";
+              echo "<a>";
+              echo "<form action='favMovieHelper.php' method='post'>
           <input type='hidden' id='movieID' name='movieID' value='<?= $key?>'>
-          <input type='hidden' id='movieTitle' name='movieTitle' value='<?=" . $val['title'] ."?>'>
+          <input type='hidden' id='movieTitle' name='movieTitle' value='<?=" . $val['title'] . "?>'>
           <input type='hidden' id='posterPath' name='posterPath' value='<?=" . $val['posterPath'] . "?>'>
           <input type='hidden' id='location' name='location' value='favourites.php'>
           <input type='hidden' id='removeAll' name='removeAll' value='false'>
@@ -150,14 +149,14 @@ if (!isset($_SESSION['log']) || $_SESSION['log'] == 'out')
               Unfavourite
             </button>
           </form>";
-          echo "</div>";
-        }
-      }else{
-        echo" <span class='col-span-5 justify-center text-5xl' >
+              echo "</div>";
+            }
+          } else {
+            echo " <span class='col-span-5 justify-center text-5xl' >
         No Favourites Found
       </span>";
-      echo "</div>";
-      } 
+            echo "</div>";
+          }
         }
         ?>
       </div>
