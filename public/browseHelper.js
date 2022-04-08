@@ -180,11 +180,12 @@ function clearFilters() {
 
 
 //Title sort event listener
-document.getElementById('titleSort').addEventListener("click", () => {
-  sortTitle();
+
+//Sort Title UP
+document.getElementById('titleSortUp').addEventListener("click", () => {
+  sortTitleUp();
  })
-//Sort Title
-function sortTitle(){
+function sortTitleUp(){
   clearDefault();
   if (JSON.parse(sessionStorage.getItem("filteredMovies")) !== null) {
     let sortedMoviesTitle = JSON.parse(sessionStorage.getItem("filteredMovies")).sort((movie1, movie2) => movie1.title.localeCompare(movie2.title));
@@ -193,15 +194,48 @@ function sortTitle(){
     let sortedMoviesTitle = preFilterArray.sort((movie1, movie2) => movie1.title.localeCompare(movie2.title));
     displayMatchingMovies(sortedMoviesTitle);
   }
-
     }
+
+//Sort Title DOWN
+document.getElementById('titleSortDown').addEventListener("click", () => {
+  sortTitleDown();
+ })
+function sortTitleDown(){
+  clearDefault();
+  if (JSON.parse(sessionStorage.getItem("filteredMovies")) !== null) {
+    let sortedMoviesTitle = JSON.parse(sessionStorage.getItem("filteredMovies")).sort((movie1, movie2) => movie1.title.localeCompare(movie2.title));
+    displayMatchingMovies(sortedMoviesTitle);
+  } else{
+    let sortedMoviesTitle = preFilterArray.sort((movie1, movie2) => movie2.title.localeCompare(movie1.title));
+    displayMatchingMovies(sortedMoviesTitle);
+  }
+    }
+
  
 //Year sort event listener
-document.getElementById('yearSort').addEventListener("click", () => {
-  sortYear();
+
+//Year sort up
+document.getElementById('yearSortUp').addEventListener("click", () => {
+  sortYearUp();
  })
-//Sort Year
-function sortYear(){
+
+function sortYearUp(){
+  clearDefault();
+  if (JSON.parse(sessionStorage.getItem("filteredMovies")) !== null) {
+    let sortedMoviesYear = JSON.parse(sessionStorage.getItem("filteredMovies")).sort((movie1, movie2) => movie1.release_date.localeCompare(movie2.release_date));
+  displayMatchingMovies(sortedMoviesYear);
+  } else {
+    let sortedMoviesYear = preFilterArray.sort((movie1, movie2) => movie2.release_date.localeCompare(movie1.release_date));
+    displayMatchingMovies(sortedMoviesYear);
+  }
+    }
+
+//Year sort down
+document.getElementById('yearSortDown').addEventListener("click", () => {
+  sortYearDown();
+ })
+
+function sortYearDown(){
   clearDefault();
   if (JSON.parse(sessionStorage.getItem("filteredMovies")) !== null) {
     let sortedMoviesYear = JSON.parse(sessionStorage.getItem("filteredMovies")).sort((movie1, movie2) => movie1.release_date.localeCompare(movie2.release_date));
@@ -210,14 +244,29 @@ function sortYear(){
     let sortedMoviesYear = preFilterArray.sort((movie1, movie2) => movie1.release_date.localeCompare(movie2.release_date));
     displayMatchingMovies(sortedMoviesYear);
   }
-    }
+    }    
  
 //Rating sort event listener
-document.getElementById('ratingSort').addEventListener("click", () => {
-  sortRating();
+
+//sort rating up
+document.getElementById('ratingSortUp').addEventListener("click", () => {
+  sortRatingUp();
+ });
+function sortRatingUp(){
+  clearDefault();
+  if (JSON.parse(sessionStorage.getItem("filteredMovies")) !== null) {
+    let sortedMoviesRating = JSON.parse(sessionStorage.getItem("filteredMovies")).sort((movie1, movie2) => movie1.vote_average.localeCompare(movie2.vote_average));
+  displayMatchingMovies(sortedMoviesRating);
+  } else {
+    let sortedMoviesRating = preFilterArray.sort((movie1, movie2) => movie2.vote_average.localeCompare(movie1.vote_average));
+    displayMatchingMovies(sortedMoviesRating);
+  }
+    };
+//sort rating down
+document.getElementById('ratingSortDown').addEventListener("click", () => {
+  sortRatingDown();
  })
-//Sort rating
-function sortRating(){
+function sortRatingDown(){
   clearDefault();
   if (JSON.parse(sessionStorage.getItem("filteredMovies")) !== null) {
     let sortedMoviesRating = JSON.parse(sessionStorage.getItem("filteredMovies")).sort((movie1, movie2) => movie1.vote_average.localeCompare(movie2.vote_average));
@@ -226,4 +275,4 @@ function sortRating(){
     let sortedMoviesRating = preFilterArray.sort((movie1, movie2) => movie1.vote_average.localeCompare(movie2.vote_average));
     displayMatchingMovies(sortedMoviesRating);
   }
-    }
+    };

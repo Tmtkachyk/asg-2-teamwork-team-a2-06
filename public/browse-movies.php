@@ -177,15 +177,22 @@ session_start();
                 <div class="text-lg">Sort by:</div>
                 <div class="grid grid-cols-8 col-span-4 justify-items-start" id="sortButtons">
                   <div class="col-span-2">
-                    <a href="#" class="text-lg underline" id="titleSort">
+
+                    <p class="text-lg underline" id="titleSort">
                       Title
-                    </a>
+                    </p>
+                    <a href="#" id="titleSortUp"> &#8657 </a>
+                    <a href="#" id="titleSortDown"> &#8659 </a>
                   </div>
                   <div class="col-span-2">
-                    <a href="#" class="text-lg underline" id="yearSort">Year</a>
+                    <p class="text-lg underline" id="yearSort">Year</p>
+                    <a href="#" id="yearSortUp"> &#8657 </a>
+                    <a href="#" id="yearSortDown"> &#8659 </a>
                   </div>
-                  <div class="col-span-4">
-                    <a href="#" class="text-lg underline" id="ratingSort">Rating</a>
+                  <div class="col-span-2">
+                    <p class="text-lg underline" id="ratingSort">Rating</p>
+                    <a href="#" id="ratingSortUp"> &#8657 </a>
+                    <a href="#" id="ratingSortDown"> &#8659 </a>
                   </div>
                 </div>
 
