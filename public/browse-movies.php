@@ -86,23 +86,23 @@ session_start();
             <div class="m-3 h-32" id="movieFilters">
               <h2 class="text-lg">Title</h2>
               <input id="radioTitle" type="radio" name="filterRadioBtns" value="1" />
-              Contains <br />
-              <input id="titleFilter" type="text" title="title" class="border rounded w-28 text-black" placeholder="Jarhead" /><br />
+              <label for="radioTitle">Contains</label> <br />
+              <input id="titleFilter" for="radioTitle" type="text" title="title" class="border rounded w-28 text-black" placeholder="Jarhead" /><br />
               <!-- Year filter -->
               <p class="text-lg">Year</p>
               <!-- Year radioBefore -->
               <input id="radioBefore" type="radio" name="filterRadioBtns" value="1" />
-              Before <br />
+              <label for="radioBefore">Before</label> <br />
               <!-- Year textBefore -->
               <input id="beforeFilter" type="text" title="year" class="w-28 border rounded text-black" placeholder="2000" /><br />
               <!-- Year radioAfter -->
               <input id="radioAfter" type="radio" name="filterRadioBtns" value="2" />
-              After <br />
+              <label for="radioAfter">After</label> <br />
               <!-- Year textAfter -->
               <input id="afterFilter" type="text" title="year" class="border rounded w-28 text-black" placeholder="1980" /><br />
               <!-- Year radioBetween-->
               <input id="radioBetween" type="radio" name="filterRadioBtns" value="3" />
-              Between <br />
+              <label for="radioBetween">Between</label> <br />
               <!-- Year textBetween Lower -->
               <input id="betweenFilterLowerBounds" type="text" title="year" class="border rounded my-1 w-28 text-black" placeholder="1985" /><br />
               <!-- Year textBetween Higher -->
@@ -128,24 +128,28 @@ session_start();
 
               <!-- radio above -->
               <input type="radio" name="filterRadioBtns" value="ratingAfterButton" id="radioAbove" />
-              Above: <span id="aboveValue">5</span> <br />
+              <label for="radioAbove">Above: </label> <span id="aboveValue">5</span> <br />
               <span id="aboveValue">1</span>
               <input type="range" title="range" id="aboveRating" class="form-range bg-transparent w-28 focus:outline-none focus:ring-0 focus:shadow-none" min="0" max="10" list="steplist" />
               <span>10</span>
               <br />
               <!-- radio below -->
               <input id="radioBelow" type="radio" name="filterRadioBtns" value="ratingBeforeButton" />
-              Below: <span id="belowValue">5</span><br />
+              <label for="radioBelow">Below: </label> <span id="belowValue">5</span><br />
               <span>1</span>
               <input type="range" name="filterRadioBtns" id="belowRating" class="form-range w-28 bg-transparent focus:outline-none focus:ring-0 focus:shadow-none" min="0" max="10" list="steplist" /><span>10</span>
               <br />
               <!-- Inbetween radio -->
               <input type="radio" name="filterRadioBtns" value="ratingInBetweenButton" id="radioInbetween" />
-              Inbetween <br />
-              <span id="aboveValue">1</span>
-
-              <input type="range" title="range" id="betweenRatingLowerBounds" class="form-range w-28 bg-transparent focus:outline-none focus:ring-0 focus:shadow-none" min="0" max="10" list="steplist" /><span id="lowerBoundsValue">10</span> <br /> <span id="aboveValue">1</span><input type="range" title="range" id="betweenRatingHigherBounds" class="form-range w-28 bg-transparent focus:outline-none focus:ring-0 focus:shadow-none" min="0" max="10" list="steplist" /><span id="higherBoundsValue">10</span>
-              <br />
+              <label for="radioInbetween">Inbetween: </label>
+              <span id="lowerBoundsValue">5 </span> & <span id="upperBoundsValue">5</span><br />
+              <span>1</span>
+              <input type="range" title="range" id="betweenRatingLowerBounds" class="form-range w-28 bg-transparent focus:outline-none focus:ring-0 focus:shadow-none" min="0" max="10" list="steplist" />
+              <span>10</span> <br />
+              <span>1</span>
+              <input type="range" title="range" id="betweenRatingHigherBounds" class="form-range w-28 bg-transparent focus:outline-none focus:ring-0 focus:shadow-none" min="0" max="10" list="steplist" />
+              <span>10</span><br />
+              <!-- buttons -->
               <div class="m-2">
                 <div class="flex justify-evenly">
                   <button id="filterButton" class="bg-stone-500 hover:bg-stone-800 text-white font-bold rounded focus:outline-none focus:shadow-outline m-1 p-1 disabled:bg-stone-900 disabled:text-stone-600 disabled:cursor-default" type="button">

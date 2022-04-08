@@ -30,16 +30,18 @@ let sortedMovies = sortAlpha(listOfMovies);
  }
 
  //Sorting Functions
+ //Sort title
 function sortAlpha(unSortedMovies){
   let sortedMoviesAlpha = unSortedMovies.sort((movie1, movie2) => movie1.title.localeCompare(movie2.title));
   return sortedMoviesAlpha;
     }
 
+ //Sort 
+
 function saveMoviesToSessionStorage(sortedMovies){
   sessionStorage.setItem("matchingMovies", JSON.stringify(sortedMovies));
   //vvv This one for Local vvv
-  //window.location.href = "/asg-2-teamwork-team-a2-06/public/browse-movies.php";
-  window.location.href = "/browse-movies.php";
+  window.location.href = "/asg-2-teamwork-team-a2-06/public/browse-movies.php";
   //vvv This one for Heroku vvv
   //window.location.href = "/browse-movies.php";
 

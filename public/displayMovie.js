@@ -20,11 +20,16 @@ document.addEventListener("DOMContentLoaded", (event) => {
  
  
      function populateDefault(theMovie){
- 
+      let fullDate = theMovie.release_date;
+      let split = fullDate.split('-');
+      let justYear = split[0];
+
+
         document.querySelector("#defaultInfo").append(makeDiv(imageFrom(theMovie)));
         document.querySelector("#defaultInfo").append(makeDiv(titleFrom(theMovie)));
-       document.querySelector("#defaultInfo").append(makeDiv(theMovie.release_date));
+       document.querySelector("#defaultInfo").append(makeDiv(justYear));
        document.querySelector("#defaultInfo").append(makeDiv(theMovie.vote_average));
+       //document.querySelector("#defaultInfo").append(makeDiv(theMovie.vote_average));
        //document.querySelector("#defaultInfo").append(makeFavButton(theMovie));
        
    

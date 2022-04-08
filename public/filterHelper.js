@@ -26,6 +26,8 @@ function filterMovies(){
 
   //Title Filter
   titleFilter(preFilterArray);
+  //Title Filter
+  beforeYearFilter(preFilterArray);
   //Below rating filter
   belowRatingfilter(preFilterArray);  
   //Above rating filter
@@ -47,8 +49,13 @@ function titleFilter(preFilterArray){
 
 //YEAR FILTERS BELOW
 //before year filter
-function beforeYearFilter() {
-  return;
+function beforeYearFilter(preFilterArray) {
+  if(document.getElementById('radioBefore').checked) {
+    let beforeYearValue = document.getElementById('beforeFilter').value;
+    let postFilterMovieArray = preFilterArray.filter(movie => movie.release_date < beforeYearValue );
+      //put filtered movies into session storage filteredMovies
+    sessionStorage.setItem("filteredMovies", JSON.stringify(postFilterMovieArray));
+  }
 }
 
 //after year filter
@@ -73,6 +80,7 @@ function belowRatingfilter(preFilterArray) {
   }
 }
 
+//bug on 10
 //above rating filter
 function aboveRatingFilter(preFilterArray) {
   if(document.getElementById('radioAbove').checked) {
@@ -149,6 +157,10 @@ function clearFilters() {
     displaySliderAmounts('belowRating', 'belowValue');
     //display above rating slider amount
     displaySliderAmounts('aboveRating', 'aboveValue');
+    //display inbetween lower bound rating slider amount
+    displaySliderAmounts('betweenRatingLowerBounds', 'lowerBoundsValue');
+  //display inbetween upper bound rating slider amount
+    displaySliderAmounts('betweenRatingHigherBounds', 'upperBoundsValue');
   });
 
 //displays slider input amount
