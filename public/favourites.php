@@ -136,7 +136,9 @@ if (!isset($_SESSION['log']) || $_SESSION['log'] == 'out')
         $activeMovieList = $_SESSION['favs'];
         foreach ($activeMovieList as $key => $val) {
           echo "<div class'justify-center'>";
+          echo "<a href='single-movie.php?id=170'>";
           echo "<p class='text-lg font-semibold'>" . $val['title'] . "</p>";
+          echo "<a>";
           echo "<img src='https://image.tmdb.org/t/p/w342" .  $val['posterPath'] . "' alt='Movie Poster' />";
           echo "<form action='favMovieHelper.php' method='post'>
           <input type='hidden' id='movieID' name='movieID' value='<?= $key?>'>

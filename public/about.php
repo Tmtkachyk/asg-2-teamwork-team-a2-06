@@ -1,7 +1,7 @@
 <?php
 session_start();
 date_default_timezone_set("America/Edmonton");
-$dueDate = mktime(21, 0, 0, 4, 8, 2022); //April 6, 2022 21:00:00
+$dueDate = mktime(23, 59, 59, 4, 8, 2022); //April 6, 2022 21:00:00
 $dueDateRegular = date("h:i a D, M d, Y", $dueDate);
 $todayTime = time(); // current time in seconds since 1970.
 $todayDate = date("D, M d, Y");
