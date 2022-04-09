@@ -129,7 +129,7 @@ session_start();
               <!-- radio above -->
               <input type="radio" name="filterRadioBtns" value="ratingAfterButton" id="radioAbove" />
               <label for="radioAbove">Above: </label> <span id="aboveValue">5</span> <br />
-              <span id="aboveValue">1</span>
+              <span id="aboveValueabcdefg">1</span>
               <input type="range" title="range" id="aboveRating" class="form-range bg-transparent w-28 focus:outline-none focus:ring-0 focus:shadow-none" min="0" max="10" list="steplist" />
               <span>10</span>
               <br />
@@ -187,18 +187,18 @@ session_start();
                     <p class="text-lg underline" id="titleSort">
                       Title
                     </p>
-                    <a href="#" id="titleSortUp"> &#8657 </a>
-                    <a href="#" id="titleSortDown"> &#8659 </a>
+                    <a href="#" id="titleSortUp"> &#8657; </a>
+                    <a href="#" id="titleSortDown"> &#8659; </a>
                   </div>
                   <div class="col-span-2">
                     <p class="text-lg underline" id="yearSort">Year</p>
-                    <a href="#" id="yearSortUp"> &#8657 </a>
-                    <a href="#" id="yearSortDown"> &#8659 </a>
+                    <a href="#" id="yearSortUp"> &#8657; </a>
+                    <a href="#" id="yearSortDown"> &#8659; </a>
                   </div>
                   <div class="col-span-2">
                     <p class="text-lg underline" id="ratingSort">Rating</p>
-                    <a href="#" id="ratingSortUp"> &#8657 </a>
-                    <a href="#" id="ratingSortDown"> &#8659 </a>
+                    <a href="#" id="ratingSortUp"> &#8657; </a>
+                    <a href="#" id="ratingSortDown"> &#8659; </a>
                   </div>
                 </div>
 
@@ -223,9 +223,8 @@ session_start();
 
     </div>
   </div>
+  <script src="movieHelpers.js"></script>
+  <script src="browseHelper.js"></script>
 </body>
-
-<script src="movieHelpers.js"></script>
-<script src="browseHelper.js"></script>
 
 </html>
