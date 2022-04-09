@@ -1,6 +1,7 @@
 let filterButton = document.querySelector("#filterButton");
 let resetButton = document.querySelector("#resetButton");
 let hideFilterButton = document.querySelector("#hideFilterButton");
+let showFilterButton = document.querySelector("#showFilterButton");
 let preFilterArray = JSON.parse(sessionStorage.getItem("matchingMovies"));
 
 
@@ -20,6 +21,13 @@ let preFilterArray = JSON.parse(sessionStorage.getItem("matchingMovies"));
 //click event listener on hide filters button
   hideFilterButton.addEventListener("click", () => {
     document.querySelector("#filterForm").classList.add("hidden");
+    document.querySelector("#showFilterButtonDiv").classList.remove("hidden");
+   })
+
+   //click event listener on show filters button
+  showFilterButton.addEventListener("click", () => {
+    document.querySelector("#showFilterButtonDiv").classList.add("hidden");
+    document.querySelector("#filterForm").classList.remove("hidden");
    })
 
 

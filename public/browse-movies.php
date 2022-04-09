@@ -169,6 +169,12 @@ session_start();
             </div>
           </form>
 
+          <div class="justify-evenly hidden" id="showFilterButtonDiv">
+            <button id="showFilterButton" class=" bg-stone-500 hover:bg-stone-800 text-white font-bold rounded justify-self-center focus:outline-none focus:shadow-outline m-1 p-1" type="button">
+              Show Filters
+            </button>
+          </div>
+
           <div class="col-span-6 overflow-auto bg-black/80 text-white font-source w-auto">
             <div id="moviesList" class="m-1">
               <h2 class="text-xl font-semibold">Results</h2>
