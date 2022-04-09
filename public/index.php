@@ -101,42 +101,27 @@
         echo '<h3 class="shadow-2xl pt-4" >' . 'City: ' . $_SESSION['city'] . '</h3> </div>';
 
 
-          
-          
-          echo '<div class="item3"> ';
-          
-          if (empty($_SESSION['favs']) ) 
-          {
-            echo "No Favourites Found";
+
+
+        echo '<div class="item3"> ';
+
+        if (empty($_SESSION['favs'])) {
+          echo "No Favourites Found";
+        }
+
+        if (count($_SESSION['favs']) > 0) {
+
+          echo '<h3> Favourites </h3>';
+
+          $activeMovieList = $_SESSION['favs'];
+          echo '<div class="inline-flex flex-wrap pt-10 shadow-md " >';
+          foreach ($activeMovieList as $key => $val) {
+
+            echo '<a style="display:flex-auto"' . "href='single-movie.php?id=$key'>";
+            echo '    <img src="https://image.tmdb.org/t/p/w200' .  $val['posterPath'] . '" alt="Movie Poster" style="width:125px;" class="px-1 shadow-2xl" />';
+            echo "<a>";
           }
-
-          if (count($_SESSION['favs']) > 0) 
-          {
-
-            echo '<h3> Favourites </h3>';
-
-            $activeMovieList = $_SESSION['favs'];
-            echo '<div class="inline-flex flex-wrap pt-10 shadow-md " >';
-            foreach ($activeMovieList as $key => $val) {
-              
-              echo '<a style="display:flex-auto"' . "href='single-movie.php?id=$key'>";
-              echo '    <img src="https://image.tmdb.org/t/p/w200' .  $val['posterPath'] . '" alt="Movie Poster" style="width:125px;" class="px-1 shadow-2xl" />';
-              echo "<a>";
-              
-            }
-            echo "</div>";
-          }
-          
-          
-          
-          
-         echo '</div>';
-
-
-          echo'<div class="item4">Suggestions</div>
-
-           </div>';
-
+          echo "</div>";
         }
 
 
@@ -146,7 +131,6 @@
 
 
         echo '<div class="item4">Suggestions</div>
-
            </div>';
       } else {
 
