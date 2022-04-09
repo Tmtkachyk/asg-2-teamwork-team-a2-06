@@ -44,15 +44,18 @@ function validateLogin($email, $password, $config)
         $_SESSION['city'] = $queryResult[0]['city'];
         $_SESSION['country'] = $queryResult[0]['country'];
         $_SESSION['email'] = $queryResult[0]['email'];
-
+        $vaildEmail = $queryResult[0]['email'];
         $pdo2 = Connection::connect($config['database']);
-        $favListQuery = "SELECT favourites_list FROM favourites WHERE user_email=:email";
+        $favListQuery = "SELECT favourites_list FROM favourites WHERE user_email='$vaildEmail'";
         $favStatment = $pdo2->prepare($favListQuery);
-        $favStatment->execute(["email" => $email]);
+        $favStatment->execute();
         $favResult = $favStatment->fetchAll(PDO::FETCH_ASSOC);
-
+        var_dump($favResult);
         if (count($favResult) > 0) {
-          $movieList = json_decode($favResult);
+          $movieList = json_decode($favResult[0]['favourites_list'], true);
+          echo "<br> this is the new movie:";
+          var_dump($movieList);
+
           $_SESSION['favs'] = $movieList;
         } else {
           $_SESSION['favs'] = [];
