@@ -53,7 +53,7 @@
 
                 $firstN = $_POST['firstNameRegister'];
                 $lastN = $_POST['lastNameRegister'];
-                $email = '"' . $_POST['emailRegister'] . '"';
+              //  $email = '"' . $_POST['emailRegister'] . '"';
                 $city = $_POST['cityRegister'];
                 $country = $_POST['countryRegister'];
                 $password = $_POST['passwordRegister'];
@@ -61,12 +61,18 @@
                 //hashing the password 
                 $digest = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
             
-                $addUserSQL = "INSERT INTO users (firstname, lastname, city, country, email, password) VALUES ('$firstN', '$lastN', '$city', '$country', '$email', '$digest')";
-              
-                $pdo = Connection::connect($config['database']); 
-                $userStatement = $pdo->prepare($addUserSQL);
-                $userStatement->execute();
+                $addUserSQL = "INSERT INTO users (firstname, lastname, city, country, email, password) VALUES (:fn, :ln, :city, :country, :email, :pw)";
 
+                $pdo = Connection::connect($config['database']);
+                $userStatement = $pdo->prepare($addUserSQL);
+                $userStatement->execute([
+                  "fn" => $firstN,
+                  "ln" => $lastN,
+                  "city" => $city,
+                  "country" => $country,
+                  "email" => $email,
+                  "pw" => $digest
+                ]);
             
                 loginNewUser($email, $config);
             }
