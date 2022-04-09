@@ -25,7 +25,7 @@ if (isset($_GET["id"])) {
 
 
 $pdo = Connection::connect($config['database']);
-$selectStatment = "SELECT id FROM movie WHERE id=:id";
+$selectStatment = "SELECT id FROM movie WHERE id=:ID";
 $idStatement = $pdo->prepare($selectStatment);
 $idStatement->execute(["ID" => $id]);
 $resultingIDs = $idStatement->fetchAll(PDO::FETCH_ASSOC);
@@ -286,7 +286,8 @@ $movie = new Movie(
                     Actor
                   </h2>
                   <div class="text-s" id="castNameSection">
-                    <?php foreach ($movie->cast as $actor => $character)
+                    <?php
+                    foreach ($movie->cast as $actor => $character)
                       echo '<p>' . $actor . '</p>'
                     ?>
                   </div>
@@ -390,7 +391,7 @@ $movie = new Movie(
       </div>
     </div>
   </div>
-  <script src="JavaScript/details.js"></script>
+  <script src="details.js"></script>
 </body>
 
 </html>

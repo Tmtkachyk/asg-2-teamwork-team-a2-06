@@ -112,11 +112,4 @@ class Movie
     $poster_path = $this->poster_path;
     return "https://image.tmdb.org/t/p/w$size/$poster_path";
   }
-
-
-
-  
-
-
-
 }
