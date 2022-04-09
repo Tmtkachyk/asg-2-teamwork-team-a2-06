@@ -133,7 +133,7 @@
         echo '</div>';
 
 
-         echo '<div class="item4">Suggestions <br><br> <h6>maybe next time 🤓</h6></div>
+         echo '<div class="item4">Suggestions <br> <br> :/ </div>
            </div>';
       } else {
 
