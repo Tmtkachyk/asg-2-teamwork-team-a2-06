@@ -61,10 +61,9 @@ window.addEventListener("load", () => {
 
 searchButton.onclick = function(event) {
     if (homeSearchBox.value == "") {
-      
-return;
+      document.querySelector("#noSearchMessage").classList.remove("hidden");
   } else {
-  
+    document.querySelector("#noSearchMessage").classList.add("hidden");
     let userSearch = homeSearchBox.value;
     fetchingMatchingMovies(userSearch);
   }
