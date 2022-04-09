@@ -3,6 +3,7 @@ session_start();
 if (!isset($_SESSION['log']) || $_SESSION['log'] == 'out') {
   header("Location: error.php");
 }
+
 #add log in check
 #add pulling from session storage
 //header("Location: error.php");

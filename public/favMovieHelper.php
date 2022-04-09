@@ -6,6 +6,7 @@ $moviePosterPath = $_POST['posterPath'];
 $location = $_POST['location'];
 $removeAll = $_POST['removeAll'];
 
+
 if ($removeAll == "true") {
   $_SESSION['favs'] = [];
 } else {
