@@ -150,10 +150,11 @@
               <datalist id="filterList"></datalist>
             </div>
             <div class="flex items-center justify-between mb-3 lg:justify-end">
+            <div id="noSearchMessage" class="hidden"> Enter something..Anything!</div>
               <button id="favouritesButton" class="bg-stone-600 hover:bg-stone-800 text-white font-bold py-2 px-4 ml-3 rounded focus:outline-none focus:shadow-outline disabled:bg-stone-900 disabled:text-stone-600 disabled:cursor-default shadow-xl" type="button">
                 Login
               </button>
-              <div id="noSearchMessage" class="hidden"> Enter something..Anything!</div>
+              
               <button id="homeSearchButton" name="movieName" class="bg-stone-600 hover:bg-stone-800 text-white font-bold py-2 px-4 mr-3 lg:ml-2 rounded focus:outline-none focus:shadow-outline disabled:bg-stone-900 disabled:text-stone-600 disabled:cursor-default flex justify-center shadow-xl" type="button">
                 Search
   
