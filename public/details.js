@@ -13,7 +13,7 @@ document.querySelector("#castAndCrewButtons").addEventListener("click", function
       crewButton.classList.remove("bg-neutral-700");
 
   }else if (e.target && e.target.id == "crewButton"){
-      castInformation.classList.add("hidden");
+    castInformation.classList.add("hidden");
       crewInformation.classList.remove("hidden");
       crewButton.classList.add("bg-neutral-700");
       crewButton.classList.remove("bg-neutral-600");

@@ -205,9 +205,8 @@
   </div>
   </main>
   </div>
+  <script src="search.js"></script>
+  <script src="movieHelpers.js"></script>
 </body>
-
-<script src="search.js"></script>
-<script src="movieHelpers.js"></script>
 
 </html>
