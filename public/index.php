@@ -202,6 +202,7 @@
   </main>
   </div>
 </body>
+
 <script src="search.js"></script>
 <script src="movieHelpers.js"></script>
 
