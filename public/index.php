@@ -104,7 +104,7 @@
 
           
           
-          echo '<div class="item3">';
+          echo '<div class="item3"> ';
           
           if (empty($_SESSION['favs']) ) 
           {
@@ -114,12 +114,14 @@
           if (count($_SESSION['favs']) > 0) 
           {
 
+            echo '<h3> Favourites </h3>';
+
             $activeMovieList = $_SESSION['favs'];
-            echo '<div class="inline-flex flex-wrap pt-10" >';
+            echo '<div class="inline-flex flex-wrap pt-10 shadow-md " >';
             foreach ($activeMovieList as $key => $val) {
               
               echo '<a style="display:flex-auto"' . "href='single-movie.php?id=$key'>";
-              echo '    <img src="https://image.tmdb.org/t/p/w200' .  $val['posterPath'] . '" alt="Movie Poster" style="width:100px;" />';
+              echo '    <img src="https://image.tmdb.org/t/p/w200' .  $val['posterPath'] . '" alt="Movie Poster" style="width:125px;" class="px-1 shadow-2xl" />';
               echo "<a>";
               
             }
