@@ -45,6 +45,18 @@ function validateLogin($email, $password, $config)
         $_SESSION['country'] = $queryResult[0]['country'];
         $_SESSION['email'] = $queryResult[0]['email'];
 
+        $pdo2 = Connection::connect($config['database']);
+        $favListQuery = "SELECT favourites_list FROM favourites WHERE user_email=:email";
+        $favStatment = $pdo2->prepare($favListQuery);
+        $favStatment->execute(["email" => $email]);
+        $favResult = $favStatment->fetchAll(PDO::FETCH_ASSOC);
+
+        if (count($favResult) > 0) {
+          $movieList = json_decode($favResult);
+          $_SESSION['favs'] = $movieList;
+        } else {
+          $_SESSION['favs'] = [];
+        }
         header("location:index.php");
       } else {
 

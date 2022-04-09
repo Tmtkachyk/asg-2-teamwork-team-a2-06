@@ -78,13 +78,12 @@
 
       <?php
 
-        if (isset($_SESSION['log']) && $_SESSION['log'] == 'in') 
-        {
+      if (isset($_SESSION['log']) && $_SESSION['log'] == 'in') {
 
-          echo ' <div class="grid-container" class="pb-16"> <div class="item1">';
-          echo  '<h1 style="font-weight:bold" >Hello ' . $_SESSION["firstname"] . '! </h1>';
-          echo "<br>";
-          echo '<div class="py-1 px-3 mb-3 ">
+        echo ' <div class="grid-container" class="pb-16"> <div class="item1">';
+        echo  '<h1 style="font-weight:bold" >Hello ' . $_SESSION["firstname"] . '! </h1>';
+        echo "<br>";
+        echo '<div class="py-1 px-3 mb-3 ">
           <input type="text" id="homeSearchBox" class="search border rounded border-4 shadow-xl w-50 py-2 px-3 text-gray-700" placeholder="Find a movie..." list="filterList" />
           <datalist id="filterList"></datalist>
         </div>
@@ -94,55 +93,47 @@
           </button>
         </div></div>';
 
-         
-          echo'<div class="item2" >';
-          echo '<h2 class="shadow-2xl pt-10"> Your Info </h2>';
-          echo '<h3 class="shadow-2xl pt-4">' . 'Name: ' . $_SESSION['firstname'] . " " . $_SESSION['lastname'] . '</h3>';
-          echo '<h3 class="shadow-2xl pt-4" >'. 'Country: ' . $_SESSION['country'] . '</h3>';
-          echo '<h3 class="shadow-2xl pt-4" >'. 'City: ' . $_SESSION['city'] . '</h3> </div>';
+
+        echo '<div class="item2" >';
+        echo '<h2 class="shadow-2xl pt-10"> Your Info </h2>';
+        echo '<h3 class="shadow-2xl pt-4">' . 'Name: ' . $_SESSION['firstname'] . " " . $_SESSION['lastname'] . '</h3>';
+        echo '<h3 class="shadow-2xl pt-4" >' . 'Country: ' . $_SESSION['country'] . '</h3>';
+        echo '<h3 class="shadow-2xl pt-4" >' . 'City: ' . $_SESSION['city'] . '</h3> </div>';
 
 
-          
-          
-          echo '<div class="item3">';
-          
-          if (empty($_SESSION['favs']) ) 
-          {
-            echo "No Favourites Found";
+
+
+        echo '<div class="item3">';
+
+        if (empty($_SESSION['favs'])) {
+          echo "No Favourites Found";
+        }
+
+        if (count($_SESSION['favs']) > 0) {
+
+          $activeMovieList = $_SESSION['favs'];
+          echo '<div class="inline-flex flex-wrap pt-10" >';
+          foreach ($activeMovieList as $key => $val) {
+
+            echo '<a style="display:flex-auto"' . "href='single-movie.php?id=$key'>";
+            echo '    <img src="https://image.tmdb.org/t/p/w200' .  $val['posterPath'] . '" alt="Movie Poster" style="width:100px;" />';
+            echo "<a>";
           }
-
-          if (count($_SESSION['favs']) > 0) 
-          {
-
-            $activeMovieList = $_SESSION['favs'];
-            echo '<div class="inline-flex flex-wrap pt-10" >';
-            foreach ($activeMovieList as $key => $val) {
-              
-              echo '<a style="display:flex-auto"' . "href='single-movie.php?id=$key'>";
-              echo '    <img src="https://image.tmdb.org/t/p/w200' .  $val['posterPath'] . '" alt="Movie Poster" style="width:100px;" />';
-              echo "<a>";
-              
-            }
-            echo "</div>";
-          }
-          
-          
-          
-          
-         echo '</div>';
-
-
-          echo'<div class="item4">Suggestions</div>
-
-           </div>';
-
+          echo "</div>";
         }
 
 
-        else
-        {
 
-          echo '<div class="container bg-white rounded-3xl m-auto w-[40rem] text-center ">
+
+        echo '</div>';
+
+
+        echo '<div class="item4">Suggestions</div>
+
+           </div>';
+      } else {
+
+        echo '<div class="container bg-white rounded-3xl m-auto w-[40rem] text-center ">
           <!--goes down below-> action="single-movie.php" method="POST"  -->
   
           <form id="homeSearch" class="pt-3 pb-1 px-2">
@@ -169,47 +160,45 @@
             </div>
   
           </form> ';
-
-
-        }
+      }
 
       ?>
 
 
- 
 
 
 
 
 
-      </div>
-      <div class="flex justify-center font-montser">
-        <p id="image-2-credits" class="text-white/60 fixed bottom-0 content-center hidden">
-          Image Credits: James Cameron (Director), 1997,
-          <span class="italic"> "Titanic"</span>
-        </p>
 
-        <p id="image-1-credits" class="text-white/60 fixed bottom-0 content-center">
-          Image Credits: Denis Villeneuve (Director), 2017,
-          <span class="italic"> "Blade Runner 2049"</span>
-        </p>
+  </div>
+  <div class="flex justify-center font-montser">
+    <p id="image-2-credits" class="text-white/60 fixed bottom-0 content-center hidden">
+      Image Credits: James Cameron (Director), 1997,
+      <span class="italic"> "Titanic"</span>
+    </p>
 
-        <p id="image-3-credits" class="text-white/60 fixed bottom-0 content-center hidden">
-          Image Credits: Christopher Nolan (Director), 2014,
-          <span class="italic"> "Interstellar"</span>
-        </p>
+    <p id="image-1-credits" class="text-white/60 fixed bottom-0 content-center">
+      Image Credits: Denis Villeneuve (Director), 2017,
+      <span class="italic"> "Blade Runner 2049"</span>
+    </p>
 
-        <p id="image-4-credits" class="text-white/60 fixed bottom-0 content-center hidden">
-          Image Credits: Todd Phillips (Director), 2019,
-          <span class="italic"> "Joker"</span>
-        </p>
+    <p id="image-3-credits" class="text-white/60 fixed bottom-0 content-center hidden">
+      Image Credits: Christopher Nolan (Director), 2014,
+      <span class="italic"> "Interstellar"</span>
+    </p>
 
-        <p id="image-5-credits" class="text-white/60 fixed bottom-0 content-center hidden">
-          Image Credits: Ridley Scott (Director), 1979,
-          <span class="italic"> "Alien"</span>
-        </p>
-      </div>
-    </main>
+    <p id="image-4-credits" class="text-white/60 fixed bottom-0 content-center hidden">
+      Image Credits: Todd Phillips (Director), 2019,
+      <span class="italic"> "Joker"</span>
+    </p>
+
+    <p id="image-5-credits" class="text-white/60 fixed bottom-0 content-center hidden">
+      Image Credits: Ridley Scott (Director), 1979,
+      <span class="italic"> "Alien"</span>
+    </p>
+  </div>
+  </main>
   </div>
 </body>
 <script src="search.js"></script>
