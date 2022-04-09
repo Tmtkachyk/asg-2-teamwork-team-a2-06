@@ -1,10 +1,10 @@
 <?php
-    
-    session_start();
-    // var_dump($_SESSION);
-    // var_dump($_GET);
-    // var_dump("foo");
-  ?>
+
+session_start();
+// var_dump($_SESSION);
+// var_dump($_GET);
+// var_dump("foo");
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -28,25 +28,25 @@
   <script>
     tailwind.config = {
 
-        fontFamily: {
-          Times: ["Times New Roman", "sans-serif"],
-          Arial: ["Arial", "sans-serif"],
-          open: ["Open Sans", "serif"],
-          source: ["Source Sans Pro", "sans-serif"],
-          montser: ["Montserrat", "serif"],
+      fontFamily: {
+        Times: ["Times New Roman", "sans-serif"],
+        Arial: ["Arial", "sans-serif"],
+        open: ["Open Sans", "serif"],
+        source: ["Source Sans Pro", "sans-serif"],
+        montser: ["Montserrat", "serif"],
+      },
+      screens: {
+        'sm': {
+          'max': '650px'
         },
-        screens: {
-          'sm': {
-            'max': '650px'
-          },
-          md: "768px",
-          lg: "1440px",
-          // maxSC: {
-          //   max: "426px"
-          // },
-        },
+        md: "768px",
+        lg: "1440px",
+        // maxSC: {
+        //   max: "426px"
+        // },
+      },
 
-        extend: {},
+      extend: {},
       height: {
         128: "32rem",
       },
@@ -69,7 +69,7 @@
 
 
     <?php include 'header.php';
-            
+
     ?>
     <main class="container m-auto h-[75vh]">
 
@@ -85,24 +85,22 @@
           <input type="text" placeholder="Enter email" name="email" required>
           <br>
           <label><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="password" required minlength="8" required>
+          <input type="password" placeholder="Enter Password" name="password" required minlength="8">
           <br>
           <button class="button" type="submit" style="background-color: grey; color: white; padding: 8px 10px; margin: 8px 0; border: none; cursor: pointer; display: block; margin-left: auto; margin-right: auto;">Login</button>
 
           <?php
-            if (isset($_SESSION['incorrectPassword']) && $_SESSION['incorrectPassword'] == true)
-            {
-              echo '<h3 style="text-align:center; color:red;"> Incorrect email or password, please try again </h3>';
+          if (isset($_SESSION['incorrectPassword']) && $_SESSION['incorrectPassword'] == true) {
+            echo '<h3 style="text-align:center; color:red;"> Incorrect email or password, please try again </h3>';
 
-              unset($_SESSION['incorrectPassword']);
-            }
+            unset($_SESSION['incorrectPassword']);
+          }
 
-            if (isset($_SESSION['exist']) && $_SESSION['exist'] == false)
-            {
-              echo '<h3 style="text-align:center; color:red;"> Incorrect email or password, please try again </h3>';
+          if (isset($_SESSION['exist']) && $_SESSION['exist'] == false) {
+            echo '<h3 style="text-align:center; color:red;"> Incorrect email or password, please try again </h3>';
 
-              unset($_SESSION['exist']);
-            }
+            unset($_SESSION['exist']);
+          }
 
           ?>
 
