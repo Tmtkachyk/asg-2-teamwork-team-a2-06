@@ -133,7 +133,7 @@
         echo '</div>';
 
 
-         echo '<div class="item4">Suggestions <br> <br> :/ </div>
+        echo '<div class="item4">Suggestions</div>
            </div>';
       } else {
 
