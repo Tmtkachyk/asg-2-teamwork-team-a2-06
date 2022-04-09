@@ -8,7 +8,7 @@ var_dump($favList);
 $favList = json_encode($favList);
 var_dump($favList);
 $pdo2 = Connection::connect($config['database']);
-$favListUpdateQuery = "REPLACE INTO favourites_list (user_email, favourites_list) VALUES ($user_email, "{"1789":{"title":"Alien","posterPath":"\/bk9GVjN4kxmGekswNigaa5YIdr5.jpg"}}")";
+$favListUpdateQuery = "REPLACE INTO favourites_list (user_email, favourites_list) VALUES ($user_email, $favList)";
 $favStatment = $pdo2->prepare($favListUpdateQuery);
 $favStatment->execute();
 
@@ -19,4 +19,4 @@ $_SESSION["log"] = 'out';
 $_POST["email"] = "";
 $_POST["password"] = "";
 
-header("location:index.php");
+//header("location:index.php");
