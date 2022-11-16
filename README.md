@@ -1,4 +1,4 @@
-# Movie Web App
+# Movie Search Web App
 ## [Heroku link](https://comp-3512-w22-team-6.herokuapp.com/) <br />
 *Database not currently externally live, some features may not work on Heroku. Requires XAMPP to be run.
 
