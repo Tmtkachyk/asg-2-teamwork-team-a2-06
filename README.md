@@ -10,7 +10,7 @@
   <br />
   
 **Search Page** <br />
-Filters and sorts fully functional <br />
+Filters and sorts are fully functional <br />
 <img src="https://user-images.githubusercontent.com/4460101/202262182-42fafb42-ad42-4f84-8980-550382246611.png" width="600">
  <br />
   <br />
