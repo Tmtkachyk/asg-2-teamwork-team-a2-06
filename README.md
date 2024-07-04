@@ -1,8 +1,5 @@
 # Movie Search Web App
-## [Heroku link](https://comp-3512-w22-team-6.herokuapp.com/) <br />
-*Database not currently externally live, some features may not work on Heroku. Requires XAMPP to be run.
-<br />
-<br />
+
 
 **Home Page** <br />
  <img src="https://user-images.githubusercontent.com/4460101/202262167-d9d78b1b-f08f-4128-bcc1-13082461bfde.png" width="600">
